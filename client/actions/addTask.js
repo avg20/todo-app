@@ -1,23 +1,24 @@
 /** client/actions/addTask.js **/
 
-import {fetchTasksRequest} from './tasks';
+import {ADD_TASK_REQUEST, ADD_TASK_FAILURE, ADD_TASK_SUCCESS} from '../constants';
+import {fetchTasksRequest} from './fetchTasks';
 
 export const addTaskRequest = () => {
   return {
-    type: 'ADD_TASK_REQUEST'
+    type: ADD_TASK_REQUEST
   }
 };
 
 export const addTaskFailure = ( errors ) => {
   return {
-    type:   'ADD_TASK_FAILURE',
+    type:   ADD_TASK_FAILURE,
     errors: errors
   }
 };
 
 export const addTaskSuccess = ( task ) => {
   return {
-    type: 'ADD_TASK_SUCCESS',
+    type: ADD_TASK_SUCCESS,
     task: task
   }
 };

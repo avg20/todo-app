@@ -1,22 +1,23 @@
 /** client/actions/tasks.js **/
 
+import {FETCH_TASKS_REQUEST, FETCH_POSTS_FAILURE, FETCH_POSTS_SUCCESS} from '../constants';
 
 export const fetchTasksRequest = () => {
   return {
-    type: 'FETCH_TASKS_REQUEST'
+    type: FETCH_TASKS_REQUEST
   }
 };
 
 export const fetchTasksFailure = ( error ) => {
   return {
-    type:  'FETCH_POSTS_FAILURE',
+    type:  FETCH_POSTS_FAILURE,
     error: error
   }
 };
 
 export const fetchTasksSuccess = ( tasks ) => {
   return {
-    type:  'FETCH_POSTS_SUCCESS',
+    type:  FETCH_POSTS_SUCCESS,
     tasks: tasks
   }
 };

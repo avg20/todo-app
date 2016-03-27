@@ -1,5 +1,7 @@
 /** client/reducers/tasks.js **/
 
+import {FETCH_TASKS_REQUEST, FETCH_POSTS_FAILURE, FETCH_POSTS_SUCCESS, ADD_TASK_SUCCESS} from '../constants';
+
 const getInitState = () => {
   return {
     isFetching: false,
@@ -10,23 +12,23 @@ const getInitState = () => {
 
 const tasks = ( state = getInitState(), action ) => {
   switch ( action.type ) {
-    case 'FETCH_TASKS_REQUEST':
+    case FETCH_TASKS_REQUEST:
       return Object.assign( {}, state, { isFetching: true } );
 
-    case 'FETCH_POSTS_FAILURE':
+    case FETCH_POSTS_FAILURE:
       return Object.assign( {}, state, {
         isFetching: false,
         isFailed:   true
       } );
 
-    case 'FETCH_POSTS_SUCCESS':
+    case FETCH_POSTS_SUCCESS:
       return Object.assign( {}, state, {
         isFetching: false,
         isFailed:   false,
         items:      action.tasks.tasks
       } );
 
-    case 'ADD_TASK_SUCCESS':
+    case ADD_TASK_SUCCESS:
       return Object.assign( {}, state, {
         items: [ ...state.items, action.task ]
       } );
