@@ -3,8 +3,8 @@
 const getInitState = () => {
   return {
     isSending: false,
-    isFailed : false,
-    errors   : []
+    isFailed:  false,
+    errors:    []
   };
 };
 
@@ -13,21 +13,21 @@ const tasks = ( state = getInitState(), action ) => {
     case 'ADD_TASK_REQUEST':
       return Object.assign( {}, state, {
         isSending: true,
-        errors   : []
+        errors:    []
       } );
 
     case 'ADD_TASK_FAILURE':
       return Object.assign( {}, state, {
         isSending: false,
-        isFailed : true,
-        errors   : action.errors
+        isFailed:  true,
+        errors:    action.errors
       } );
 
     case 'ADD_TASK_SUCCESS':
       return Object.assign( {}, state, {
         isSending: false,
-        isFailed : false,
-        errors   : []
+        isFailed:  false,
+        errors:    []
       } );
 
     default:

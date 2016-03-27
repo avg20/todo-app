@@ -39,9 +39,9 @@ const ShowTasks = ( {tasks, isFetching, isFailed, onTasksReload} ) => {
 
 const mapStateToProps = ( state ) => {
   return {
-    tasks     : state.tasks.items,
+    tasks:      state.tasks.items,
     isFetching: state.tasks.isFetching,
-    isFailed  : state.tasks.isFailed
+    isFailed:   state.tasks.isFailed
   }
 };
 

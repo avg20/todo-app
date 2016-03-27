@@ -4,7 +4,7 @@ import React from 'react';
 
 const SelectControl = React.createClass( {
   propTypes: {
-    options  : React.PropTypes.array,
+    options:   React.PropTypes.array,
     onChanges: React.PropTypes.func
   },
 

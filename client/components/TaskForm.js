@@ -18,11 +18,11 @@ const TaskForm = React.createClass( {
 
   getInitialState: function () {
     return {
-      due_date   : moment(),
-      name       : '',
+      due_date:    moment(),
+      name:        '',
       description: '',
-      status     : 1,
-      priority   : 1
+      status:      1,
+      priority:    1
     };
   },
 

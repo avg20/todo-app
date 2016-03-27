@@ -9,18 +9,17 @@ export const fetchTasksRequest = () => {
 
 export const fetchTasksFailure = ( error ) => {
   return {
-    type : 'FETCH_POSTS_FAILURE',
+    type:  'FETCH_POSTS_FAILURE',
     error: error
   }
 };
 
 export const fetchTasksSuccess = ( tasks ) => {
   return {
-    type : 'FETCH_POSTS_SUCCESS',
+    type:  'FETCH_POSTS_SUCCESS',
     tasks: tasks
   }
 };
-
 
 export function fetchTasks() {
   return ( dispatch ) => {

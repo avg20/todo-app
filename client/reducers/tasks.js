@@ -3,8 +3,8 @@
 const getInitState = () => {
   return {
     isFetching: false,
-    isFailed  : false,
-    items     : []
+    isFailed:   false,
+    items:      []
   };
 };
 
@@ -16,14 +16,14 @@ const tasks = ( state = getInitState(), action ) => {
     case 'FETCH_POSTS_FAILURE':
       return Object.assign( {}, state, {
         isFetching: false,
-        isFailed  : true
+        isFailed:   true
       } );
 
     case 'FETCH_POSTS_SUCCESS':
       return Object.assign( {}, state, {
         isFetching: false,
-        isFailed  : false,
-        items     : action.tasks.tasks
+        isFailed:   false,
+        items:      action.tasks.tasks
       } );
 
     case 'ADD_TASK_SUCCESS':

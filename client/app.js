@@ -10,7 +10,6 @@ import todoApp from './reducers';
 import App from './components/App';
 import { fetchTasks } from './actions';
 
-
 const loggerMiddleware = createLogger();
 
 let store = createStore(

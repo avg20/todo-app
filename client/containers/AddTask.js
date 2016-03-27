@@ -5,9 +5,9 @@ import { addTask } from '../actions';
 
 const mapStateToProps = ( state ) => {
   return {
-    errors   : state.addForm.errors,
+    errors:    state.addForm.errors,
     isSending: state.addForm.isSending,
-    isFailed : state.addForm.isFailed
+    isFailed:  state.addForm.isFailed
   }
 };
 
