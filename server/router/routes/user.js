@@ -19,11 +19,11 @@ module.exports.getUsers = ( req, res ) => {
  * Add new user with specified data to database
  **/
 module.exports.addUser = ( req, res ) => {
-  new User( req.body ).save( err => {
+  new User( JSON.parse( req.body ) ).save( err => {
     if ( err ) {
-      const errors = [];
+      const errors = {};
       for ( let i in err.errors ) {
-        errors.push( { field: i, message: err.errors[ i ].message } );
+        errors[ i ] = err.errors[ i ].message;
       }
 
       res.json( { status: 'error', errors: errors } );
@@ -36,19 +36,21 @@ module.exports.addUser = ( req, res ) => {
  * Try to login user, if login is success - return access_token
  **/
 module.exports.loginUser = ( req, res ) => {
-  User.findOne( { username: req.body.username } ).exec( ( err, model ) => {
+  const body = JSON.parse( req.body );
+
+  User.findOne( { username: body.username } ).exec( ( err, model ) => {
     if ( err ) throw err;
 
     if ( model === null ) {
-      res.json( { status: 'error', errors: [ { field: 'username', message: 'User not found' } ] } );
+      res.json( { status: 'error', errors: { username: 'User not found' } } );
       return;
     }
 
-    model.comparePassword( req.body.password, ( err, isMatch ) => {
+    model.comparePassword( body.password, ( err, isMatch ) => {
       if ( err ) throw err;
 
       if ( !isMatch ) {
-        res.json( { status: 'error', errors: [ { field: 'password', message: 'Not valid password' } ] } );
+        res.json( { status: 'error', errors: { password: 'Not valid password' } } );
       } else {
         new AccessToken( { user_id: model._id } ).save( ( err, model ) => {
           if ( err ) throw err;

@@ -36,14 +36,14 @@ module.exports.getTasks = ( req, res ) => {
  * Add new task
  **/
 module.exports.addTask = ( req, res ) => {
-  const data = req.body;
+  let data = JSON.parse( req.body );
   data.user_id = auth.user._id;
 
   new Task( data ).save( ( err, model ) => {
     if ( err ) {
-      const errors = [];
+      const errors = {};
       for ( let i in err.errors ) {
-        errors.push( { field: i, message: err.errors[ i ].message } );
+        errors[ i ] = err.errors[ i ].message;
       }
 
       res.json( { status: 'error', errors: errors } );

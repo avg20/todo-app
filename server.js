@@ -17,8 +17,9 @@ if ( !mongoose.connection.db ) {
 
 app.set( 'port', 3000 );
 app.use( '/', express.static( 'public' ) );
-app.use( bodyParser.json() );
+app.use( bodyParser.text() );
 app.use( bodyParser.urlencoded( { extended: true } ) );
+//app.use( ( req ) => JSON.parse( req.body ) );
 app.use( auth.init );
 
 require( './server/router/index' )( app );
