@@ -1,0 +1,46 @@
+.main.container {
+  margin-top: 7em;
+}
+/** Task **/
+.task {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-flow: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    background: #F9F9F9;
+  }
+
+  &__checkbox {
+    display: flex;
+    flex: 0 0 60px;
+  }
+
+  &__name {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+
+  &__due-date {
+    display: flex;
+    flex: 0 0 150px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+/** Add Form **/
+.add-form {
+
+  &__error-text {
+    margin: 4px 0 0 0;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #E33B39;
+
+    &--hidden {
+      display: none;
+    }
+  }
+}
