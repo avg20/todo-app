@@ -27,49 +27,48 @@ const Task = React.createClass( {
     
     return "ui segment task";
   },
-  
-  onButtonClick: function ( e ) {
-    e.preventDefault();
-    
-    console.log( e );
-  },
-  
+
   getStatusButton: function () {
     switch ( this.props.status ) {
       case 2:
         return (
-          <button onClick={this.onButtonClick} className="circular mini ui icon green basic button">
+          <button onClick={this.handleButtonClick} className="circular mini ui icon green basic button">
             <i className="checkmark icon"/>
           </button>
         );
       
       case 3:
         return (
-          <button onClick={this.onButtonClick} className="circular mini ui icon red basic button">
+          <button onClick={this.handleButtonClick} className="circular mini ui icon red basic button">
             <i className="icon"/>
           </button>
         );
       
       default:
         return (
-          <button onClick={this.onButtonClick} className="circular mini ui icon basic button">
+          <button onClick={this.handleButtonClick} className="circular mini ui icon basic button">
             <i className="icon"/>
           </button>
         );
     }
   },
   
-  handleClick: function () {
+  handleButtonClick: function ( e ) {
+    e.preventDefault();
+    
+  },
+  
+  handleTaskClick: function () {
     this.props.onClick( this.props );
   },
   
   render: function () {
     return (
-      <div className={this.getTaskClass()} onClick={this.handleClick}>
+      <div className={this.getTaskClass()}>
         <div className="task__checkbox">
           {this.getStatusButton()}
         </div>
-        <div className="task__name">
+        <div className="task__name" onClick={this.handleTaskClick}>
           <strong>{this.props.name}</strong>
         </div>
         <div className="task__due-date">

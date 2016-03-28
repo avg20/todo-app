@@ -41,9 +41,10 @@ body {
 
   &__due-date {
     display: flex;
-    flex: 1; /* 0 200px;*/
+    flex: 0; /* 0 200px;*/
     align-items: center;
     justify-content: flex-end;
+    white-space: nowrap;
   }
 
   &__priority {
