@@ -1,6 +1,6 @@
 /** client/reducers/tasks.js **/
 
-import { FETCH_TASKS_REQUEST, FETCH_TASKS_FAILURE, FETCH_TASKS_SUCCESS, ADD_TASK_SUCCESS } from '../constants';
+import { FETCH_TASKS_REQUEST, FETCH_TASKS_FAILURE, FETCH_TASKS_SUCCESS, ADD_TASK_SUCCESS, SAVE_TASK_SUCCESS } from '../constants';
 
 const getInitState = () => {
   return {
@@ -27,12 +27,22 @@ const tasks = ( state = getInitState(), action ) => {
         isFailed:   false,
         items:      action.tasks.tasks
       } );
-
+  
     case ADD_TASK_SUCCESS:
       return Object.assign( {}, state, {
         items: [ ...state.items, action.task ]
       } );
-
+  
+    case SAVE_TASK_SUCCESS:
+      return Object.assign( {}, state, {
+        items: state.items.map( ( value ) => {
+          if ( value._id === action.task._id )
+            return action.task;
+          else
+            return value;
+        } )
+      } );
+    
     default:
       return state
   }
