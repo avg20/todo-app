@@ -8,6 +8,8 @@ import ErrorMessage from '../helpers/ErrorMessage';
 import moment from 'moment';
 
 const TaskForm = React.createClass( {
+  item: {},
+  
   getStatusOptions: function () {
     return [
       { value: 1, label: 'Open' },
@@ -35,38 +37,29 @@ const TaskForm = React.createClass( {
     switch ( field ) {
       case 'due_date':
         return ( val ) => {
-          let obj = {};
-          obj[ field ] = val;
-          
-          this.setState( obj );
+          this.item[ field ] = val;
         };
       
       case 'priority':
         return ( e ) => {
-          let obj = {};
-          obj[ field ] = parseInt( e.target.dataset.value, 10 );
-          
-          this.setState( obj );
+          this.item[ field ] = parseInt( e.target.dataset.value, 10 );
         };
       
       default:
         return ( e ) => {
-          let obj = {};
-          obj[ field ] = e.target.value;
-          
-          this.setState( obj );
+          this.item[ field ] = e.target.value;
         };
     }
   },
   
   handleSubmit: function ( e ) {
     e.preventDefault();
-    
-    this.props.onAddTask( this.state );
+  
+    this.props.onAddTask( this.item );
   },
   
   getPriorityFlagClass: function () {
-    switch ( this.state.priority ) {
+    switch ( this.item.priority ) {
       case 1:
         return 'task-card__priority-flag--low flag icon';
       
@@ -82,12 +75,14 @@ const TaskForm = React.createClass( {
   },
   
   render: function () {
+    this.item = this.props.item;
+
     return (
       <div className="ui segments">
         <div className="ui card form task-card">
           <div className="content">
             <div className="ui input">
-              <input placeholder="Task Name..." onChange={this.handleChange('name')} value={this.state.name}/>
+              <input placeholder="Task Name..." onChange={this.handleChange('name')} value={this.item.name}/>
             </div>
   
   
@@ -108,7 +103,7 @@ const TaskForm = React.createClass( {
           </div>
           <div className="content">
             <div className="field">
-              <textarea placeholder="Task Description..." onChange={this.handleChange('description')} value={this.state.description}/>
+              <textarea placeholder="Task Description..." onChange={this.handleChange('description')} value={this.item.description}/>
             </div>
           </div>
           <div className="extra content">
@@ -117,7 +112,7 @@ const TaskForm = React.createClass( {
                 <button type="submit" className="ui teal button" tabIndex="0" onClick={this.handleSubmit}>Save Task</button>
               </div>
               <div className="column">
-                <DatePicker onChange={this.handleChange('due_date')} selected={this.state.due_date}/>
+                <DatePicker onChange={this.handleChange('due_date')} selected={moment( this.item.due_date )}/>
               </div>
             </div>
           </div>
@@ -131,23 +126,23 @@ const TaskForm = React.createClass( {
      <Field className="column">
      <label>Name</label>
      <Input placeholder="Task Name..." onChange={this.handleChange('name')} value={this.state.name}/>
-     <ErrorMessage>{this.props.errors.name}</ErrorMessage>
+     <ErrorMessage>{this.item.errors.name}</ErrorMessage>
      </Field>
      <Field className="column">
      <label>Priority</label>
      <Input placeholder="Task Priority..." onChange={this.handleChange('priority')} value={this.state.priority}/>
-     <ErrorMessage>{this.props.errors.priority}</ErrorMessage>
+     <ErrorMessage>{this.item.errors.priority}</ErrorMessage>
      </Field>
      </div>
      <Field>
      <label>Description</label>
      <textarea placeholder="Task Description..." onChange={this.handleChange('description')} value={this.state.description}/>
-     <ErrorMessage>{this.props.errors.description}</ErrorMessage>
+     <ErrorMessage>{this.item.errors.description}</ErrorMessage>
      </Field>
      <Field>
      <label>Due Date</label>
      <DatePicker onChange={this.handleChange('due_date')} selected={this.state.due_date}/>
-     <ErrorMessage>{this.props.errors.due_date}</ErrorMessage>
+     <ErrorMessage>{this.item.errors.due_date}</ErrorMessage>
      </Field>
      <button type="submit" className="ui button" tabIndex="0" onClick={this.handleSubmit}>Add Task</button>
      </Form>

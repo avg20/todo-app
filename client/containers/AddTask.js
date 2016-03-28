@@ -7,6 +7,7 @@ import { addTask } from '../actions';
 
 const mapStateToProps = ( state ) => {
   return {
+    item:      state.activeTask.item || {},
     errors:    state.addForm.errors,
     isSending: state.addForm.isSending,
     isFailed:  state.addForm.isFailed
