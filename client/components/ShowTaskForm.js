@@ -89,7 +89,8 @@ const TaskForm = React.createClass( {
             <div className="ui input">
               <input placeholder="Task Name..." onChange={this.handleChange('name')} value={this.state.name}/>
             </div>
-            
+  
+  
             <div className="ui right floated icon top left pointing dropdown basic button">
               <i className={this.getPriorityFlagClass()}/>
               <div className="menu">
@@ -111,7 +112,14 @@ const TaskForm = React.createClass( {
             </div>
           </div>
           <div className="extra content">
-            <button type="submit" className="ui teal button" tabIndex="0" onClick={this.handleSubmit}>Save Task</button>
+            <div className="ui two column grid">
+              <div className="column">
+                <button type="submit" className="ui teal button" tabIndex="0" onClick={this.handleSubmit}>Save Task</button>
+              </div>
+              <div className="column">
+                <DatePicker onChange={this.handleChange('due_date')} selected={this.state.due_date}/>
+              </div>
+            </div>
           </div>
         </div>
       </div>

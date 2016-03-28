@@ -7,7 +7,7 @@ import ShowApp from '../components/ShowApp';
 const mapStateToProps = ( state ) => {
   return {
     isSelected: state.activeTask.isSelected,
-    item:       state.activeTask.item,
+    item:       state.activeTask.item
   }
 };
 

@@ -4,7 +4,7 @@ import { SELECT_TASK } from '../constants';
 
 const getInitState = () => {
   return {
-    isSelected: true,
+    isSelected: false,
     item:       null
   };
 };
@@ -13,7 +13,8 @@ const activeTask = ( state = getInitState(), action ) => {
   switch ( action.type ) {
     case SELECT_TASK:
       return Object.assign( {}, state, {
-        isSelected: !state.isSelected
+        isSelected: true,
+        item:       action.item
       } );
     
     default:

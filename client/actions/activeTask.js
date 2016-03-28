@@ -2,9 +2,9 @@
 
 import { SELECT_TASK } from '../constants';
 
-export const selectTask = ( id ) => {
+export const selectTask = ( item ) => {
   return {
     type: SELECT_TASK,
-    id:   id
+    item: item
   }
 };

@@ -19,10 +19,14 @@ const Task = React.createClass( {
         return 'ui segment task';
     }
   },
+  
+  handleClick: function () {
+    this.props.onClick( this.props );
+  },
 
   render: function () {
     return (
-      <div className={this.getTaskClass()} onClick={this.props.onClick}>
+      <div className={this.getTaskClass()} onClick={this.handleClick}>
         <div className="task__checkbox">
           <button className="mini ui icon button">
             <i className="checkmark icon"/>

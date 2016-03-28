@@ -32,7 +32,7 @@ const ShowTasks = ( { tasks, isFetching, isFailed, onTasksReload, onTaskClick } 
     );
   
   return (
-    <div className="ui raised segments">
+    <div className="ui raised segments tasks">
       {
         tasks.map( ( task ) => <Task onClick={onTaskClick} key={task._id} {...task}/> )
       }
@@ -53,8 +53,8 @@ const mapDispatchToProps = ( dispatch ) => {
     onTasksReload: () => {
       dispatch( fetchTasks() )
     },
-    onTaskClick:   () => {
-      dispatch( selectTask() );
+    onTaskClick:   ( item ) => {
+      dispatch( selectTask( item ) );
     }
   }
 };
