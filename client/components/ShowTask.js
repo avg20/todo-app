@@ -28,6 +28,37 @@ const Task = React.createClass( {
     return "ui segment task";
   },
   
+  onButtonClick: function ( e ) {
+    e.preventDefault();
+    
+    console.log( e );
+  },
+  
+  getStatusButton: function () {
+    switch ( this.props.status ) {
+      case 2:
+        return (
+          <button onClick={this.onButtonClick} className="circular mini ui icon green basic button">
+            <i className="checkmark icon"/>
+          </button>
+        );
+      
+      case 3:
+        return (
+          <button onClick={this.onButtonClick} className="circular mini ui icon red basic button">
+            <i className="icon"/>
+          </button>
+        );
+      
+      default:
+        return (
+          <button onClick={this.onButtonClick} className="circular mini ui icon basic button">
+            <i className="icon"/>
+          </button>
+        );
+    }
+  },
+  
   handleClick: function () {
     this.props.onClick( this.props );
   },
@@ -36,9 +67,7 @@ const Task = React.createClass( {
     return (
       <div className={this.getTaskClass()} onClick={this.handleClick}>
         <div className="task__checkbox">
-          <button className="mini ui icon button">
-            <i className="checkmark icon"/>
-          </button>
+          {this.getStatusButton()}
         </div>
         <div className="task__name">
           <strong>{this.props.name}</strong>
@@ -51,7 +80,7 @@ const Task = React.createClass( {
         </div>
       </div>
     );
-    //
+    // <i className="checkmark icon"/>
   }
 } );
 

@@ -3,50 +3,51 @@
 
 const mongoose = require( 'mongoose' );
 const Schema = mongoose.Schema;
-const auth = require( '../../server/auth' );
 
 /**
  * Status:
  * 1 - not done
  * 2 - done
- * 3 - overdue
  */
 const taskSchema = new Schema( {
-  name       : {
-    type    : String,
+  name:        {
+    type: String,
     //required: true,
-    trim    : true
+    trim: true
   },
   description: {
-    type    : String,
+    type: String,
     //required: true,
-    trim    : true
+    trim: true
   },
-  user_id    : {
+  user_id:     {
     type: Schema.Types.ObjectId
-    //default: auth.user
   },
-  parent_id  : {
-    type   : Schema.Types.Mixed,
+  parent_id:   {
+    type:    Schema.Types.Mixed,
     default: -1
   },
-  due_date   : {
+  due_date:    {
     type: Date
     //required: true
   },
-  add_date   : {
-    type   : Date,
+  add_date:    {
+    type:    Date,
     default: Date.now
   },
-  status     : {
-    type   : Number,
-    min    : 1,
-    max    : 3,
+  status:      {
+    type:    Number,
+    min:     1,
+    max:     3,
     default: 1
   },
-  priority   : {
-    type   : Number,
+  priority:    {
+    type:    Number,
     default: 1
+  },
+  overdue:     {
+    type:    Boolean,
+    default: false
   }
 } );
 
