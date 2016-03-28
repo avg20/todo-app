@@ -92,7 +92,7 @@ const TaskForm = React.createClass( {
   render: function () {
     return (
       <div className="ui segments">
-        <div className="ui card form task-card">
+        <div className={`ui ${this.props.isSending ? "loading" : ""} card form task-card`}>
           <div className="content task-card__top-line">
   
             <div className="ui fluid input task-card__top-input">
