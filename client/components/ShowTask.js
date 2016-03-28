@@ -4,26 +4,34 @@ import React from 'react';
 import moment from 'moment';
 
 const Task = React.createClass( {
-  getTaskClass: function () {
+  getPriorityIconClass: function () {
     switch ( this.props.priority ) {
       case 1:
-        return 'ui segment task task--low-priority';
+        return 'task__priority task__priority--low';
       
       case 2:
-        return 'ui segment task task--medium-priority';
+        return 'task__priority task__priority--medium';
       
       case 3:
-        return 'ui segment task task--high-priority';
+        return 'task__priority task__priority--high';
       
       default:
-        return 'ui segment task';
+        return 'task__priority';
     }
+  },
+  
+  getTaskClass: function () {
+    
+    if ( this.props._id == this.props.activeItem._id )
+      return "ui segment task task--selected";
+    
+    return "ui segment task";
   },
   
   handleClick: function () {
     this.props.onClick( this.props );
   },
-
+  
   render: function () {
     return (
       <div className={this.getTaskClass()} onClick={this.handleClick}>
@@ -37,6 +45,9 @@ const Task = React.createClass( {
         </div>
         <div className="task__due-date">
           <div className="ui label"><i className="calendar icon"/> Due to {moment( this.props.due_date ).format( "MM/DD/YYYY" )}</div>
+        </div>
+        <div className={this.getPriorityIconClass()}>
+          <i className="star icon"/>
         </div>
       </div>
     );

@@ -10,33 +10,21 @@ body {
   background: #FFFFFF;
 }
 /** Task **/
-.task {
+.ui .task {
   display: flex;
   flex-wrap: nowrap;
   flex-flow: nowrap;
   cursor: pointer;
 
-  &--high-priority.task {
-    background: #FFCCBC;
-
-    &:hover {
-      background: rgba(255, 204, 188, 0.8);
-    }
+  &:hover {
+    background: rgba(239, 239, 239, 0.4);
   }
 
-  &--medium-priority.task {
-    background: #FFE0B2;
+  &--selected {
+    background: #E0F2F1;
 
     &:hover {
-      background: rgba(255, 224, 178, 0.8);
-    }
-  }
-
-  &--low-priority.task {
-    background: #FFF9C4;
-
-    &:hover {
-      background: rgba(255, 249, 196, 0.6);
+      background: #E0F2F1;
     }
   }
 
@@ -56,6 +44,24 @@ body {
     flex: 1; /* 0 200px;*/
     align-items: center;
     justify-content: flex-end;
+  }
+
+  &__priority {
+    display: flex;
+    flex: 0;
+    font-size: 1.4em;
+    margin: 0 0 0 10px;
+    align-items: center;
+
+    &--high {
+      color: #F4511E;
+    }
+    &--medium {
+      color: #FB8C00;
+    }
+    &--low {
+      color: #FDD835;
+    }
   }
 }
 /** Add Form **/

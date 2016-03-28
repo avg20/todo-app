@@ -55,7 +55,7 @@ gulp.task( 'sass', function () {
     .src( paths.srcCss )
     .pipe( sass() )
     .pipe( autoPrefixer() )
-    .pipe( cleanCSS( { compatibility: 'ie8' } ) )
+    //.pipe( cleanCSS( { compatibility: 'ie8' } ) )
     .pipe( rename( function ( path ) {
       path.dirname = "css";
     } ) )

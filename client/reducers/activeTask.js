@@ -5,7 +5,7 @@ import { SELECT_TASK } from '../constants';
 const getInitState = () => {
   return {
     isSelected: false,
-    item:       null
+    item:       {}
   };
 };
 

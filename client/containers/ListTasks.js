@@ -6,7 +6,7 @@ import Task from '../components/ShowTask';
 import { fetchTasks } from '../actions';
 import { selectTask } from '../actions/activeTask';
 
-const ShowTasks = ( { tasks, isFetching, isFailed, onTasksReload, onTaskClick } ) => {
+const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, onTaskClick } ) => {
   if ( isFetching )
     return (
       <div className="ui segment">
@@ -32,9 +32,9 @@ const ShowTasks = ( { tasks, isFetching, isFailed, onTasksReload, onTaskClick } 
     );
   
   return (
-    <div className="ui raised segments tasks">
+    <div className="ui pointing raised segments tasks">
       {
-        tasks.map( ( task ) => <Task onClick={onTaskClick} key={task._id} {...task}/> )
+        tasks.map( ( task ) => <Task onClick={onTaskClick} activeItem={activeItem} key={task._id} {...task}/> )
       }
     </div>
   );
@@ -44,7 +44,8 @@ const mapStateToProps = ( state ) => {
   return {
     tasks:      state.tasks.items,
     isFetching: state.tasks.isFetching,
-    isFailed:   state.tasks.isFailed
+    isFailed:   state.tasks.isFailed,
+    activeItem: state.activeTask.item
   }
 };
 

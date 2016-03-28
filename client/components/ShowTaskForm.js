@@ -1,7 +1,6 @@
 /** client/components/TaskForm.js **/
 
 import React from 'react';
-import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
 const TaskForm = React.createClass( {
@@ -21,6 +20,11 @@ const TaskForm = React.createClass( {
     this.replaceState( this.props.item );
   },
   
+  componentWillUnmount: function () {
+    jQuery( this.refs.priorityDropdown ).dropdown( 'destroy' );
+    jQuery( this.refs.datepicker ).calendar( 'destroy' );
+  },
+  
   componentDidMount: function () {
     jQuery( this.refs.datepicker ).calendar( {
       type:      'date',
@@ -36,19 +40,15 @@ const TaskForm = React.createClass( {
     } );
     jQuery( this.refs.priorityDropdown ).dropdown();
   },
-  
-  componentWillUnmount: function () {
-    jQuery( this.refs.priorityDropdown ).dropdown( 'destroy' );
-    jQuery( this.refs.datepicker ).calendar( 'destroy' );
-  },
-  
+
   componentDidUpdate() {
     jQuery( this.refs.priorityDropdown ).dropdown( 'refresh' );
     jQuery( this.refs.datepicker ).calendar( 'refresh' );
   },
   
   shouldComponentUpdate: function ( nextProps, nextState ) {
-    return nextState.priority !== this.state.priority;
+    return nextState.priority !== this.state.priority ||
+      nextState._id !== this.state._id;
   },
 
   handleChange: function ( field ) {
@@ -107,7 +107,7 @@ const TaskForm = React.createClass( {
                   <input placeholder="Task Name..." onChange={this.handleChange('name')} value={this.state.name}/>
                 </div>
               </div>
-    
+  
               <div className="four wide column">
                 <div className="ui right floated icon top left pointing dropdown basic button" ref="priorityDropdown">
                   <i className={this.getPriorityFlagClass()}/>
