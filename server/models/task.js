@@ -14,12 +14,12 @@ const auth = require( '../../server/auth' );
 const taskSchema = new Schema( {
   name       : {
     type    : String,
-    required: true,
+    //required: true,
     trim    : true
   },
   description: {
     type    : String,
-    required: true,
+    //required: true,
     trim    : true
   },
   user_id    : {
@@ -31,8 +31,8 @@ const taskSchema = new Schema( {
     default: -1
   },
   due_date   : {
-    type    : Date,
-    required: true
+    type: Date
+    //required: true
   },
   add_date   : {
     type   : Date,
@@ -46,7 +46,7 @@ const taskSchema = new Schema( {
   },
   priority   : {
     type   : Number,
-    default: 0
+    default: 1
   }
 } );
 
