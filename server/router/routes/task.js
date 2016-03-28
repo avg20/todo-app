@@ -15,10 +15,10 @@ module.exports.getTasks = ( req, res ) => {
   for ( var field in query )
     if ( query.hasOwnProperty( field ) ) {
       if ( field === 'token' ) continue;
-  
+
       if ( field === 'sort' ) {
         sort = query[ field ].replace( ",", " " );
-    
+  
         continue;
       }
   
@@ -49,6 +49,29 @@ module.exports.addTask = ( req, res ) => {
       res.json( { status: 'error', errors: errors } );
     } else
       res.json( { status: 'success', task: model } );
+  } );
+};
+
+/**
+ * Update exist task
+ **/
+module.exports.updateTask = ( req, res ) => {
+  let data = JSON.parse( req.body );
+  let query = {};
+  query.user_id = auth.user._id;
+  query._id = req.params.id;
+  
+  Task.findOneAndUpdate( query, data, { new: true }, ( err, model ) => {
+    if ( err ) {
+      const errors = {};
+      for ( let i in err.errors ) {
+        errors[ i ] = err.errors[ i ].message;
+      }
+      
+      res.json( { status: 'error', errors: errors } );
+    } else {
+      res.json( { status: 'success', task: model } );
+    }
   } );
 };
 
