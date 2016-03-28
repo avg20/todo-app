@@ -113,6 +113,35 @@ body {
       color: #FDD835;
     }
   }
+
+  &__button-line {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    flex-flow: nowrap;
+  }
+
+  &__top-line {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-flow: nowrap;
+  }
+
+  &__top-input {
+    display: flex;
+    flex: 1;
+    align-self: flex-start;
+
+    margin: 0 10px 0 0;
+  }
+
+  &__priority-flag, &__close-button {
+    display: flex;
+    flex: 0;
+    align-self: flex-end;
+  }
 }
 /** Datepicker **/
 .ui.calendar.datepicker > label {

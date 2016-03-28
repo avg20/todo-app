@@ -40,7 +40,7 @@ const TaskForm = React.createClass( {
     } );
     jQuery( this.refs.priorityDropdown ).dropdown();
   },
-
+  
   componentDidUpdate() {
     jQuery( this.refs.priorityDropdown ).dropdown( 'refresh' );
     jQuery( this.refs.datepicker ).calendar( 'refresh' );
@@ -50,31 +50,31 @@ const TaskForm = React.createClass( {
     return nextState.priority !== this.state.priority ||
       nextState._id !== this.state._id;
   },
-
-  handleChange: function ( field ) {
+  
+  handleChange: function ( field, value ) {
     switch ( field ) {
       case 'priority':
-        return ( e ) => {
+        return () => {
           let obj = {};
-          obj[ field ] = parseInt( e.target.dataset.value, 10 );
-
+          obj[ field ] = value;
+          
           this.setState( obj );
         };
-
+  
       default:
         return ( e ) => {
           let obj = {};
           obj[ field ] = e.target.value;
           console.log( obj );
-
+  
           this.setState( obj );
         };
     }
   },
-
+  
   handleSubmit: function ( e ) {
     e.preventDefault();
-
+    
     this.props.onAddTask( this.state );
   },
   
@@ -82,13 +82,13 @@ const TaskForm = React.createClass( {
     switch ( this.state.priority ) {
       case 1:
         return 'task-card__priority-flag--low flag icon';
-
+  
       case 2:
         return 'task-card__priority-flag--medium flag icon';
-
+  
       case 3:
         return 'task-card__priority-flag--high flag icon';
-
+  
       default:
         return 'flag icon';
     }
@@ -96,35 +96,35 @@ const TaskForm = React.createClass( {
   
   render: function () {
     console.log( 'rendered' );
-
+  
     return (
       <div className="ui segments">
         <div className="ui card form task-card">
-          <div className="content">
-            <div className="ui grid">
-              <div className="twelve wide column">
-                <div className="ui fluid input">
-                  <input placeholder="Task Name..." onChange={this.handleChange('name')} value={this.state.name}/>
+          <div className="content task-card__top-line">
+    
+            <div className="ui fluid input task-card__top-input">
+              <input placeholder="Task Name..." onChange={this.handleChange('name')} value={this.state.name}/>
+            </div>
+    
+            <div className="circular ui icon top left pointing dropdown basic button task-card__priority-flag" ref="priorityDropdown">
+              <i className={this.getPriorityFlagClass()}/>
+              <div className="menu">
+                <div className="item" onClick={this.handleChange('priority', 3)}>
+                  <i className="task-card__priority-flag--high flag icon"/>
                 </div>
-              </div>
-  
-              <div className="four wide column">
-                <div className="ui right floated icon top left pointing dropdown basic button" ref="priorityDropdown">
-                  <i className={this.getPriorityFlagClass()}/>
-                  <div className="menu">
-                    <div className="item" onClick={this.handleChange('priority')} data-value="3"><
-                      i className="task-card__priority-flag--high flag icon"/>
-                    </div>
-                    <div className="item" onClick={this.handleChange('priority')} data-value="2">
-                      <i className="task-card__priority-flag--medium flag icon"/>
-                    </div>
-                    <div className="item" onClick={this.handleChange('priority')} data-value="1">
-                      <i className="task-card__priority-flag--low flag icon"/>
-                    </div>
-                  </div>
+                <div className="item" onClick={this.handleChange('priority', 2)}>
+                  <i className="task-card__priority-flag--medium flag icon"/>
+                </div>
+                <div className="item" onClick={this.handleChange('priority', 1)}>
+                  <i className="task-card__priority-flag--low flag icon"/>
                 </div>
               </div>
             </div>
+    
+            <button className="circular ui icon basic button task-card__close-button">
+              <i className="remove icon"/>
+            </button>
+            
           </div>
           <div className="content">
             <div className="field">
@@ -145,7 +145,7 @@ const TaskForm = React.createClass( {
             </div>
           </div>
         </div>
-      </div>
+      </div >
     );
   
     // <DatePicker className="" onChange={this.handleChange('due_date')} selected={moment( this.state.due_date )}/>
