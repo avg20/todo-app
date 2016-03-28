@@ -1,5 +1,15 @@
-.main.container {
-  margin-top: 7em;
+body {
+  background: #DADADA;
+}
+#content {
+  margin: 0 2rem 0;
+  padding: 6rem 0.5rem 4rem;
+}
+/** Main **/
+.main {
+  &__column {
+    transition: all 2s;
+  }
 }
 /** Task **/
 .task {
@@ -10,6 +20,18 @@
 
   &:hover {
     background: #F9F9F9;
+  }
+
+  &--high-priority.task {
+    background: #FFCCBC;
+  }
+
+  &--medium-priority.task {
+    background: #FFE0B2;
+  }
+
+  &--low-priority.task {
+    background: #FFF9C4;
   }
 
   &__checkbox {
@@ -32,7 +54,6 @@
 }
 /** Add Form **/
 .add-form {
-
   &__error-text {
     margin: 4px 0 0 0;
     font-size: 0.95rem;
@@ -41,6 +62,43 @@
 
     &--hidden {
       display: none;
+    }
+  }
+}
+/** Task Card **/
+.ui.task-card {
+  width: 100%;
+}
+.task-card .ui.input input {
+  border-color: #FFFFFF;
+  font-weight: bold;
+
+  &:hover, &:active {
+    border-color: #85B7D9;
+    color: rgba(0, 0, 0, .8);
+    box-shadow: none;
+  }
+}
+.task-card .field textarea {
+  border-color: #FFFFFF;
+  resize: none;
+
+  &:hover, &:active {
+    border-color: #85B7D9;
+    color: rgba(0, 0, 0, .8);
+    box-shadow: none;
+  }
+}
+.task-card {
+  &__priority-flag {
+    &--high {
+      color: #F4511E;
+    }
+    &--medium {
+      color: #FB8C00;
+    }
+    &--low {
+      color: #FDD835;
     }
   }
 }
