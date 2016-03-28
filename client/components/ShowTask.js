@@ -36,7 +36,7 @@ const Task = React.createClass( {
           <strong>{this.props.name}</strong>
         </div>
         <div className="task__due-date">
-          <div className="ui label"><i className="calendar icon"/> Due to <strong>{moment( this.props.due_date ).format( "MM/DD/YYYY" )}</strong></div>
+          <div className="ui label"><i className="calendar icon"/> Due to {moment( this.props.due_date ).format( "MM/DD/YYYY" )}</div>
         </div>
       </div>
     );

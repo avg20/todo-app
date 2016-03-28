@@ -13,7 +13,7 @@ const App = React.createClass( {
         <ShowTasks />
       </div>;
     else
-      content = <div className="ui main divided grid">
+      content = <div className="ui main stackable divided grid">
         <div className="row">
           <div className="ten wide column main__column">
             <ShowTasks />
