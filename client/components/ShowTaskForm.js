@@ -60,7 +60,6 @@ const TaskForm = React.createClass( {
         return ( e ) => {
           let obj = {};
           obj[ field ] = e.target.value;
-          console.log( e.target.value );
 
           this.setState( obj );
         };
