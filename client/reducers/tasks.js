@@ -1,6 +1,6 @@
 /** client/reducers/tasks.js **/
 
-import {FETCH_TASKS_REQUEST, FETCH_POSTS_FAILURE, FETCH_POSTS_SUCCESS, ADD_TASK_SUCCESS} from '../constants';
+import { FETCH_TASKS_REQUEST, FETCH_POSTS_FAILURE, FETCH_POSTS_SUCCESS, ADD_TASK_SUCCESS } from '../constants';
 
 const getInitState = () => {
   return {

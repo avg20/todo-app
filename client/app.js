@@ -7,7 +7,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import todoApp from './reducers';
-import App from './components/App';
+import App from './containers/App';
 import { fetchTasks } from './actions';
 
 const loggerMiddleware = createLogger();

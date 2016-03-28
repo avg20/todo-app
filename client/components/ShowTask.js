@@ -1,15 +1,28 @@
 /** client/components/Task.js **/
 
 import React from 'react';
-import {Input, Form, Field, Text} from 'react-semantify';
-import DatePicker from 'react-datepicker';
-import Select from '../helpers/SelectControl';
 import moment from 'moment';
 
 const Task = React.createClass( {
+  getTaskClass: function () {
+    switch ( this.props.priority ) {
+      case 1:
+        return 'ui segment task task--low-priority';
+      
+      case 2:
+        return 'ui segment task task--medium-priority';
+      
+      case 3:
+        return 'ui segment task task--high-priority';
+      
+      default:
+        return 'ui segment task';
+    }
+  },
+
   render: function () {
     return (
-      <div className="ui segment task">
+      <div className={this.getTaskClass()} onClick={this.props.onClick}>
         <div className="task__checkbox">
           <button className="mini ui icon button">
             <i className="checkmark icon"/>

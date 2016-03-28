@@ -3,10 +3,12 @@
 import { combineReducers } from 'redux';
 import tasks from './tasks';
 import addForm from './addForm';
+import activeTask from './activeTask';
 
 const todoApp = combineReducers( {
   tasks,
-  addForm
+  addForm,
+  activeTask
 } );
 
 export default todoApp;
