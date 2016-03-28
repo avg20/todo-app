@@ -9,6 +9,8 @@ import ignore from 'gulp-ignore';
 import source from 'vinyl-source-stream';
 import browserify from 'browserify';
 import babelify from 'babelify';
+import uglify from 'gulp-uglify';
+import buffer from 'vinyl-buffer';
 
 import imagemin from 'gulp-imagemin';
 import pngquant from 'imagemin-pngquant';
@@ -19,21 +21,21 @@ import nodemon from 'gulp-nodemon';
 import rename from 'gulp-rename';
 
 const paths = {
-  srcJs    : 'client/**/*.js',
-  srcJsx   : 'client/app.js',
-  srcCss   : 'source/scss/*',
+  srcJs:     'client/**/*.js',
+  srcJsx:    'client/app.js',
+  srcCss:    'source/scss/*',
   srcImages: 'source/images/**/*',
-
-  dist      : 'public/',
-  distJs    : 'public/js',
-  distCss   : 'public/css',
+  
+  dist:       'public/',
+  distJs:     'public/js',
+  distCss:    'public/css',
   distImages: 'public/images'
 };
 
 gulp.task( 'clean', function () {
   return gulp.src( './public/*', { read: false } )
-    .pipe( ignore( 'index.html' ) )
-    .pipe( rimraf() );
+             .pipe( ignore( 'index.html' ) )
+             .pipe( rimraf() );
 } );
 
 gulp.task( 'start', function () {
@@ -45,8 +47,8 @@ gulp.task( 'start', function () {
       'client/',
       'public/'
     ],
-    ext   : 'js html css',
-    env   : { 'NODE_ENV': 'development' }
+    ext:    'js html css',
+    env:    { 'NODE_ENV': 'development' }
   } )
 } );
 
@@ -64,30 +66,32 @@ gulp.task( 'sass', function () {
 
 gulp.task( 'browserify', function () {
   var bundler = browserify( {
-    entries  : [ paths.srcJsx ],
+    entries:   [ paths.srcJsx ],
     transform: [ babelify ],
-    debug    : process.env.NODE_ENV != 'production',
-    cache    : {}, packageCache: {}, fullPaths: true
+    debug:     process.env.NODE_ENV != 'production',
+    cache:     {}, packageCache: {}, fullPaths: true
   } );
-
+  
   return bundler
     .bundle()
     .pipe( source( paths.srcJsx ) )
+    //.pipe( buffer() )
+    //.pipe( uglify() )
     .pipe( rename( "app.js" ) )
     .pipe( gulp.dest( paths.distJs ) );
 } );
 
 gulp.task( 'images', function () {
   return gulp.src( paths.srcImages )
-    .pipe( imagemin( {
-      progressive: true,
-      svgoPlugins: [
-        { removeViewBox: false },
-        { cleanupIDs: false }
-      ],
-      use        : [ pngquant() ]
-    } ) )
-    .pipe( gulp.dest( paths.distImages ) );
+             .pipe( imagemin( {
+               progressive: true,
+               svgoPlugins: [
+                 { removeViewBox: false },
+                 { cleanupIDs: false }
+               ],
+               use:         [ pngquant() ]
+             } ) )
+             .pipe( gulp.dest( paths.distImages ) );
 } );
 
 gulp.task( 'watchTask', () => {
