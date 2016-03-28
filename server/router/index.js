@@ -12,5 +12,6 @@ module.exports = function ( app ) {
   
   app.get( '/tasks', auth.check, taskRoutes.getTasks );
   app.post( '/tasks', auth.check, taskRoutes.addTask );
-  app.delete( '/tasks/:id', auth.check, taskRoutes.deleteTask )
+  app.post( '/tasks/:id', auth.check, taskRoutes.updateTask );
+  app.delete( '/tasks/:id', auth.check, taskRoutes.deleteTask );
 };
