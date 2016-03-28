@@ -72,7 +72,9 @@ const Task = React.createClass( {
           <strong>{this.props.name}</strong>
         </div>
         <div className="task__due-date">
-          <div className="ui label"><i className="calendar icon"/> Due to {moment( this.props.due_date ).format( "MM/DD/YYYY" )}</div>
+          <div className={`${this.props.overdue ? "task__due-date--overdue" : ""} ui label`}><i className="calendar icon"/> Due
+                                                                                                                            to {moment( this.props.due_date ).calendar()}
+          </div>
         </div>
         <div className={this.getPriorityIconClass()}>
           <i className="star icon"/>
