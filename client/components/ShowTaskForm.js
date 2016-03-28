@@ -95,8 +95,6 @@ const TaskForm = React.createClass( {
   },
   
   render: function () {
-    console.log( 'rendered' );
-  
     return (
       <div className="ui segments">
         <div className="ui card form task-card">
@@ -120,8 +118,8 @@ const TaskForm = React.createClass( {
                 </div>
               </div>
             </div>
-    
-            <button className="circular ui icon basic button task-card__close-button">
+  
+            <button onClick={this.props.onCloseTask} className="circular ui icon basic button task-card__close-button">
               <i className="remove icon"/>
             </button>
             
