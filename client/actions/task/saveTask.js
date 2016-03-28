@@ -1,6 +1,6 @@
-/** client/actions/saveTask.js **/
+/** client/actions/task/saveTask.js **/
 
-import { SAVE_TASK_REQUEST, SAVE_TASK_FAILURE, SAVE_TASK_SUCCESS } from '../constants';
+import { SAVE_TASK_REQUEST, SAVE_TASK_FAILURE, SAVE_TASK_SUCCESS } from '../../constants';
 
 export const saveTaskRequest = () => {
   return {

@@ -1,6 +1,6 @@
-/** client/actions/addTask.js **/
+/** client/actions/task/addTask.js **/
 
-import { SELECT_TASK, CLOSE_TASK, ADD_BLANK_TASK } from '../constants';
+import { SELECT_TASK, CLOSE_TASK, ADD_BLANK_TASK } from '../../constants';
 
 export const selectTask = ( item ) => {
   return {

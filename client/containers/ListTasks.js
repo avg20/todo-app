@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Task from '../components/ShowTask';
 import { fetchTasks } from '../actions';
-import { selectTask } from '../actions/activeTask';
+import { selectTask } from '../actions/task/activeTask';
 
 const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, onTaskClick } ) => {
   if ( isFetching )

@@ -1,6 +1,6 @@
-/** client/actions/deleteTask.js **/
+/** client/actions/task/deleteTask.js **/
 
-import { DELETE_TASK_REQUEST, DELETE_TASK_FAILURE, DELETE_TASK_SUCCESS } from '../constants';
+import { DELETE_TASK_REQUEST, DELETE_TASK_FAILURE, DELETE_TASK_SUCCESS } from '../../constants';
 
 export const deleteTaskRequest = () => {
   return {
