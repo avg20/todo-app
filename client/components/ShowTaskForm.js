@@ -46,11 +46,6 @@ const TaskForm = React.createClass( {
     jQuery( this.refs.datepicker ).calendar( 'refresh' );
   },
   
-  shouldComponentUpdate: function ( nextProps, nextState ) {
-    return nextState.priority !== this.state.priority ||
-      nextState._id !== this.state._id;
-  },
-  
   handleChange: function ( field, value ) {
     switch ( field ) {
       case 'priority':
@@ -65,7 +60,7 @@ const TaskForm = React.createClass( {
         return ( e ) => {
           let obj = {};
           obj[ field ] = e.target.value;
-          console.log( obj );
+          console.log( e.target.value );
   
           this.setState( obj );
         };
