@@ -1,8 +1,8 @@
 /** client/actions/index.js **/
 
-export * from './fetchTasks';
-export * from './task/addTask';
-export * from './task/activeTask';
-export * from './task/deleteTask';
-export * from './task/saveTask';
-export * from './task/sortTask';
+export * from './TasksFetch';
+export * from './task/TaskAdd';
+export * from './task/TaskActive';
+export * from './task/TaskDelete';
+export * from './task/TaskSave';
+export * from './task/TaskSort';

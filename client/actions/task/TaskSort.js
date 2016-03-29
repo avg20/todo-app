@@ -1,7 +1,7 @@
 /** client/actions/task/sortTask.js **/
 
 import { SORT_TASKS } from '../../constants';
-import { fetchTasks } from '../fetchTasks';
+import { fetchTasks } from '../TasksFetch';
 
 export const setSort = ( field, val ) => {
   return {

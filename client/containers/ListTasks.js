@@ -4,19 +4,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Task from '../components/ShowTask';
 import { fetchTasks } from '../actions';
-import { selectTask } from '../actions/task/activeTask';
+import { selectTask } from '../actions/task/TaskActive';
 
 const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, onTaskClick } ) => {
-  /*if ( isFetching )
-    return (
-      <div className="ui segment">
-        <div className="ui active dimmer">
-          <div className="ui text loader">Loading</div>
-        </div>
-        <br /><br /><br />
-      </div>
-   );*/
-  
   if ( isFailed )
     return (
       <div className="ui center aligned segment">
@@ -37,9 +27,13 @@ const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, on
         tasks.map( ( task ) => <Task onClick={onTaskClick} activeItem={activeItem} key={task._id} {...task}/> )
       }
       {
-        isFetching && (<div className="ui active inverted dimmer">
-          <div className="ui loader"></div>
-        </div>)
+        isFetching && (
+          <div>
+            <p/>
+            <div className="ui active inverted dimmer">
+              <div className="ui loader"></div>
+            </div>
+          </div>)
       }
     </div>
   );
