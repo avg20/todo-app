@@ -27,7 +27,7 @@ const Task = React.createClass( {
     
     return "ui segment task";
   },
-
+  
   getStatusButton: function () {
     switch ( this.props.status ) {
       case 2:
@@ -54,21 +54,22 @@ const Task = React.createClass( {
   },
   
   handleButtonClick: function ( e ) {
-    e.preventDefault();
-    
+    e.stopPropagation();
+  
+    console.log( "click only button" );
   },
   
-  handleTaskClick: function () {
+  handleTaskClick: function ( e ) {
     this.props.onClick( this.props );
   },
   
   render: function () {
     return (
-      <div className={this.getTaskClass()}>
+      <div className={this.getTaskClass()} onClick={this.handleTaskClick}>
         <div className="task__checkbox">
           {this.getStatusButton()}
         </div>
-        <div className="task__name" onClick={this.handleTaskClick}>
+        <div className="task__name">
           <strong>{this.props.name}</strong>
         </div>
         <div className="task__due-date">
