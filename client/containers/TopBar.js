@@ -3,10 +3,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ShowTopBar from '../components/ShowTopBar';
-import { addBlankTask, sortTasks } from '../actions';
+import { addBlankTask, sortTasks, filterTasks } from '../actions';
 
-const mapStateToProps = () => {
-  return {}
+const mapStateToProps = ( state ) => {
+  return {
+    filter: state.tasks.filter
+  }
 };
 
 const mapDispatchToProps = ( dispatch ) => {
@@ -18,6 +20,9 @@ const mapDispatchToProps = ( dispatch ) => {
       return () => {
         dispatch( sortTasks( field, val ) );
       };
+    },
+    onFilterType:     ( val ) => {
+      dispatch( filterTasks( val ) );
     }
   }
 };

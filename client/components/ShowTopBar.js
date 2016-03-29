@@ -24,18 +24,22 @@ const ShowTopBar = React.createClass( {
     jQuery( this.refs.sortPopup ).calendar( 'refresh' );
   },
   
+  handleFilterChange: function ( e ) {
+    this.props.onFilterType( e.target.value );
+  },
+  
   render: function () {
     return (
       <div className="ui form segment top-line">
         <div className="top-line__add-button">
           <button type="submit" className="ui teal basic button" onClick={this.props.onClickCreateNew}>Add Task</button>
         </div>
-    
+
         <div className="top-line__filter ui left labeled left input">
           <div className="ui label">Filter by name:</div>
-          <input type="text" placeholder="Start typing name..."/>
+          <input type="text" onChange={this.handleFilterChange} placeholder="Start typing name..." value={this.props.filter}/>
         </div>
-    
+  
         <div className="top-line__sort-wrapper">
           <label className="sort-wrapper__label">Sort by: </label>
           <div className="sort-wrapper__dropdown ui top right pointing dropdown" ref="sortPopup">

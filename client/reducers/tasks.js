@@ -7,7 +7,8 @@ import {
   ADD_TASK_SUCCESS,
   SAVE_TASK_SUCCESS,
   SORT_TASKS,
-  DELETE_TASK_SUCCESS
+  DELETE_TASK_SUCCESS,
+  FILTER_TASKS
 } from '../constants';
 
 const getInitState = () => {
@@ -15,6 +16,7 @@ const getInitState = () => {
     isFetching: false,
     isFailed:   false,
     sort:       'name',
+    filter:     '',
     items:      []
   };
 };
@@ -41,7 +43,7 @@ const tasks = ( state = getInitState(), action ) => {
       return Object.assign( {}, state, {
         items: [ ...state.items, action.task ]
       } );
-  
+
     case SAVE_TASK_SUCCESS:
       return Object.assign( {}, state, {
         items: state.items.map( ( value ) => {
@@ -63,6 +65,11 @@ const tasks = ( state = getInitState(), action ) => {
     case SORT_TASKS:
       return Object.assign( {}, state, {
         sort: (action.val == -1 ? "-" : "") + action.field
+      } );
+  
+    case FILTER_TASKS:
+      return Object.assign( {}, state, {
+        filter: action.val
       } );
     
     default:

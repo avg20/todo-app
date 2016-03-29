@@ -26,8 +26,8 @@ export function fetchTasks() {
   return ( dispatch, getState ) => {
     dispatch( fetchTasksRequest() );
     const { tasks } = getState();
-    
-    return fetch( `http://localhost:3000/tasks?sort=${tasks.sort}&token=58bfb4aec2c5f5263c2d71273d2e7b70c0679b93322c7069cebc99f8f678eb59` )
+  
+    return fetch( `http://localhost:3000/tasks?name=${tasks.filter}&sort=${tasks.sort}&token=58bfb4aec2c5f5263c2d71273d2e7b70c0679b93322c7069cebc99f8f678eb59` )
       .then( ( response ) => {
         if ( !response.ok )
           return { status: 'error', error: response.statusText };

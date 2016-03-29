@@ -6,3 +6,4 @@ export * from './task/TaskActive';
 export * from './task/TaskDelete';
 export * from './task/TaskSave';
 export * from './task/TaskSort';
+export * from './task/TaskFilter';
