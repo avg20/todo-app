@@ -29,7 +29,7 @@ const activeTask = ( state = getInitState(), action ) => {
         item:       {
           name:        '',
           description: '',
-          priority:    ''
+          priority:    1
         }
       } );
     

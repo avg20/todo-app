@@ -17,7 +17,7 @@ const TaskForm = React.createClass( {
   },
   
   componentWillMount: function () {
-    this.setState( this.props.item );
+    this.replaceState( this.props.item );
   },
   
   componentWillUnmount: function () {
