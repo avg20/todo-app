@@ -13,6 +13,6 @@ export const setFilter = ( val ) => {
 export function filterTasks( val ) {
   return ( dispatch ) => {
     dispatch( setFilter( val ) );
-    dispatch( fetchTasks() );
+    //dispatch( fetchTasks() );
   }
 }

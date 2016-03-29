@@ -14,6 +14,6 @@ export const setSort = ( field, val ) => {
 export function sortTasks( field, val ) {
   return ( dispatch ) => {
     dispatch( setSort( field, val ) );
-    dispatch( fetchTasks() );
+    //dispatch( fetchTasks() );
   }
 }

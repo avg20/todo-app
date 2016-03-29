@@ -39,9 +39,29 @@ const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, on
   );
 };
 
+const getTasks = ( tasks, filter, sort ) => {
+  let array = Array.from( tasks );
+  
+  array.sort( ( a, b ) => {
+    let result = 1;
+    
+    if ( typeof a[ sort.field ] === 'string' )
+      result = a[ sort.field ].localeCompare( b[ sort.field ] );
+    
+    if ( typeof a[ sort.field ] === 'number' )
+      result = a[ sort.field ] - b[ sort.field ];
+    
+    return result * sort.val;
+  } );
+  
+  return array.filter( ( value ) => {
+    return value.name.indexOf( filter ) !== -1;
+  } );
+};
+
 const mapStateToProps = ( state ) => {
   return {
-    tasks:      state.tasks.items,
+    tasks:      getTasks( state.tasks.items, state.tasks.filter, state.tasks.sort ),
     isFetching: state.tasks.isFetching,
     isFailed:   state.tasks.isFailed,
     activeItem: state.activeTask.item

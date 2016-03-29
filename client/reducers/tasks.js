@@ -15,7 +15,7 @@ const getInitState = () => {
   return {
     isFetching: false,
     isFailed:   false,
-    sort:       'name',
+    sort:       { field: "name", val: 1 },
     filter:     '',
     items:      []
   };
@@ -53,7 +53,7 @@ const tasks = ( state = getInitState(), action ) => {
             return value;
         } )
       } );
-  
+
     case DELETE_TASK_SUCCESS:
       return Object.assign( {}, state, {
         items: state.items.filter( ( item ) => {
@@ -64,14 +64,15 @@ const tasks = ( state = getInitState(), action ) => {
 
     case SORT_TASKS:
       return Object.assign( {}, state, {
-        sort: (action.val == -1 ? "-" : "") + action.field
+        //sort: (action.val == -1 ? "-" : "") + action.field
+        sort: { field: action.field, val: action.val }
       } );
   
     case FILTER_TASKS:
       return Object.assign( {}, state, {
         filter: action.val
       } );
-    
+  
     default:
       return state
   }
