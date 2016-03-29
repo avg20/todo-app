@@ -15,10 +15,10 @@ export const deleteTaskFailure = ( error ) => {
   }
 };
 
-export const deleteTaskSuccess = ( tasks ) => {
+export const deleteTaskSuccess = ( id ) => {
   return {
-    type:  DELETE_TASK_SUCCESS,
-    tasks: tasks
+    type: DELETE_TASK_SUCCESS,
+    id:   id
   }
 };
 
@@ -37,7 +37,7 @@ export function deleteTask( id ) {
       } )
       .then( ( json ) => {
         if ( json.status === 'success' )
-          dispatch( deleteTaskSuccess( json ) );
+          dispatch( deleteTaskSuccess( id ) );
         else
           dispatch( deleteTaskFailure( json.error ) );
       } );

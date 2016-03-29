@@ -72,11 +72,15 @@ const TaskForm = React.createClass( {
     this.props.onAddTask( this.state );
   },
   
+  handleDeleteClick: function () {
+    this.props.onDeleteTask( this.state );
+  },
+  
   getPriorityFlagClass: function () {
     switch ( this.state.priority ) {
       case 1:
         return 'task-card__priority-flag--low flag icon';
-  
+
       case 2:
         return 'task-card__priority-flag--medium flag icon';
   
@@ -98,6 +102,10 @@ const TaskForm = React.createClass( {
               <input placeholder="Task Name..." onChange={this.handleChange('name')} value={this.state.name}/>
             </div>
   
+            <button onClick={this.handleDeleteClick} className="circular ui icon basic button task-card__remove-button">
+              Remove Task
+            </button>
+
             <div className="circular ui icon top left pointing dropdown basic button task-card__priority-flag" ref="priorityDropdown">
               <i className={this.getPriorityFlagClass()}/>
               <div className="menu">
@@ -127,7 +135,7 @@ const TaskForm = React.createClass( {
             <div className="task-card__submit-button">
               <button type="submit" className="ui teal button" tabIndex="0" onClick={this.handleSubmit}>Save Task</button>
             </div>
-    
+  
             <div className="task-card__datepicker ui calendar inline field" ref="datepicker">
               <label>Due to: </label>
               <input onChange={this.handleChange('due_date')} value={moment(this.state.due_date).format( 'MM/DD/YYYY' )}/>

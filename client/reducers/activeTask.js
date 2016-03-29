@@ -1,6 +1,6 @@
 /** client/reducers/activeTask.js **/
 
-import { SELECT_TASK, CLOSE_TASK, ADD_BLANK_TASK } from '../constants';
+import { SELECT_TASK, CLOSE_TASK, ADD_BLANK_TASK, DELETE_TASK_SUCCESS } from '../constants';
 
 const getInitState = () => {
   return {
@@ -16,7 +16,8 @@ const activeTask = ( state = getInitState(), action ) => {
         isSelected: true,
         item:       action.item
       } );
-
+  
+    case DELETE_TASK_SUCCESS:
     case CLOSE_TASK:
       return Object.assign( {}, state, {
         isSelected: false,

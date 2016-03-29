@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TaskForm from '../components/ShowTaskForm';
-import { addTask, saveTask, closeTask } from '../actions';
+import { addTask, saveTask, closeTask, deleteTask } from '../actions';
 
 const mapStateToProps = ( state ) => {
   return {
@@ -16,14 +16,17 @@ const mapStateToProps = ( state ) => {
 
 const mapDispatchToProps = ( dispatch ) => {
   return {
-    onCloseTask: () => {
+    onCloseTask:  () => {
       dispatch( closeTask() );
     },
-    onAddTask:   ( data ) => {
+    onAddTask:    ( data ) => {
       if ( data._id )
         dispatch( saveTask( data ) );
       else
         dispatch( addTask( data ) )
+    },
+    onDeleteTask: ( data ) => {
+      dispatch( deleteTask( data._id ) );
     }
   }
 };

@@ -69,19 +69,6 @@ body {
     }
   }
 }
-/** Add Form **/
-.add-form {
-  &__error-text {
-    margin: 4px 0 0 0;
-    font-size: 0.95rem;
-    font-style: italic;
-    color: #E33B39;
-
-    &--hidden {
-      display: none;
-    }
-  }
-}
 /** Task Card **/
 .ui.task-card {
   width: 100%;
@@ -145,10 +132,13 @@ body {
     align-self: flex-start;
   }
 
-  &__priority-flag, &__close-button, &__datepicker {
+  &__priority-flag, &__close-button, &__datepicker, &__remove-button {
     display: flex;
     flex: 0;
     align-self: flex-end;
+    margin: 0 6px;
+
+    white-space: nowrap;
   }
 }
 /** Datepicker **/
