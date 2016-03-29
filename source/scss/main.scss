@@ -119,19 +119,16 @@ body {
     }
   }
 
-  &__button-line {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: flex-end;
-    flex-wrap: nowrap;
-    flex-flow: nowrap;
-  }
-
   &__top-line, &__bottom-line {
     display: flex;
     flex-wrap: nowrap;
     flex-flow: nowrap;
+  }
+
+  &__button-line {
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
   }
 
   &__top-input {
@@ -160,3 +157,25 @@ body {
   white-space: nowrap;
   line-height: 37px;
 }
+/** Top Line **/
+.top-line {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-flow: nowrap;
+  justify-content: space-between;
+
+  &__add-button {
+    display: flex;
+    flex: 0;
+
+    white-space: nowrap;
+  }
+
+  &__sort-button {
+    display: flex;
+    flex: 0;
+
+    white-space: nowrap;
+  }
+}
+
