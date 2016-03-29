@@ -7,7 +7,8 @@ import { addBlankTask, sortTasks, filterTasks } from '../actions';
 
 const mapStateToProps = ( state ) => {
   return {
-    filter: state.tasks.filter
+    filter: state.tasks.filter,
+    sort:   state.tasks.sort
   }
 };
 

@@ -15,7 +15,7 @@ const getInitState = () => {
   return {
     isFetching: false,
     isFailed:   false,
-    sort:       { field: "name", val: 1 },
+    sort:       { field: 'name', val: 1 },
     filter:     '',
     items:      []
   };
@@ -64,7 +64,6 @@ const tasks = ( state = getInitState(), action ) => {
 
     case SORT_TASKS:
       return Object.assign( {}, state, {
-        //sort: (action.val == -1 ? "-" : "") + action.field
         sort: { field: action.field, val: action.val }
       } );
   

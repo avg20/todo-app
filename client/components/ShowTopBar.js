@@ -1,7 +1,7 @@
 /** client/components/ShowTopBar.js **/
 
 import React from 'react';
-import moment from 'moment';
+import SortField from './ShowSortField';
 
 const ShowTopBar = React.createClass( {
   getInitialState: function () {
@@ -10,18 +10,6 @@ const ShowTopBar = React.createClass( {
       due_date: -1,
       priority: 0
     };
-  },
-
-  componentWillUnmount: function () {
-    jQuery( this.refs.sortPopup ).dropdown( 'destroy' );
-  },
-
-  componentDidMount: function () {
-    jQuery( this.refs.sortPopup ).dropdown();
-  },
-
-  componentDidUpdate: function () {
-    jQuery( this.refs.sortPopup ).calendar( 'refresh' );
   },
   
   handleFilterChange: function ( e ) {
@@ -39,22 +27,9 @@ const ShowTopBar = React.createClass( {
           <div className="ui label">Filter by name:</div>
           <input type="text" onChange={this.handleFilterChange} placeholder="Start typing name..." value={this.props.filter}/>
         </div>
-  
+
         <div className="top-line__sort-wrapper">
-          <label className="sort-wrapper__label">Sort by: </label>
-          <div className="sort-wrapper__dropdown ui top right pointing dropdown" ref="sortPopup">
-            <span className="text"><i className="sort content ascending icon"/> Name</span>
-            <div className="menu">
-              <div className="item active selected" onClick={this.props.onSortClick('name', 1)}><i className="sort content ascending icon"/> Name</div>
-              <div className="item" onClick={this.props.onSortClick('name', -1)}><i className="sort content descending icon"/> Name</div>
-  
-              <div className="item" onClick={this.props.onSortClick('due_date', 1)}><i className="sort content ascending icon"/> Due Date</div>
-              <div className="item" onClick={this.props.onSortClick('due_date', -1)}><i className="sort content descending icon"/> Due Date</div>
-  
-              <div className="item" onClick={this.props.onSortClick('priority', 1)}><i className="sort content ascending icon"/> Priority</div>
-              <div className="item" onClick={this.props.onSortClick('priority', -1)}><i className="sort content descending icon"/> Priority</div>
-            </div>
-          </div>
+          <SortField sort={this.props.sort} onSortClick={this.props.onSortClick}/>
         </div>
       </div>
     );
