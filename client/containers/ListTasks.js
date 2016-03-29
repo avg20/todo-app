@@ -7,7 +7,7 @@ import { fetchTasks } from '../actions';
 import { selectTask } from '../actions/task/activeTask';
 
 const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, onTaskClick } ) => {
-  if ( isFetching )
+  /*if ( isFetching )
     return (
       <div className="ui segment">
         <div className="ui active dimmer">
@@ -15,7 +15,7 @@ const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, on
         </div>
         <br /><br /><br />
       </div>
-    );
+   );*/
   
   if ( isFailed )
     return (
@@ -35,6 +35,11 @@ const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, on
     <div className="ui pointing raised segments tasks">
       {
         tasks.map( ( task ) => <Task onClick={onTaskClick} activeItem={activeItem} key={task._id} {...task}/> )
+      }
+      {
+        isFetching && (<div className="ui active inverted dimmer">
+          <div className="ui loader"></div>
+        </div>)
       }
     </div>
   );

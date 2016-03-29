@@ -7,18 +7,16 @@ import TopBar from '../containers/TopBar';
 
 const App = React.createClass( {
   render: function () {
-    let content = "";
-
     if ( !this.props.isSelected )
-      content = (
-        <div className="ui main">
+      return (
+        <div className="ui main container">
           <TopBar />
           <ShowTasks />
         </div>
       );
     else
-      content = (
-        <div className="ui main stackable divided grid">
+      return (
+        <div className="ui main container stackable divided grid">
           <div className="row">
             <div className="ten wide column main__column">
               <TopBar />
@@ -30,13 +28,6 @@ const App = React.createClass( {
           </div>
         </div>
       );
-
-    return (
-      <div>
-        <h2 className="ui dividing header">Tasks</h2>
-        {content}
-      </div>
-    );
   }
 } );
 
