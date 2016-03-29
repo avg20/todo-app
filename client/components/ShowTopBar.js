@@ -12,10 +12,10 @@ const ShowTopBar = React.createClass( {
     jQuery( this.refs.sortPopup ).dropdown();
   },
   
-  componentDidUpdate() {
+  componentDidUpdate: function () {
     jQuery( this.refs.sortPopup ).calendar( 'refresh' );
   },
-
+  
   render: function () {
     return (
       <div className="ui segment top-line">

@@ -41,7 +41,7 @@ const TaskForm = React.createClass( {
     jQuery( this.refs.priorityDropdown ).dropdown();
   },
   
-  componentDidUpdate() {
+  componentDidUpdate: function () {
     jQuery( this.refs.priorityDropdown ).dropdown( 'refresh' );
     jQuery( this.refs.datepicker ).calendar( 'refresh' );
   },
