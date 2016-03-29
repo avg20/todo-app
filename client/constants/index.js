@@ -1,5 +1,26 @@
 /** client/constants/index.js **/
 
-export * from './tasks';
-export * from './addTask';
-export * from './activeTask';
+/** ActiveTask **/
+export const SELECT_TASK = 'SELECT_TASK';
+export const CLOSE_TASK = 'CLOSE_TASK';
+export const ADD_BLANK_TASK = 'ADD_BLANK_TASK';
+
+/** AddTask **/
+export const ADD_TASK_REQUEST = 'ADD_TASK_REQUEST';
+export const ADD_TASK_FAILURE = 'ADD_TASK_FAILURE';
+export const ADD_TASK_SUCCESS = 'ADD_TASK_SUCCESS';
+
+export const SAVE_TASK_REQUEST = 'SAVE_TASK_REQUEST';
+export const SAVE_TASK_FAILURE = 'SAVE_TASK_FAILURE';
+export const SAVE_TASK_SUCCESS = 'SAVE_TASK_SUCCESS';
+
+/** Tasks **/
+export const FETCH_TASKS_REQUEST = 'FETCH_TASKS_REQUEST';
+export const FETCH_TASKS_FAILURE = 'FETCH_TASKS_FAILURE';
+export const FETCH_TASKS_SUCCESS = 'FETCH_TASKS_SUCCESS';
+
+export const DELETE_TASK_REQUEST = 'DELETE_TASK_REQUEST';
+export const DELETE_TASK_FAILURE = 'DELETE_TASK_FAILURE';
+export const DELETE_TASK_SUCCESS = 'DELETE_TASK_SUCCESS';
+
+export const SORT_TASKS = 'SORT_TASKS';
