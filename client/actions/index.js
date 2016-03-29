@@ -5,3 +5,4 @@ export * from './task/addTask';
 export * from './task/activeTask';
 export * from './task/deleteTask';
 export * from './task/saveTask';
+export * from './task/sortTask';

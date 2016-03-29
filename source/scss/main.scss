@@ -2,7 +2,7 @@ body {
   background: #EAEAEA;
 }
 #content {
-  margin: 0 2rem 0;
+  margin: 0 0.5rem 0;
   padding: 6rem 0.5rem 4rem;
 }
 /** Tasks **/
@@ -171,11 +171,38 @@ body {
     white-space: nowrap;
   }
 
-  &__sort-button {
+  &__filter {
+    display: flex;
+    flex: 1;
+    margin: 0 20px;
+
+    white-space: nowrap;
+  }
+
+  &__sort-wrapper {
     display: flex;
     flex: 0;
 
     white-space: nowrap;
   }
 }
+.ui.form.top-line input {
+  width: auto;
+}
+.sort-wrapper {
+  &__label {
+    vertical-align: baseline;
+    font-size: .92857143em;
+    font-weight: 700;
 
+    height: 36px;
+    line-height: 36px;
+
+    margin: 0 10px 0 0;
+  }
+
+  &__dropdown {
+    height: 36px;
+    line-height: 36px;
+  }
+}
