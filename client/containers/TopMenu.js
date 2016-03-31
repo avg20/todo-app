@@ -3,6 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ShowTopMenu from '../components/ShowTopMenu';
+import { userLogout } from '../actions';
 
 const mapStateToProps = ( state ) => {
   return {
@@ -11,7 +12,11 @@ const mapStateToProps = ( state ) => {
 };
 
 const mapDispatchToProps = ( dispatch ) => {
-  return {}
+  return {
+    onLogoutClick: () => {
+      dispatch( userLogout() );
+    }
+  }
 };
 
 export default connect(

@@ -8,7 +8,8 @@ import {
   LOGIN_USER_REQUEST,
   LOGIN_USER_FAILURE,
   LOGIN_USER_SUCCESS,
-  SETUP_CREDITIONS
+  SETUP_CREDITIONS,
+  USER_LOGOUT
 } from '../constants';
 import { fetchTasks } from './';
 
@@ -23,6 +24,12 @@ export const setupCreditions = ( token, username ) => {
 export const authPageToggle = () => {
   return {
     type: AUTH_PAGE_TOGGLE
+  }
+};
+
+export const userLogout = () => {
+  return {
+    type: USER_LOGOUT
   }
 };
 

@@ -12,8 +12,8 @@ const ShowTopMenu = React.createClass( {
           </a>
           
           <div className="right menu">
-            <div className="item">Hello <strong>{this.props.username}</strong>!</div>
-            <a href="#" className="item">Logout</a>
+            <div className="item">Hello&nbsp;&nbsp;&nbsp;<strong>{this.props.username}</strong>!</div>
+            <a className="item" onClick={this.props.onLogoutClick}>Logout</a>
           </div>
         </div>
       </div>

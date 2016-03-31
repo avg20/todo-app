@@ -8,7 +8,8 @@ import {
   LOGIN_USER_REQUEST,
   LOGIN_USER_FAILURE,
   LOGIN_USER_SUCCESS,
-  SETUP_CREDITIONS
+  SETUP_CREDITIONS,
+  USER_LOGOUT
 } from '../constants';
 
 const getInitState = () => {
@@ -57,6 +58,19 @@ const auth = ( state = getInitState(), action ) => {
         username:     action.username
       } );
   
+    case USER_LOGOUT:
+      if ( typeof(Storage) !== 'undefined' ) {
+        localStorage.removeItem( 'access_token' );
+        localStorage.removeItem( 'username' );
+      }
+    
+      return Object.assign( {}, state, {
+        isAuthorized: false,
+        access_token: '',
+        username:     '',
+        page:         'login'
+      } );
+
     case AUTH_PAGE_TOGGLE:
       return Object.assign( {}, state, {
         page: (state.page == 'login') ? 'signup' : 'login'
