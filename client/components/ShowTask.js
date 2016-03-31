@@ -77,7 +77,7 @@ const Task = React.createClass( {
             onStatusClick={this.props.onStatusClick}
             activeItem={this.props.activeItem}
             key={task._id} {...task}/> );
-
+  
     return (
       <div className={this.props.className}>
         <div className={this.getTaskClass()} onClick={this.handleTaskClick}>

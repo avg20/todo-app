@@ -9,14 +9,14 @@ const App = React.createClass( {
   render: function () {
     if ( !this.props.isSelected )
       return (
-        <div className="ui main container">
+        <div className="ui main">
           <TopBar />
           <ShowTasks />
         </div>
       );
     else
       return (
-        <div className="ui main container stackable divided grid">
+        <div className="ui main stackable divided grid">
           <div className="row">
             <div className="ten wide column main__column">
               <TopBar />

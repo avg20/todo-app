@@ -70,6 +70,8 @@ const sortTree = ( items, sort ) => {
     
     if ( typeof a[ sort.field ] === 'number' )
       result = a[ sort.field ] - b[ sort.field ];
+  
+    console.log( a[ sort.field ], b[ sort.field ], result );
     
     return result * sort.val;
   } );

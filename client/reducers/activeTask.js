@@ -1,6 +1,7 @@
 /** client/reducers/activeTask.js **/
 
 import { SELECT_TASK, CLOSE_TASK, ADD_BLANK_TASK, ADD_CHILD_TASK, DELETE_TASK_SUCCESS, SAVE_TASK_SUCCESS } from '../constants';
+import moment from 'moment';
 
 const getInitState = () => {
   return {
@@ -30,7 +31,8 @@ const activeTask = ( state = getInitState(), action ) => {
         item:       {
           name:        '',
           description: '',
-          priority:    1
+          priority:    1,
+          due_date:    moment().startOf( 'day' )
         }
       } );
 
@@ -41,7 +43,8 @@ const activeTask = ( state = getInitState(), action ) => {
           name:        '',
           description: '',
           priority:    1,
-          parent_id:   action.parent._id
+          parent_id:   action.parent._id,
+          due_date:    moment().startOf( 'day' )
         }
       } );
 
