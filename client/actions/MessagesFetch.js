@@ -1,6 +1,7 @@
 /** client/actions/fetchMessages.js **/
 
 import { FETCH_MESSAGES_REQUEST, FETCH_MESSAGES_FAILURE, FETCH_MESSAGES_SUCCESS, MESSAGE_DISPLAYED } from '../constants';
+import { fetchTasks } from './';
 
 export const fetchMessagesRequest = () => {
   return {
@@ -41,9 +42,11 @@ export function fetchMessages() {
         return response.json();
       } )
       .then( ( json ) => {
-        if ( json.status === 'success' )
+        if ( json.status === 'success' ) {
           dispatch( fetchMessagesSuccess( json ) );
-        else
+          if ( json.messages.length )
+            dispatch( fetchTasks() );
+        } else
           dispatch( fetchMessagesFailure( json.error ) );
       } );
   }
