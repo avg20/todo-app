@@ -2,17 +2,23 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { authPageToggle } from '../actions';
+import { authPageToggle, authLoginUser } from '../actions';
 import ShowLoginForm from '../components/ShowLoginForm';
 
 const mapStateToProps = ( state ) => {
-  return {}
+  return {
+    errors:    state.auth.errors,
+    isSending: state.auth.isSending
+  }
 };
 
 const mapDispatchToProps = ( dispatch ) => {
   return {
     onPageToggle: ()=> {
       dispatch( authPageToggle() );
+    },
+    onFormSubmit: ( data ) => {
+      dispatch( authLoginUser( data ) );
     }
   }
 };

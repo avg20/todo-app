@@ -12,7 +12,11 @@ const App = React.createClass( {
     if ( this.props.messages.length ) {
       const value = this.props.messages[ 0 ];
   
-      this.refs.notify.error( value.message, 0 );
+      if ( value.type === 'success' )
+        this.refs.notify.success( value.message, 0 );
+      else
+        this.refs.notify.error( value.message, 0 );
+
       this.props.onMessageDisplayed( value._id );
     }
   },
@@ -45,7 +49,10 @@ const App = React.createClass( {
       );
     } else {
       return (
-        <Auth />
+        <div>
+          <Notify ref="notify"/>
+          <Auth />
+        </div>
       );
     }
 

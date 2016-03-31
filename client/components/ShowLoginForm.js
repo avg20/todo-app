@@ -2,7 +2,37 @@
 
 import React from 'react';
 
+const Error = React.createClass( {
+  render: function () {
+    if ( this.props.text )
+      return <div className="help-text error">{this.props.text}</div>;
+    else
+      return null;
+  }
+} );
+
 const ShowLoginForm = React.createClass( {
+  getInitialState: function () {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  
+  handleUsernameChange: function ( e ) {
+    this.setState( { username: e.target.value } );
+  },
+  
+  handlePasswordChange: function ( e ) {
+    this.setState( { password: e.target.value } );
+  },
+  
+  handleSubmit: function ( e ) {
+    e.preventDefault();
+    
+    this.props.onFormSubmit( this.state );
+  },
+
   render: function () {
     return (
       <div className="column">
@@ -16,22 +46,21 @@ const ShowLoginForm = React.createClass( {
             <div className="field">
               <div className="ui left icon input">
                 <i className="user icon"/>
-                <input type="text" placeholder="Username"/>
+                <input onChange={this.handleUsernameChange} type="text" placeholder="Username" value={this.state.username}/>
               </div>
+              <Error text={this.props.errors['username']}/>
             </div>
             <div className="field">
               <div className="ui left icon input">
                 <i className="lock icon"/>
-                <input type="password" placeholder="Password"/>
+                <input onChange={this.handlePasswordChange} type="password" placeholder="Password" value={this.state.password}/>
               </div>
+              <Error text={this.props.errors['password']}/>
             </div>
-            <div className="ui fluid large teal submit button">Login</div>
+            <button className="ui fluid large teal submit button" onClick={this.handleSubmit}>Create</button>
           </div>
-          
-          <div className="ui error message"></div>
-        
         </form>
-        
+  
         <div className="ui message">
           New to us? <a onClick={this.props.onPageToggle}>Sign Up</a>
         </div>
