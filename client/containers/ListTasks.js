@@ -58,14 +58,25 @@ const sortTree = ( items, sort ) => {
   } );
 };
 
+const filterTree = ( items, filter ) => {
+  let array = Array.from( items, v => Object.assign( {}, v ) );
+  
+  for ( let item of array ) {
+    if ( item.children.length )
+      item.children = filterTree( item.children, filter );
+  }
+
+  return array.filter( ( value ) => {
+    return value.name.indexOf( filter ) !== -1 || value.children.length > 0;
+  } );
+};
+
 const getTasks = ( tasks, filter, sort ) => {
-  let array = Array.from( tasks );
+  let array = Array.from( tasks, v => Object.assign( {}, v ) );
   
   sortTree( array, sort );
   
-  return array.filter( ( value ) => {
-    return value.name.indexOf( filter ) !== -1;
-  } );
+  return filterTree( array, filter );
 };
 
 const mapStateToProps = ( state ) => {
