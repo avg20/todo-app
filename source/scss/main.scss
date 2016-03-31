@@ -206,6 +206,7 @@ body {
 
   &__filter-buttons.buttons > button.button:not(:last-child) {
     border-radius: 0;
+    border-bottom: 1px solid transparent;
   }
 }
 .ui.form.top-line input {

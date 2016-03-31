@@ -80,7 +80,7 @@ const ShowTopBar = React.createClass( {
     return (
       <div className="ui form segment top-line">
         <div className="top-line__add-button">
-          <button type="submit" className="ui teal basic button" onClick={this.props.onClickCreateNew}>Add Task</button>
+          <button type="submit" className="ui teal basic icon button" onClick={this.props.onClickCreateNew}><i className="plus icon"/> Task</button>
         </div>
 
         <div className="top-line__filter ui left labeled left input">
