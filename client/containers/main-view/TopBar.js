@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import ShowTopBar from '../../components/ShowTopBar';
+import ShowTopBar from '../../components/main-view/ShowTopBar';
 import { addBlankTask, sortTasks, filterTasks } from '../../actions';
 
 const mapStateToProps = ( state ) => {

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import TaskForm from '../components/ShowTaskForm';
+import TaskForm from '../components/ShowTaskCard';
 import { addTask, saveTask, closeTask, deleteTask } from '../actions';
 
 const mapStateToProps = ( state ) => {

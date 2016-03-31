@@ -1,4 +1,4 @@
-/** client/components/ShowTopBar.js **/
+/** client/components/main-view/ShowTopBar.js **/
 
 import React from 'react';
 import SortField from './ShowSortField';

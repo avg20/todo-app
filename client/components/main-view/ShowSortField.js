@@ -1,4 +1,4 @@
-/** client/components/ShowSortField.js **/
+/** client/components/main-view/ShowSortField.js **/
 
 import React from 'react';
 

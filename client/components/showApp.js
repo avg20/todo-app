@@ -1,12 +1,12 @@
 /** client/components/App.js **/
 
 import React from 'react';
-import AddTask from '../containers/TaskCard';
+import TaskCard from '../containers/TaskCard';
 import ShowTasks from '../containers/Tasks';
-import TopBar from '../containers/TopBar';
+import TopBar from '../containers/main-view/TopBar';
 import Notify from '../helpers/Notify';
-import Auth from '../containers/Auth';
-import TopMenu from '../containers/TopMenu';
+import Auth from '../containers/auth/Auth';
+import TopMenu from '../containers/main-view/TopMenu';
 
 const App = React.createClass( {
   showMessages: function () {
@@ -44,7 +44,7 @@ const App = React.createClass( {
               <ShowTasks />
             </div>
             {
-              leftSide ? <div className="six wide column main__column"><AddTask /></div> : ""
+              leftSide ? <div className="six wide column main__column"><TaskCard /></div> : ""
             }
           </div>
         </div>

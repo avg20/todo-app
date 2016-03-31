@@ -1,9 +1,9 @@
-/** client/components/ShowLoginForm.js **/
+/** client/components/auth/ShowLoginForm.js **/
 
 import React from 'react';
-import ErrorMessage from '../helpers/ErrorMessage';
+import ErrorMessage from '../../helpers/ErrorMessage';
 
-const ShowSingupForm = React.createClass( {
+const ShowLoginForm = React.createClass( {
   getInitialState: function () {
     return {
       username: '',
@@ -30,10 +30,10 @@ const ShowSingupForm = React.createClass( {
       <div className="column">
         <h2 className="ui teal image header">
           <div className="content">
-            Create new account
+            Log-in to your account
           </div>
         </h2>
-        <form className={`ui ${this.props.isSending ? "loading" : ""} large form`}>
+        <form className="ui large form">
           <div className="ui stacked segment">
             <div className="field">
               <div className="ui left icon input">
@@ -47,18 +47,18 @@ const ShowSingupForm = React.createClass( {
                 <i className="lock icon"/>
                 <input onChange={this.handlePasswordChange} type="password" placeholder="Password" value={this.state.password}/>
               </div>
-              <Error text={this.props.errors['password']}/>
+              <ErrorMessage text={this.props.errors['password']}/>
             </div>
-            <ErrorMessage className="ui fluid large teal submit button" onClick={this.handleSubmit}>Create</ErrorMessage>
+            <button className="ui fluid large teal submit button" onClick={this.handleSubmit}>Create</button>
           </div>
         </form>
-        
+  
         <div className="ui message">
-          Have Account? <a onClick={this.props.onPageToggle}>Login</a>
+          New to us? <a onClick={this.props.onPageToggle}>Sign Up</a>
         </div>
       </div>
     );
   }
 } );
 
-export default ShowSingupForm;
+export default ShowLoginForm;

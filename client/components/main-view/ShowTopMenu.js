@@ -1,4 +1,4 @@
-/** client/components/ShowTopMenu.js **/
+/** client/components/main-view/ShowTopMenu.js **/
 
 import React from 'react';
 
