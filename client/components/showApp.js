@@ -6,12 +6,13 @@ import ShowTasks from '../containers/ListTasks';
 import TopBar from '../containers/TopBar';
 import Notify from '../helpers/Notify';
 import Auth from '../containers/Auth';
+import TopMenu from '../containers/TopMenu';
 
 const App = React.createClass( {
   showMessages: function () {
     if ( this.props.messages.length ) {
       const value = this.props.messages[ 0 ];
-  
+
       if ( value.type === 'success' )
         this.refs.notify.success( value.message, 0 );
       else
@@ -35,6 +36,7 @@ const App = React.createClass( {
     if ( this.props.isAuthorized ) {
       return (
         <div className="ui container main stackable divided grid">
+          <TopMenu/>
           <Notify ref="notify"/>
           <div className="row">
             <div className={`${leftSide ? "ten" : "sixteen"} wide column main__column`}>
