@@ -1,0 +1,92 @@
+/** Tasks **/
+.tasks {
+  .child {
+    margin-left: 38px;
+  }
+
+  &__task-box {
+    margin-bottom: 4px;
+  }
+}
+.ui.form {
+  .help-text.error {
+    text-align: left;
+    color: #FF3D00;
+    margin: 4px 0 0 0;
+    font-size: 0.8em;
+  }
+}
+.ui.tasks .task {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-flow: nowrap;
+  cursor: pointer;
+  margin-bottom: 4px;
+
+  &:hover {
+    background: #F8F8F8;
+  }
+
+  &__checkbox {
+    display: flex;
+    flex: 0 0 40px;
+  }
+
+  &__add-button {
+    display: flex;
+    flex: 0 0 40px;
+  }
+
+  &__name {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+
+  &__parent-indicator {
+    margin-left: 10px;
+  }
+
+  &__due-date {
+    display: flex;
+    flex: 0;
+    align-items: center;
+    justify-content: flex-end;
+    white-space: nowrap;
+
+    &--overdue {
+      background: #FFCCBC;
+    }
+  }
+
+  &--selected, &--selected:hover {
+    background: #FFFDE7;
+  }
+
+  &--completed, &--completed:hover {
+    background: #E0F2F1;
+
+    .task__name strong {
+      text-decoration: line-through;
+      color: #868686;
+    }
+  }
+
+  &__priority {
+    display: flex;
+    flex: 0;
+    font-size: 1.4em;
+    margin: 0 0 0 10px;
+    align-items: center;
+
+    &--high {
+      color: #FF3D00;
+    }
+    &--medium {
+      color: #FB8C00;
+    }
+    &--low {
+      color: #FDD835;
+    }
+  }
+}

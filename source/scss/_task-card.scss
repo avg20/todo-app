@@ -1,0 +1,81 @@
+/** Task Card **/
+.ui.task-card {
+  width: 100%;
+}
+.task-card .ui.input input {
+  border-color: #FFFFFF;
+  font-weight: bold;
+
+  &:hover, &:active {
+    border-color: #85B7D9;
+    color: rgba(0, 0, 0, .8);
+    box-shadow: none;
+  }
+}
+.task-card .field textarea {
+  border-color: #FFFFFF;
+  resize: none;
+
+  &:hover, &:active {
+    border-color: #85B7D9;
+    color: rgba(0, 0, 0, .8);
+    box-shadow: none;
+  }
+}
+.task-card {
+  &__priority-flag {
+    &--high {
+      color: #FF3D00;
+    }
+    &--medium {
+      color: #FB8C00;
+    }
+    &--low {
+      color: #FDD835;
+    }
+  }
+
+  &__top-line, &__bottom-line {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-flow: nowrap;
+  }
+
+  &__button-line {
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__top-input {
+    display: flex;
+    flex: 1;
+    align-self: flex-start;
+
+    margin: 0 10px 0 0;
+  }
+
+  &__submit-button {
+    display: flex;
+    flex: 1;
+    align-self: flex-start;
+  }
+
+  &__priority-flag, &__close-button, &__datepicker, &__remove-button {
+    display: flex;
+    flex: 0;
+    align-self: flex-end;
+    margin: 0 6px;
+
+    white-space: nowrap;
+  }
+}
+/** Datepicker **/
+.ui.calendar.task-card__datepicker > label {
+  margin-right: .85714286em;
+  white-space: nowrap;
+  line-height: 37px;
+}
+.ui.form .ui.calendar.task-card__datepicker > input {
+  width: 110px;
+}

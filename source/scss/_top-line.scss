@@ -1,0 +1,54 @@
+/** Top Line **/
+.ui.top-line {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-flow: nowrap;
+  justify-content: space-between;
+
+  &__add-button {
+    display: flex;
+    flex: 0;
+
+    white-space: nowrap;
+  }
+
+  &__filter {
+    display: flex;
+    flex: 1;
+    margin: 0 20px;
+
+    white-space: nowrap;
+  }
+
+  &__sort-wrapper {
+    display: flex;
+    flex: 0;
+
+    white-space: nowrap;
+  }
+
+  &__filter-buttons.buttons > button.button:not(:last-child) {
+    border-radius: 0;
+    border-bottom: 1px solid transparent;
+  }
+}
+.ui.form.top-line input {
+  width: auto;
+}
+.sort-wrapper {
+  &__label {
+    vertical-align: baseline;
+    font-size: .92857143em;
+    font-weight: 700;
+
+    height: 36px;
+    line-height: 36px;
+
+    margin: 0 10px 0 0;
+  }
+
+  &__dropdown {
+    height: 36px;
+    line-height: 36px;
+  }
+}
