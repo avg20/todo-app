@@ -7,6 +7,24 @@ import TopBar from '../containers/TopBar';
 import Notify from '../helpers/Notify';
 
 const App = React.createClass( {
+  showMessages: function () {
+    if ( this.props.messages.length ) {
+      this.props.messages.forEach( ( value ) => {
+        
+        this.refs.notify.error( value.message, 0 );
+        this.props.onMessageDisplayed( value._id );
+      } );
+    }
+  },
+  
+  componentDidMount: function () {
+    this.showMessages();
+  },
+  
+  componentDidUpdate: function () {
+    this.showMessages();
+  },
+
   render: function () {
     const leftSide = this.props.isSelected;
 
