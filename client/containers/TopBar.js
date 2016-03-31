@@ -22,8 +22,11 @@ const mapDispatchToProps = ( dispatch ) => {
         dispatch( sortTasks( field, val ) );
       };
     },
-    onFilterType:     ( val ) => {
-      dispatch( filterTasks( val ) );
+    onFilterName:     ( val ) => {
+      dispatch( filterTasks( "name", val ) );
+    },
+    onFilterStatus:   ( val ) => {
+      dispatch( filterTasks( "status", val ) );
     }
   }
 };

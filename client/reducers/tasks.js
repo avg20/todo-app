@@ -16,7 +16,7 @@ const getInitState = () => {
     isFetching: false,
     isFailed:   false,
     sort:       { field: 'name', val: 1 },
-    filter:     '',
+    filter:     { type: 'name', val: '' },
     items:      [],
     tree:       []
   };
@@ -96,10 +96,10 @@ const tasks = ( state = getInitState(), action ) => {
       return Object.assign( {}, state, {
         sort: { field: action.field, val: action.val }
       } );
-  
+
     case FILTER_TASKS:
       return Object.assign( {}, state, {
-        filter: action.val
+        filter: { type: action.filterType, val: action.val }
       } );
   
     default:

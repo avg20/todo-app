@@ -176,7 +176,7 @@ body {
   width: 110px;
 }
 /** Top Line **/
-.top-line {
+.ui.top-line {
   display: flex;
   flex-wrap: nowrap;
   flex-flow: nowrap;
@@ -202,6 +202,10 @@ body {
     flex: 0;
 
     white-space: nowrap;
+  }
+
+  &__filter-buttons.buttons > button.button:not(:last-child) {
+    border-radius: 0;
   }
 }
 .ui.form.top-line input {

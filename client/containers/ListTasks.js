@@ -43,6 +43,18 @@ const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, on
     </div>
   );
 };
+const filterItem = ( item, filter ) => {
+  switch ( filter.type ) {
+    case 'name':
+      return item.name.indexOf( filter.val ) !== -1;
+    
+    case 'status':
+      return filter.val == 0 || item.status == filter.val;
+    
+    default:
+      return false;
+  }
+};
 
 const sortTree = ( items, sort ) => {
   for ( let item of items ) {
@@ -72,7 +84,7 @@ const filterTree = ( items, filter ) => {
   }
   
   return array.filter( ( value ) => {
-    return value.name.indexOf( filter ) !== -1 || value.children.length > 0;
+    return filterItem( value, filter ) || value.children.length > 0;
   } );
 };
 

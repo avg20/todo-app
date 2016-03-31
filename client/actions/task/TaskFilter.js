@@ -3,16 +3,17 @@
 import { FILTER_TASKS } from '../../constants';
 import { fetchTasks } from '../TasksFetch';
 
-export const setFilter = ( val ) => {
+export const setFilter = ( type, val ) => {
   return {
-    type: FILTER_TASKS,
-    val:  val
+    type:       FILTER_TASKS,
+    filterType: type,
+    val:        val
   }
 };
 
-export function filterTasks( val ) {
+export function filterTasks( type, val ) {
   return ( dispatch ) => {
-    dispatch( setFilter( val ) );
+    dispatch( setFilter( type, val ) );
     //dispatch( fetchTasks() );
   }
 }
