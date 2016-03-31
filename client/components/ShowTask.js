@@ -23,6 +23,9 @@ const Task = React.createClass( {
   getTaskClass: function () {
     if ( this.props._id == this.props.activeItem._id )
       return "ui segment task task--selected";
+  
+    if ( this.props.status === 2 )
+      return "ui segment task task--completed";
     
     return "ui segment task";
   },
@@ -32,7 +35,7 @@ const Task = React.createClass( {
       case 2:
         return (
           <button onClick={this.handleButtonClick} className="circular mini ui icon green basic button">
-            <i className="checkmark icon"/>
+            <i className="minus icon"/>
           </button>
         );
       
@@ -82,8 +85,8 @@ const Task = React.createClass( {
             {this.getStatusButton()}
           </div>
           <div className="task__add-button" onClick={this.handleAddButtonClick}>
-            <button className="circular mini ui icon green basic button">
-              <i className="plus icon"/>
+            <button className="circular mini ui icon blue basic button">
+              <i className="arrow down icon"/>
             </button>
           </div>
           <div className="task__name">

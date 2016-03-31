@@ -31,14 +31,6 @@ body {
     background: #F8F8F8;
   }
 
-  &--selected {
-    background: #E0F2F1;
-
-    &:hover {
-      background: #E0F2F1;
-    }
-  }
-
   &__checkbox {
     display: flex;
     flex: 0 0 40px;
@@ -68,6 +60,19 @@ body {
 
     &--overdue {
       background: #FFCCBC;
+    }
+  }
+
+  &--selected, &--selected:hover {
+    background: #FFFDE7;
+  }
+
+  &--completed, &--completed:hover {
+    background: #E0F2F1;
+
+    .task__name strong {
+      text-decoration: line-through;
+      color: #868686;
     }
   }
 
