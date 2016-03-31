@@ -9,3 +9,4 @@ export * from './task/TaskSave';
 export * from './task/TaskSort';
 export * from './task/TaskFilter';
 export * from './tasks';
+export * from './auth';

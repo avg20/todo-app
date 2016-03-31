@@ -5,6 +5,7 @@ import AddTask from '../containers/AddTask';
 import ShowTasks from '../containers/ListTasks';
 import TopBar from '../containers/TopBar';
 import Notify from '../helpers/Notify';
+import Auth from '../containers/Auth';
 
 const App = React.createClass( {
   showMessages: function () {
@@ -24,24 +25,31 @@ const App = React.createClass( {
   componentDidUpdate: function () {
     this.showMessages();
   },
-
+  
   render: function () {
     const leftSide = this.props.isSelected;
-
-    return (
-      <div className="ui container main stackable divided grid">
-        <Notify ref="notify"/>
-        <div className="row">
-          <div className={`${leftSide ? "ten" : "sixteen"} wide column main__column`}>
-            <TopBar />
-            <ShowTasks />
+    
+    if ( this.props.isAuthorized ) {
+      return (
+        <div className="ui container main stackable divided grid">
+          <Notify ref="notify"/>
+          <div className="row">
+            <div className={`${leftSide ? "ten" : "sixteen"} wide column main__column`}>
+              <TopBar />
+              <ShowTasks />
+            </div>
+            {
+              leftSide ? <div className="six wide column main__column"><AddTask /></div> : ""
+            }
           </div>
-          {
-            leftSide ? <div className="six wide column main__column"><AddTask /></div> : ""
-          }
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <Auth />
+      );
+    }
+
   }
 } );
 

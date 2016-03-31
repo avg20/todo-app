@@ -2,10 +2,12 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import ShowLoginForm from '../components/ShowLoginForm';
+import ShowAuth from '../components/ShowAuth';
 
 const mapStateToProps = ( state ) => {
-  return {}
+  return {
+    page: state.auth.page
+  }
 };
 
 const mapDispatchToProps = ( dispatch ) => {
@@ -15,4 +17,4 @@ const mapDispatchToProps = ( dispatch ) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)( ShowLoginForm );
+)( ShowAuth );

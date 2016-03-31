@@ -7,9 +7,10 @@ import { messageDisplayed } from '../actions';
 
 const mapStateToProps = ( state ) => {
   return {
-    isSelected: state.activeTask.isSelected,
-    item:       state.activeTask.item,
-    messages:   state.messages.items
+    isSelected:   state.activeTask.isSelected,
+    item:         state.activeTask.item,
+    messages:     state.messages.items,
+    isAuthorized: state.auth.isAuthorized
   }
 };
 

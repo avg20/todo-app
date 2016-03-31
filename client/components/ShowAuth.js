@@ -1,40 +1,29 @@
 /** client/components/ShowAuth.js **/
 
 import React from 'react';
+import LoginForm from '../containers/LoginForm';
+import SignupForm from '../containers/SignupForm';
 
 const ShowLoginForm = React.createClass( {
+  componentDidMount: function () {
+    document.querySelector( 'body' ).classList.add( 'auth' );
+  },
+  
+  componentWillUnmount: function () {
+    document.querySelector( 'body' ).classList.remove( 'auth' );
+  },
+  
   render: function () {
+    let content;
+  
+    if ( this.props.page === 'login' )
+      content = <LoginForm/>;
+    else
+      content = <SignupForm/>;
+    
     return (
-      <div className="">
-        <h2 className="ui teal image header">
-          <div className="content">
-            Log-in to your account
-          </div>
-        </h2>
-        <form className="ui large form">
-          <div className="ui stacked segment">
-            <div className="field">
-              <div className="ui left icon input">
-                <i className="user icon"/>
-                <input type="text" name="email" placeholder="E-mail address"/>
-              </div>
-            </div>
-            <div className="field">
-              <div className="ui left icon input">
-                <i className="lock icon"/>
-                <input type="password" name="password" placeholder="Password"/>
-              </div>
-            </div>
-            <div className="ui fluid large teal submit button">Login</div>
-          </div>
-          
-          <div className="ui error message"></div>
-        
-        </form>
-        
-        <div className="ui message">
-          New to us? <a href="#">Sign Up</a>
-        </div>
+      <div className="ui middle aligned center aligned grid">
+        {content}
       </div>
     );
   }
