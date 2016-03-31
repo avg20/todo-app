@@ -1,15 +1,7 @@
 /** client/components/ShowLoginForm.js **/
 
 import React from 'react';
-
-const Error = React.createClass( {
-  render: function () {
-    if ( this.props.text )
-      return <div className="help-text error">{this.props.text}</div>;
-    else
-      return null;
-  }
-} );
+import ErrorMessage from '../helpers/ErrorMessage';
 
 const ShowLoginForm = React.createClass( {
   getInitialState: function () {
@@ -48,14 +40,14 @@ const ShowLoginForm = React.createClass( {
                 <i className="user icon"/>
                 <input onChange={this.handleUsernameChange} type="text" placeholder="Username" value={this.state.username}/>
               </div>
-              <Error text={this.props.errors['username']}/>
+              <ErrorMessage text={this.props.errors['username']}/>
             </div>
             <div className="field">
               <div className="ui left icon input">
                 <i className="lock icon"/>
                 <input onChange={this.handlePasswordChange} type="password" placeholder="Password" value={this.state.password}/>
               </div>
-              <Error text={this.props.errors['password']}/>
+              <ErrorMessage text={this.props.errors['password']}/>
             </div>
             <button className="ui fluid large teal submit button" onClick={this.handleSubmit}>Create</button>
           </div>
