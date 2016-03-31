@@ -36,13 +36,6 @@ const Task = React.createClass( {
           </button>
         );
       
-      case 3:
-        return (
-          <button onClick={this.handleButtonClick} className="circular mini ui icon red basic button">
-            <i className="icon"/>
-          </button>
-        );
-      
       default:
         return (
           <button onClick={this.handleButtonClick} className="circular mini ui icon basic button">
@@ -54,8 +47,8 @@ const Task = React.createClass( {
   
   handleButtonClick: function ( e ) {
     e.stopPropagation();
-
-    console.log( "click only button" );
+  
+    this.props.onStatusClick( this.props._id );
   },
   
   handleAddButtonClick: function ( e ) {
@@ -78,6 +71,7 @@ const Task = React.createClass( {
       <Task className="child"
             onClick={this.props.onClick}
             onAddClick={this.props.onAddClick}
+            onStatusClick={this.props.onStatusClick}
             activeItem={this.props.activeItem}
             key={task._id} {...task}/> );
 

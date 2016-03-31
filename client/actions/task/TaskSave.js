@@ -15,14 +15,15 @@ export const saveTaskFailure = ( errors ) => {
   }
 };
 
-export const saveTaskSuccess = ( task ) => {
+export const saveTaskSuccess = ( task, toggled ) => {
   return {
-    type: SAVE_TASK_SUCCESS,
-    task: task
+    type:    SAVE_TASK_SUCCESS,
+    task:    task,
+    toggled: toggled
   }
 };
 
-export function saveTask( data ) {
+export function saveTask( data, toggled = false ) {
   return ( dispatch ) => {
     dispatch( saveTaskRequest() );
     
@@ -39,7 +40,7 @@ export function saveTask( data ) {
       .then( ( json ) => {
         console.log( json );
         if ( json.status === 'success' ) {
-          dispatch( saveTaskSuccess( json.task ) );
+          dispatch( saveTaskSuccess( json.task, toggled ) );
         } else
           dispatch( saveTaskFailure( json.errors ) );
       } );

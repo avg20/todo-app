@@ -33,7 +33,7 @@ const activeTask = ( state = getInitState(), action ) => {
           priority:    1
         }
       } );
-  
+
     case ADD_CHILD_TASK:
       return Object.assign( {}, state, {
         isSelected: true,
@@ -46,9 +46,12 @@ const activeTask = ( state = getInitState(), action ) => {
       } );
 
     case SAVE_TASK_SUCCESS:
-      return Object.assign( {}, state, {
-        item: action.task
-      } );
+      if ( action.toggled )
+        return state;
+      else
+        return Object.assign( {}, state, {
+          item: action.task
+        } );
     
     default:
       return state

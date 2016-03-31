@@ -3,9 +3,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Task from '../components/ShowTask';
-import { fetchTasks, addChildTask, selectTask } from '../actions';
+import { fetchTasks, addChildTask, selectTask, taskStatusToggle } from '../actions';
 
-const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, onTaskClick, onAddTaskClick } ) => {
+const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, onTaskClick, onAddTaskClick, onTaskStatusToggle } ) => {
   if ( isFailed )
     return (
       <div className="ui center aligned segment">
@@ -23,10 +23,11 @@ const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, on
   let tasksCode = tasks.map( ( task ) =>
     <Task className="tasks__task-box"
           onAddClick={onAddTaskClick}
+          onStatusClick={onTaskStatusToggle}
           onClick={onTaskClick}
           activeItem={activeItem}
           key={task._id} {...task}/> );
-
+  
   return (
     <div className="ui tasks">
       {tasksCode}
@@ -69,7 +70,7 @@ const filterTree = ( items, filter ) => {
     if ( item.children.length )
       item.children = filterTree( item.children, filter );
   }
-
+  
   return array.filter( ( value ) => {
     return value.name.indexOf( filter ) !== -1 || value.children.length > 0;
   } );
@@ -94,14 +95,17 @@ const mapStateToProps = ( state ) => {
 
 const mapDispatchToProps = ( dispatch ) => {
   return {
-    onTasksReload:  () => {
+    onTasksReload:      () => {
       dispatch( fetchTasks() )
     },
-    onTaskClick:    ( item ) => {
+    onTaskClick:        ( item ) => {
       dispatch( selectTask( item ) );
     },
-    onAddTaskClick: ( parent ) => {
+    onAddTaskClick:     ( parent ) => {
       dispatch( addChildTask( parent ) );
+    },
+    onTaskStatusToggle: ( item ) => {
+      dispatch( taskStatusToggle( item ) );
     }
   }
 };
