@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Task from '../components/ShowTask';
 import { fetchTasks, addChildTask, selectTask } from '../actions';
 
-const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, onTaskClick, onAddTaskClikc } ) => {
+const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, onTaskClick, onAddTaskClick } ) => {
   if ( isFailed )
     return (
       <div className="ui center aligned segment">
@@ -22,7 +22,7 @@ const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, on
   
   let tasksCode = tasks.map( ( task ) =>
     <Task className="tasks__task-box"
-          onAddClick={onAddTaskClikc}
+          onAddClick={onAddTaskClick}
           onClick={onTaskClick}
           activeItem={activeItem}
           key={task._id} {...task}/> );
@@ -100,7 +100,7 @@ const mapDispatchToProps = ( dispatch ) => {
     onTaskClick:    ( item ) => {
       dispatch( selectTask( item ) );
     },
-    onAddTaskClikc: ( parent ) => {
+    onAddTaskClick: ( parent ) => {
       dispatch( addChildTask( parent ) );
     }
   }
