@@ -46,7 +46,7 @@ describe( 'User routes', function () {
 
   describe( '/users/#post', function () {
     it( 'should save user correctly', function ( done ) {
-      routes.addUser( { body: { username: 'test', password: '1111' } }, {
+      routes.addUser( { body: JSON.stringify( { username: 'test', password: '1111' } ) }, {
         json: ( obj ) => {
           expect( obj.status ).to.equal( 'success' );
 
@@ -68,12 +68,14 @@ describe( 'User routes', function () {
     } );
 
     it( 'should ask for username and password', function ( done ) {
-      routes.addUser( { body: {} }, {
+      routes.addUser( { body: JSON.stringify( {} ) }, {
         json: ( obj ) => {
           expect( obj ).to.deep.equal( {
             status: 'error',
-            errors: [ { field: 'password', message: 'Path `password` is required.' },
-              { field: 'username', message: 'Path `username` is required.' } ]
+            errors: {
+              password: 'Path `password` is required.',
+              username: 'Path `username` is required.'
+            }
           } );
           done();
         }
@@ -83,12 +85,14 @@ describe( 'User routes', function () {
     it( 'should catch duplicate username', function ( done ) {
       new User( { username: 'test', password: '1111' } ).save( ( err, model ) => {
         if ( err ) throw err;
-
-        routes.addUser( { body: { username: 'test', password: '1111' } }, {
+  
+        routes.addUser( { body: JSON.stringify( { username: 'test', password: '1111' } ) }, {
           json: ( obj ) => {
             expect( obj ).to.deep.equal( {
               status: 'error',
-              errors: [ { field: 'username', message: 'Such `username` already exist' } ]
+              errors: {
+                username: 'Such `username` already exist'
+              }
             } );
             done();
           }
@@ -101,8 +105,8 @@ describe( 'User routes', function () {
     it( 'should login correctly', function ( done ) {
       new User( { username: 'test', password: '1111' } ).save( ( err ) => {
         if ( err ) throw err;
-
-        routes.loginUser( { body: { username: 'test', password: '1111' } }, {
+  
+        routes.loginUser( { body: JSON.stringify( { username: 'test', password: '1111' } ) }, {
           json: ( obj ) => {
             expect( obj.status ).to.equal( 'success' );
             expect( obj.access_token ).to.be.a( 'string' );
@@ -116,12 +120,14 @@ describe( 'User routes', function () {
     it( 'should fail to find user', function ( done ) {
       new User( { username: 'test', password: '1111' } ).save( ( err ) => {
         if ( err ) throw err;
-
-        routes.loginUser( { body: { username: 'testtest', password: '1111' } }, {
+  
+        routes.loginUser( { body: JSON.stringify( { username: 'testtest', password: '1111' } ) }, {
           json: ( obj ) => {
             expect( obj ).to.deep.equal( {
               status: 'error',
-              errors: [ { field: 'username', message: 'User not found' } ]
+              errors: {
+                username: 'User not found'
+              }
             } );
 
             done();
@@ -133,12 +139,14 @@ describe( 'User routes', function () {
     it( 'should fail to compare user password', function ( done ) {
       new User( { username: 'test', password: '1111' } ).save( ( err ) => {
         if ( err ) throw err;
-
-        routes.loginUser( { body: { username: 'test', password: '2222' } }, {
+  
+        routes.loginUser( { body: JSON.stringify( { username: 'test', password: '2222' } ) }, {
           json: ( obj ) => {
             expect( obj ).to.deep.equal( {
               status: 'error',
-              errors: [ { field: 'password', message: 'Not valid password' } ]
+              errors: {
+                password: 'Not valid password'
+              }
             } );
 
             done();

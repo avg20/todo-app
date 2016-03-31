@@ -7,9 +7,9 @@ const moment = require( 'moment' );
 const dbURI = 'mongodb://localhost:27017/' + dbId;
 const Task = require( '../../server/models/task' );
 const User = require( '../../server/models/user' );
-require( 'mocha-mongoose' )( dbURI );
 const routes = require( '../../server/router/routes/task' );
 const auth = require( '../../server/auth' );
+require( 'mocha-mongoose' )( dbURI );
 
 const initAuth = ( done ) => {
   new User( { username: 'test', password: '1111' } ).save( ( err, model ) => {
@@ -34,10 +34,10 @@ describe( 'Task routes', function () {
   describe( '/tasks/#get', function () {
     it( 'should find one task', function ( done ) {
       new Task( {
-        name       : 'New Task',
+        name:        'New Task',
         description: 'Description of new task',
-        due_date   : moment().add( 3, 'days' ).valueOf(),
-        user_id    : auth.user
+        due_date:    moment().add( 3, 'days' ).valueOf(),
+        user_id:     auth.user
       } ).save( ( err ) => {
         if ( err )throw err;
 
@@ -64,16 +64,15 @@ describe( 'Task routes', function () {
     } );
   } );
 
-
   describe( '/tasks/#post', function () {
     it( 'should add new task without errors', function ( done ) {
       routes.addTask( {
-        body: {
-          name       : 'New Task',
+        body: JSON.stringify( {
+          name:        'New Task',
           description: 'Description of new task',
-          due_date   : moment().add( 3, 'days' ).valueOf(),
-          user_id    : auth.user
-        }
+          due_date:    moment().add( 3, 'days' ).valueOf(),
+          user_id:     auth.user
+        } )
       }, {
         json: ( obj ) => {
           expect( obj.status ).to.equal( 'success' );
@@ -82,16 +81,65 @@ describe( 'Task routes', function () {
         }
       } );
     } );
-
-    it( 'should fail adding task with errors', function ( done ) {
-      routes.addTask( {}, {
-        json: ( obj ) => {
-          expect( obj.status ).to.equal( 'error' );
-          expect( obj.errors.length ).to.equal( 3 );
-
-          done();
-        }
+  } );
+  
+  describe( '/tasks/:id#post', function () {
+    it( 'should update task without errors', function ( done ) {
+      new Task( {
+        name:    'New Task',
+        user_id: auth.user
+      } ).save( ( err, model ) => {
+        if ( err )throw err;
+        
+        routes.updateTask( {
+          params: { id: model._id },
+          body:   JSON.stringify( {
+            name:    'New Task 1',
+            user_id: auth.user
+          } )
+        }, {
+          json: ( obj ) => {
+            expect( obj.status ).to.equal( 'success' );
+            
+            Task.findOne( { _id: model._id }, ( err, task ) => {
+              if ( err ) throw err;
+              
+              expect( task.name ).to.equal( 'New Task 1' );
+              
+              done();
+            } );
+          }
+        } );
       } );
+      
+    } );
+  } );
+  
+  describe( '/tasks/:id#delete', function () {
+    it( 'should delete task without errors', function ( done ) {
+      new Task( {
+        name:    'New Task',
+        user_id: auth.user
+      } ).save( ( err, model ) => {
+        if ( err )throw err;
+        
+        routes.deleteTask( {
+          params: { id: model._id }
+        }, {
+          json: ( obj ) => {
+            expect( obj.status ).to.equal( 'success' );
+            
+            Task.count( {}, ( err, count ) => {
+              if ( err ) throw err;
+              
+              expect( count ).to.equal( 0 );
+              
+              done();
+            } );
+          }
+        } );
+      } );
+
     } );
   } );
 } );

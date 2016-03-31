@@ -6,3 +6,4 @@ require( './models/model-user' );
 
 /** Test Routes **/
 require( './routes/routes-user' );
+require( './routes/routes-task' );
