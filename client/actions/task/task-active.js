@@ -1,4 +1,4 @@
-/** client/actions/task/addTask.js **/
+/** client/actions/task/task-active.js **/
 
 import { SELECT_TASK, CLOSE_TASK, ADD_BLANK_TASK, ADD_CHILD_TASK } from '../../constants';
 

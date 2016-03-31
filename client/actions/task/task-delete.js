@@ -1,4 +1,4 @@
-/** client/actions/task/deleteTask.js **/
+/** client/actions/task/task-delete.js **/
 
 import { DELETE_TASK_REQUEST, DELETE_TASK_FAILURE, DELETE_TASK_SUCCESS } from '../../constants';
 

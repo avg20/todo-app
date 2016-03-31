@@ -1,4 +1,4 @@
-/** client/actions/task/addTask.js **/
+/** client/actions/task/task-add.js **/
 
 import { ADD_TASK_REQUEST, ADD_TASK_FAILURE, ADD_TASK_SUCCESS } from '../../constants';
 
