@@ -43,6 +43,7 @@ const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, on
     </div>
   );
 };
+
 const filterItem = ( item, filter ) => {
   switch ( filter.type ) {
     case 'name':
@@ -101,7 +102,7 @@ const mapStateToProps = ( state ) => {
     tasks:      getTasks( state.tasks.tree, state.tasks.filter, state.tasks.sort ),
     isFetching: state.tasks.isFetching,
     isFailed:   state.tasks.isFailed,
-    activeItem: state.activeTask.item
+    activeItem: state.task_card.item
   }
 };
 

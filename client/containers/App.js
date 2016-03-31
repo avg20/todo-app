@@ -7,8 +7,8 @@ import { messagesDisplayed } from '../actions';
 
 const mapStateToProps = ( state ) => {
   return {
-    isSelected:   state.activeTask.isSelected,
-    item:         state.activeTask.item,
+    isSelected:   state.task_card.isSelected,
+    item:         state.task_card.item,
     messages:     state.messages.items,
     isAuthorized: state.auth.isAuthorized
   }

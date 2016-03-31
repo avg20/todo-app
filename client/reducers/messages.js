@@ -1,4 +1,4 @@
-/** client/reducers/tasks.js **/
+/** client/reducers/messages.js **/
 
 import { FETCH_MESSAGES_SUCCESS, MESSAGES_DISPLAYED, ADD_USER_SUCCESS } from '../constants';
 
@@ -8,7 +8,7 @@ const getInitState = () => {
   };
 };
 
-const tasks = ( state = getInitState(), action ) => {
+const messages = ( state = getInitState(), action ) => {
   switch ( action.type ) {
     case FETCH_MESSAGES_SUCCESS:
       return Object.assign( {}, state, {
@@ -30,4 +30,4 @@ const tasks = ( state = getInitState(), action ) => {
   }
 };
 
-export default tasks;
+export default messages;

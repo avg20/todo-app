@@ -7,10 +7,10 @@ import { addTask, saveTask, closeTask, deleteTask } from '../actions';
 
 const mapStateToProps = ( state ) => {
   return {
-    item:      state.activeTask.item || {},
-    errors:    state.addForm.errors,
-    isSending: state.addForm.isSending,
-    isFailed:  state.addForm.isFailed
+    item:      state.task_card.item || {},
+    errors:    state.task_card.errors,
+    isSending: state.task_card.isSending,
+    isFailed:  state.task_card.isFailed
   }
 };
 
