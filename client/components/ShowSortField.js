@@ -34,15 +34,11 @@ const SortField = React.createClass( {
   },
   
   render: function () {
-    let activeText;
     let list = this.getSorts().map( ( value )=> {
       const isActive = (value.field == this.props.sort.field && value.val == this.props.sort.val);
       const itemKey = `${value.val == -1 ? "-" : ""}${value.field}`;
       const direction = value.val == 1 ? "ascending" : "descending";
-      
-      if ( isActive )
-        activeText = <span className="text"><i className={`sort content ${direction} icon`}> </i> {value.text}</span>;
-      
+
       return (
         <div key={itemKey}
              className={"item " + (isActive ? "selected active":"")}
@@ -56,7 +52,7 @@ const SortField = React.createClass( {
       <div>
         <label className="sort-wrapper__label">Sort by: </label>
         <div className="sort-wrapper__dropdown ui top right pointing dropdown" ref="sortPopup">
-          {activeText}
+          <span className="text"><i className="sort content ascending  icon"/> Name</span>
           <div className="menu">
             {list}
           </div>
