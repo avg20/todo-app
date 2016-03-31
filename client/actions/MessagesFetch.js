@@ -31,10 +31,11 @@ export const messageDisplayed = ( id ) => {
 };
 
 export function fetchMessages() {
-  return ( dispatch ) => {
+  return ( dispatch, getState ) => {
     dispatch( fetchMessagesRequest() );
+    const { auth } = getState();
     
-    return fetch( `http://localhost:3000/messages?token=58bfb4aec2c5f5263c2d71273d2e7b70c0679b93322c7069cebc99f8f678eb59` )
+    return fetch( `http://localhost:3000/messages?token=${auth.access_token}` )
       .then( ( response ) => {
         if ( !response.ok )
           return { status: 'error', error: response.statusText };
