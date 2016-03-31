@@ -22,9 +22,9 @@ let store = createStore(
 
 store.dispatch( fetchTasks() );
 
-//setInterval( ()=> {
-store.dispatch( fetchMessages() );
-//}, 10 * 1000 );
+setInterval( ()=> {
+  store.dispatch( fetchMessages() );
+}, 10 * 1000 );
 
 render(
   <Provider store={store}>

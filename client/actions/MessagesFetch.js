@@ -1,6 +1,6 @@
 /** client/actions/fetchMessages.js **/
 
-import { FETCH_MESSAGES_REQUEST, FETCH_MESSAGES_FAILURE, FETCH_MESSAGES_SUCCESS } from '../constants';
+import { FETCH_MESSAGES_REQUEST, FETCH_MESSAGES_FAILURE, FETCH_MESSAGES_SUCCESS, MESSAGE_DISPLAYED } from '../constants';
 
 export const fetchMessagesRequest = () => {
   return {
@@ -15,11 +15,18 @@ export const fetchMessagesFailure = ( error ) => {
   }
 };
 
-export const fetchMessagesSuccess = ( tasks ) => {
+export const fetchMessagesSuccess = ( answer ) => {
   return {
-    type:  FETCH_MESSAGES_SUCCESS,
-    tasks: tasks
+    type:     FETCH_MESSAGES_SUCCESS,
+    messages: answer.messages
   }
+};
+
+export const messageDisplayed = ( id ) => {
+  return {
+    type: MESSAGE_DISPLAYED,
+    id:   id
+  };
 };
 
 export function fetchMessages() {
