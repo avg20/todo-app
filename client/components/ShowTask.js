@@ -55,31 +55,40 @@ const Task = React.createClass( {
   
   handleButtonClick: function ( e ) {
     e.stopPropagation();
-  
+
     console.log( "click only button" );
   },
   
   handleTaskClick: function ( e ) {
+    console.log( 'handled' );
     this.props.onClick( this.props );
   },
   
   render: function () {
     return (
-      <div className={this.getTaskClass()} onClick={this.handleTaskClick}>
-        <div className="task__checkbox">
-          {this.getStatusButton()}
-        </div>
-        <div className="task__name">
-          <strong>{this.props.name}</strong>
-        </div>
-        <div className="task__due-date">
-          <div className={`${this.props.overdue ? "task__due-date--overdue" : ""} ui label`}>
-            <i className="calendar icon"/> Due to {moment( this.props.due_date ).calendar()}
+      <div className={this.props.className}>
+        <div className={this.getTaskClass()} onClick={this.handleTaskClick}>
+          <div className="task__checkbox">
+            {this.getStatusButton()}
+          </div>
+          <div className="task__name">
+            <strong>{this.props.name}</strong>
+          </div>
+          <div className="task__due-date">
+            <div className={`${this.props.overdue ? "task__due-date--overdue" : ""} ui label`}>
+              <i className="calendar icon"/> Due to {moment( this.props.due_date ).calendar()}
+            </div>
+          </div>
+          <div className={this.getPriorityIconClass()}>
+            <i className="star icon"/>
           </div>
         </div>
-        <div className={this.getPriorityIconClass()}>
-          <i className="star icon"/>
-        </div>
+        {
+          this.props.children.map( ( task ) => <Task className="child"
+                                                     onClick={this.props.onClick}
+                                                     activeItem={this.props.activeItem}
+                                                     key={task._id} {...task}/> )
+        }
       </div>
     );
     // <i className="checkmark icon"/>

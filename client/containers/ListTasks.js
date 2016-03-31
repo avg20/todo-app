@@ -20,11 +20,11 @@ const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, on
         <strong>No Tasks found</strong>
       </div>
     );
-  
+
   return (
-    <div className="ui pointing raised segments tasks">
+    <div className="ui tasks">
       {
-        tasks.map( ( task ) => <Task onClick={onTaskClick} activeItem={activeItem} key={task._id} {...task}/> )
+        tasks.map( ( task ) => <Task className="tasks__task-box" onClick={onTaskClick} activeItem={activeItem} key={task._id} {...task}/> )
       }
       {
         isFetching && (
@@ -39,10 +39,13 @@ const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, on
   );
 };
 
-const getTasks = ( tasks, filter, sort ) => {
-  let array = Array.from( tasks );
+const sortTree = ( items, sort ) => {
+  for ( let item of items ) {
+    if ( item.children.length )
+      sortTree( item.children, sort );
+  }
   
-  array.sort( ( a, b ) => {
+  items.sort( ( a, b ) => {
     let result = 1;
     
     if ( typeof a[ sort.field ] === 'string' )
@@ -53,6 +56,12 @@ const getTasks = ( tasks, filter, sort ) => {
     
     return result * sort.val;
   } );
+};
+
+const getTasks = ( tasks, filter, sort ) => {
+  let array = Array.from( tasks );
+  
+  sortTree( array, sort );
   
   return array.filter( ( value ) => {
     return value.name.indexOf( filter ) !== -1;
@@ -61,7 +70,7 @@ const getTasks = ( tasks, filter, sort ) => {
 
 const mapStateToProps = ( state ) => {
   return {
-    tasks:      getTasks( state.tasks.items, state.tasks.filter, state.tasks.sort ),
+    tasks:      getTasks( state.tasks.tree, state.tasks.filter, state.tasks.sort ),
     isFetching: state.tasks.isFetching,
     isFailed:   state.tasks.isFailed,
     activeItem: state.activeTask.item

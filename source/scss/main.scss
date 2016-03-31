@@ -7,17 +7,28 @@ body {
 }
 /** Tasks **/
 .tasks {
-  background: #FFFFFF;
+  /*background: #FFFFFF;*/
+
+  .child {
+    margin-left: 38px;
+  }
+
+  &__task-box {
+    margin-bottom: 4px;
+  }
 }
 /** Task **/
-.ui .task {
+.ui.tasks .task {
   display: flex;
   flex-wrap: nowrap;
   flex-flow: nowrap;
   cursor: pointer;
+  margin-bottom: 4px;
+  /*border: none;
+  box-shadow: none;*/
 
   &:hover {
-    background: rgba(239, 239, 239, 0.4);
+    background: #F8F8F8;
   }
 
   &--selected {
@@ -146,6 +157,9 @@ body {
   margin-right: .85714286em;
   white-space: nowrap;
   line-height: 37px;
+}
+.ui.form .ui.calendar.task-card__datepicker > input {
+  width: 110px;
 }
 /** Top Line **/
 .top-line {

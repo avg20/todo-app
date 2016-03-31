@@ -17,11 +17,33 @@ const getInitState = () => {
     isFailed:   false,
     sort:       { field: 'name', val: 1 },
     filter:     '',
-    items:      []
+    items:      [],
+    tree:       []
   };
 };
 
+const buildTree = ( items ) => {
+  const nodes = Array.from( items );
+  const map = new Map, roots = [];
+  
+  for ( let i = 0; i < nodes.length; i++ ) {
+    const node = nodes[ i ];
+    node.children = [];
+    map[ node._id ] = i;
+    
+    if ( node.parent_id !== -1 ) {
+      nodes[ map[ node.parent_id ] ].children.push( node );
+    } else {
+      roots.push( node );
+    }
+  }
+  
+  return roots;
+};
+
 const tasks = ( state = getInitState(), action ) => {
+  let items;
+
   switch ( action.type ) {
     case FETCH_TASKS_REQUEST:
       return Object.assign( {}, state, { isFetching: true } );
@@ -36,30 +58,38 @@ const tasks = ( state = getInitState(), action ) => {
       return Object.assign( {}, state, {
         isFetching: false,
         isFailed:   false,
-        items:      action.tasks.tasks
+        items:      action.tasks.tasks,
+        tree:       buildTree( action.tasks.tasks )
       } );
 
     case ADD_TASK_SUCCESS:
       return Object.assign( {}, state, {
-        items: [ ...state.items, action.task ]
+        items: [ ...state.items, action.task ],
+        tree:  buildTree( [ ...state.items, action.task ] )
       } );
 
     case SAVE_TASK_SUCCESS:
+      items = state.items.map( ( value ) => {
+        if ( value._id === action.task._id )
+          return action.task;
+        else
+          return value;
+      } );
+
       return Object.assign( {}, state, {
-        items: state.items.map( ( value ) => {
-          if ( value._id === action.task._id )
-            return action.task;
-          else
-            return value;
-        } )
+        items: items,
+        tree:  buildTree( items )
       } );
 
     case DELETE_TASK_SUCCESS:
+      items = state.items.filter( ( item ) => {
+        if ( action.id !== item._id )
+          return item;
+      } );
+      
       return Object.assign( {}, state, {
-        items: state.items.filter( ( item ) => {
-          if ( action.id !== item._id )
-            return item;
-        } )
+        items: items,
+        tree:  buildTree( items )
       } );
 
     case SORT_TASKS:
