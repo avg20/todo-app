@@ -6,6 +6,7 @@ const express = require( 'express' );
 const bodyParser = require( 'body-parser' );
 const mongoose = require( 'mongoose' );
 const auth = require( './server/auth' );
+const demon = require( './server/demon' );
 const dbURI = 'mongodb://localhost:27017/' + dbId;
 const app = express();
 
@@ -22,6 +23,7 @@ app.use( bodyParser.urlencoded( { extended: true } ) );
 //app.use( ( req ) => JSON.parse( req.body ) );
 app.use( auth.init );
 
+demon();
 require( './server/router/index' )( app );
 
 app.listen( app.get( 'port' ) );
