@@ -11,14 +11,14 @@ import TopMenu from '../containers/TopMenu';
 const App = React.createClass( {
   showMessages: function () {
     if ( this.props.messages.length ) {
-      const value = this.props.messages[ 0 ];
-
-      if ( value.type === 'success' )
-        this.refs.notify.success( value.message, 0 );
-      else
-        this.refs.notify.error( value.message, 0 );
-
-      this.props.onMessageDisplayed( value._id );
+      this.props.messages.forEach( ( value )=> {
+        if ( value.type === 'success' )
+          this.refs.notify.success( value.message, 0 );
+        else
+          this.refs.notify.error( value.message, 0 );
+      } );
+  
+      this.props.onMessagesDisplayed();
     }
   },
   
@@ -57,7 +57,7 @@ const App = React.createClass( {
         </div>
       );
     }
-
+  
   }
 } );
 
