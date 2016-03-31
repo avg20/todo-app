@@ -1,5 +1,6 @@
 /** client/actions/index.js **/
 
+export * from './MessagesFetch';
 export * from './TasksFetch';
 export * from './task/TaskAdd';
 export * from './task/TaskActive';

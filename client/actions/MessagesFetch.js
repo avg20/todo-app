@@ -1,0 +1,43 @@
+/** client/actions/fetchMessages.js **/
+
+import { FETCH_MESSAGES_REQUEST, FETCH_MESSAGES_FAILURE, FETCH_MESSAGES_SUCCESS } from '../constants';
+
+export const fetchMessagesRequest = () => {
+  return {
+    type: FETCH_MESSAGES_REQUEST
+  }
+};
+
+export const fetchMessagesFailure = ( error ) => {
+  return {
+    type:  FETCH_MESSAGES_FAILURE,
+    error: error
+  }
+};
+
+export const fetchMessagesSuccess = ( tasks ) => {
+  return {
+    type:  FETCH_MESSAGES_SUCCESS,
+    tasks: tasks
+  }
+};
+
+export function fetchMessages() {
+  return ( dispatch ) => {
+    dispatch( fetchMessagesRequest() );
+    
+    return fetch( `http://localhost:3000/messages?token=58bfb4aec2c5f5263c2d71273d2e7b70c0679b93322c7069cebc99f8f678eb59` )
+      .then( ( response ) => {
+        if ( !response.ok )
+          return { status: 'error', error: response.statusText };
+        
+        return response.json();
+      } )
+      .then( ( json ) => {
+        if ( json.status === 'success' )
+          dispatch( fetchMessagesSuccess( json ) );
+        else
+          dispatch( fetchMessagesFailure( json.error ) );
+      } );
+  }
+}
