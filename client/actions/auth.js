@@ -12,10 +12,11 @@ import {
 } from '../constants';
 import { fetchTasks } from './';
 
-export const setupCreditions = ( token ) => {
+export const setupCreditions = ( token, username ) => {
   return {
-    type:  SETUP_CREDITIONS,
-    token: token
+    type:     SETUP_CREDITIONS,
+    token:    token,
+    username: username
   }
 };
 

@@ -22,8 +22,10 @@ let store = createStore(
 
 if ( typeof(Storage) !== 'undefined' ) {
   const access_token = localStorage.getItem( 'access_token' );
+  const username = localStorage.getItem( 'username' );
+
   if ( access_token !== null ) {
-    store.dispatch( setupCreditions() );
+    store.dispatch( setupCreditions( access_token, username ) );
     store.dispatch( fetchTasks() );
   }
 }
