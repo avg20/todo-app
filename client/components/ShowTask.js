@@ -21,7 +21,6 @@ const Task = React.createClass( {
   },
   
   getTaskClass: function () {
-    
     if ( this.props._id == this.props.activeItem._id )
       return "ui segment task task--selected";
     
@@ -55,12 +54,17 @@ const Task = React.createClass( {
   
   handleButtonClick: function ( e ) {
     e.stopPropagation();
-
+  
     console.log( "click only button" );
   },
   
+  handleAddButtonClick: function ( e ) {
+    e.stopPropagation();
+    
+    this.props.onAddClick( this.props );
+  },
+  
   handleTaskClick: function ( e ) {
-    console.log( 'handled' );
     this.props.onClick( this.props );
   },
   
@@ -71,8 +75,14 @@ const Task = React.createClass( {
           <div className="task__checkbox">
             {this.getStatusButton()}
           </div>
+          <div className="task__add-button" onClick={this.handleAddButtonClick}>
+            <button className="circular mini ui icon green basic button">
+              <i className="plus icon"/>
+            </button>
+          </div>
           <div className="task__name">
             <strong>{this.props.name}</strong>
+            {this.props._id == this.props.activeItem.parent_id ? <i className="task__parent-indicator angle double down icon"/> : ""}
           </div>
           <div className="task__due-date">
             <div className={`${this.props.overdue ? "task__due-date--overdue" : ""} ui label`}>
@@ -86,6 +96,7 @@ const Task = React.createClass( {
         {
           this.props.children.map( ( task ) => <Task className="child"
                                                      onClick={this.props.onClick}
+                                                     onAddClick={this.props.onAddClick}
                                                      activeItem={this.props.activeItem}
                                                      key={task._id} {...task}/> )
         }

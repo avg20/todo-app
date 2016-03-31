@@ -1,6 +1,6 @@
 /** client/reducers/activeTask.js **/
 
-import { SELECT_TASK, CLOSE_TASK, ADD_BLANK_TASK, DELETE_TASK_SUCCESS, SAVE_TASK_SUCCESS } from '../constants';
+import { SELECT_TASK, CLOSE_TASK, ADD_BLANK_TASK, ADD_CHILD_TASK, DELETE_TASK_SUCCESS, SAVE_TASK_SUCCESS } from '../constants';
 
 const getInitState = () => {
   return {
@@ -23,7 +23,7 @@ const activeTask = ( state = getInitState(), action ) => {
         isSelected: false,
         item:       {}
       } );
-  
+
     case ADD_BLANK_TASK:
       return Object.assign( {}, state, {
         isSelected: true,
@@ -34,6 +34,17 @@ const activeTask = ( state = getInitState(), action ) => {
         }
       } );
   
+    case ADD_CHILD_TASK:
+      return Object.assign( {}, state, {
+        isSelected: true,
+        item:       {
+          name:        '',
+          description: '',
+          priority:    1,
+          parent_id:   action.parent._id
+        }
+      } );
+
     case SAVE_TASK_SUCCESS:
       return Object.assign( {}, state, {
         item: action.task

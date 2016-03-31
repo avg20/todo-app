@@ -3,10 +3,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Task from '../components/ShowTask';
-import { fetchTasks } from '../actions';
-import { selectTask } from '../actions/task/TaskActive';
+import { fetchTasks, addChildTask, selectTask } from '../actions';
 
-const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, onTaskClick } ) => {
+const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, onTaskClick, onAddTaskClikc } ) => {
   if ( isFailed )
     return (
       <div className="ui center aligned segment">
@@ -24,7 +23,11 @@ const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, on
   return (
     <div className="ui tasks">
       {
-        tasks.map( ( task ) => <Task className="tasks__task-box" onClick={onTaskClick} activeItem={activeItem} key={task._id} {...task}/> )
+        tasks.map( ( task ) => <Task className="tasks__task-box"
+                                     onAddClick={onAddTaskClikc}
+                                     onClick={onTaskClick}
+                                     activeItem={activeItem}
+                                     key={task._id} {...task}/> )
       }
       {
         isFetching && (
@@ -90,11 +93,14 @@ const mapStateToProps = ( state ) => {
 
 const mapDispatchToProps = ( dispatch ) => {
   return {
-    onTasksReload: () => {
+    onTasksReload:  () => {
       dispatch( fetchTasks() )
     },
-    onTaskClick:   ( item ) => {
+    onTaskClick:    ( item ) => {
       dispatch( selectTask( item ) );
+    },
+    onAddTaskClikc: ( parent ) => {
+      dispatch( addChildTask( parent ) );
     }
   }
 };

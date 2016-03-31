@@ -44,10 +44,19 @@ body {
     flex: 0 0 40px;
   }
 
+  &__add-button {
+    display: flex;
+    flex: 0 0 40px;
+  }
+
   &__name {
     display: flex;
     flex: 1;
     align-items: center;
+  }
+
+  &__parent-indicator {
+    margin-left: 10px;
   }
 
   &__due-date {

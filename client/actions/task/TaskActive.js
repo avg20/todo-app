@@ -1,6 +1,6 @@
 /** client/actions/task/addTask.js **/
 
-import { SELECT_TASK, CLOSE_TASK, ADD_BLANK_TASK } from '../../constants';
+import { SELECT_TASK, CLOSE_TASK, ADD_BLANK_TASK, ADD_CHILD_TASK } from '../../constants';
 
 export const selectTask = ( item ) => {
   return {
@@ -19,4 +19,11 @@ export const addBlankTask = () => {
   return {
     type: ADD_BLANK_TASK
   };
+};
+
+export const addChildTask = ( parent ) => {
+  return {
+    type:   ADD_CHILD_TASK,
+    parent: parent
+  }
 };
