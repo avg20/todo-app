@@ -16,7 +16,7 @@ const ShowLoginForm = React.createClass( {
             <div className="field">
               <div className="ui left icon input">
                 <i className="user icon"/>
-                <input type="text" name="email" placeholder="E-mail address"/>
+                <input type="text" name="email" placeholder="Username"/>
               </div>
             </div>
             <div className="field">
