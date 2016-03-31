@@ -68,6 +68,11 @@ const Task = React.createClass( {
     this.props.onClick( this.props );
   },
   
+  isParent: function () {
+    return this.props._id === this.props.activeItem.parent_id &&
+      this.props.activeItem._id === undefined
+  },
+  
   render: function () {
     let children = this.props.children.map( ( task ) =>
       <Task className="child"
@@ -89,7 +94,7 @@ const Task = React.createClass( {
           </div>
           <div className="task__name">
             <strong>{this.props.name}</strong>
-            {this.props._id == this.props.activeItem.parent_id ? <i className="task__parent-indicator angle double down icon"/> : ""}
+            {this.isParent() ? <i className="task__parent-indicator angle double down icon"/> : ""}
           </div>
           <div className="task__due-date">
             <div className={`${this.props.overdue ? "task__due-date--overdue" : ""} ui label`}>
