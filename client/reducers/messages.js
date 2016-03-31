@@ -1,6 +1,6 @@
 /** client/reducers/tasks.js **/
 
-import { FETCH_MESSAGES_SUCCESS, MESSAGE_DISPLAYED, ADD_USER_SUCCESS } from '../constants';
+import { FETCH_MESSAGES_SUCCESS, MESSAGES_DISPLAYED, ADD_USER_SUCCESS } from '../constants';
 
 const getInitState = () => {
   return {
@@ -19,10 +19,10 @@ const tasks = ( state = getInitState(), action ) => {
       return Object.assign( {}, state, {
         items: [ { message: "New Account added! Login Now!", _id: -1, type: 'success' } ]
       } );
-    
-    case MESSAGE_DISPLAYED:
+  
+    case MESSAGES_DISPLAYED:
       return Object.assign( {}, state, {
-        items: state.items.filter( ( value ) => value._id !== action.id )
+        items: []
       } );
     
     default:

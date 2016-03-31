@@ -9,7 +9,7 @@
   top: 1rem;
   left: 1rem;
   z-index: 1000;
-  width: 300px;
+  width: 320px;
   padding: 0;
 
   &--hidden {
@@ -17,9 +17,10 @@
   }
 
   &__item {
-    width: 300px;
+    width: 320px;
     margin: 0 !important;
     border-radius: 0 !important;
+    opacity: 0.94;
 
     &:first-child {
       border-top-left-radius: 3px !important;
@@ -32,7 +33,7 @@
     }
 
     &__header {
-      font-size: 1em;
+      font-size: 0.95em !important;
     }
   }
 }

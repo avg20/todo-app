@@ -12,8 +12,6 @@ a {
 }
 /** Tasks **/
 .tasks {
-  /*background: #FFFFFF;*/
-
   .child {
     margin-left: 38px;
   }
@@ -37,8 +35,6 @@ a {
   flex-flow: nowrap;
   cursor: pointer;
   margin-bottom: 4px;
-  /*border: none;
-  box-shadow: none;*/
 
   &:hover {
     background: #F8F8F8;
@@ -66,7 +62,7 @@ a {
 
   &__due-date {
     display: flex;
-    flex: 0; /* 0 200px;*/
+    flex: 0;
     align-items: center;
     justify-content: flex-end;
     white-space: nowrap;

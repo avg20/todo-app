@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ShowApp from '../components/ShowApp';
-import { messageDisplayed } from '../actions';
+import { messagesDisplayed } from '../actions';
 
 const mapStateToProps = ( state ) => {
   return {
@@ -16,8 +16,8 @@ const mapStateToProps = ( state ) => {
 
 const mapDispatchToProps = ( dispatch ) => {
   return {
-    onMessageDisplayed: ( id ) => {
-      dispatch( messageDisplayed( id ) );
+    onMessagesDisplayed: ( id ) => {
+      dispatch( messagesDisplayed( id ) );
     }
   }
 };
