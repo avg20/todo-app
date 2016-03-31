@@ -19,16 +19,17 @@ const ShowTasks = ( { tasks, isFetching, isFailed, activeItem, onTasksReload, on
         <strong>No Tasks found</strong>
       </div>
     );
+  
+  let tasksCode = tasks.map( ( task ) =>
+    <Task className="tasks__task-box"
+          onAddClick={onAddTaskClikc}
+          onClick={onTaskClick}
+          activeItem={activeItem}
+          key={task._id} {...task}/> );
 
   return (
     <div className="ui tasks">
-      {
-        tasks.map( ( task ) => <Task className="tasks__task-box"
-                                     onAddClick={onAddTaskClikc}
-                                     onClick={onTaskClick}
-                                     activeItem={activeItem}
-                                     key={task._id} {...task}/> )
-      }
+      {tasksCode}
       {
         isFetching && (
           <div>

@@ -54,7 +54,7 @@ const Task = React.createClass( {
   
   handleButtonClick: function ( e ) {
     e.stopPropagation();
-  
+
     console.log( "click only button" );
   },
   
@@ -69,6 +69,13 @@ const Task = React.createClass( {
   },
   
   render: function () {
+    let children = this.props.children.map( ( task ) =>
+      <Task className="child"
+            onClick={this.props.onClick}
+            onAddClick={this.props.onAddClick}
+            activeItem={this.props.activeItem}
+            key={task._id} {...task}/> );
+
     return (
       <div className={this.props.className}>
         <div className={this.getTaskClass()} onClick={this.handleTaskClick}>
@@ -93,16 +100,9 @@ const Task = React.createClass( {
             <i className="star icon"/>
           </div>
         </div>
-        {
-          this.props.children.map( ( task ) => <Task className="child"
-                                                     onClick={this.props.onClick}
-                                                     onAddClick={this.props.onAddClick}
-                                                     activeItem={this.props.activeItem}
-                                                     key={task._id} {...task}/> )
-        }
+        {children}
       </div>
     );
-    // <i className="checkmark icon"/>
   }
 } );
 
