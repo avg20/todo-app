@@ -1,8 +1,8 @@
 /** client/components/App.js **/
 
 import React from 'react';
-import AddTask from '../containers/AddTask';
-import ShowTasks from '../containers/ListTasks';
+import AddTask from '../containers/TaskCard';
+import ShowTasks from '../containers/Tasks';
 import TopBar from '../containers/TopBar';
 import Notify from '../helpers/Notify';
 import Auth from '../containers/Auth';

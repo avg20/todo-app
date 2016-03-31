@@ -1,4 +1,4 @@
-/** client/containers/AddTask.js **/
+/** client/containers/TaskCard.js **/
 
 import React from 'react';
 import { connect } from 'react-redux';
