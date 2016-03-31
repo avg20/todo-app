@@ -24,10 +24,9 @@ if ( typeof(Storage) !== 'undefined' ) {
   const access_token = localStorage.getItem( 'access_token' );
   if ( access_token !== null ) {
     store.dispatch( setupCreditions() );
+    store.dispatch( fetchTasks() );
   }
 }
-
-store.dispatch( fetchTasks() );
 
 /*setInterval( ()=> {
  store.dispatch( fetchMessages() );
