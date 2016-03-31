@@ -4,12 +4,15 @@ import React from 'react';
 import moment from 'moment';
 
 const TaskForm = React.createClass( {
-  getStatusOptions: function () {
-    return [
-      { value: 1, label: 'Open' },
-      { value: 2, label: 'Closed' },
-      { value: 3, label: 'Overdue' }
-    ];
+  propTypes: {
+    isSending: React.PropTypes.bool.isRequired,
+    isFailed:  React.PropTypes.bool.isRequired,
+    item:      React.PropTypes.object.isRequired,
+    errors:    React.PropTypes.array.isRequired,
+    
+    onCloseTask:  React.PropTypes.func.isRequired,
+    onAddTask:    React.PropTypes.func.isRequired,
+    onDeleteTask: React.PropTypes.func.isRequired
   },
   
   componentWillReceiveProps: function ( props ) {
@@ -33,8 +36,7 @@ const TaskForm = React.createClass( {
           return moment( date.toISOString() ).format( 'MM/DD/YYYY' );
         }
       },
-      onChange:  ( date, text ) => {
-        console.log( text );
+      onChange:  ( date ) => {
         this.setState( { due_date: moment( date.toISOString() ) } );
       }
     } );
@@ -144,8 +146,6 @@ const TaskForm = React.createClass( {
         </div>
       </div >
     );
-  
-    // <DatePicker className="" onChange={this.handleChange('due_date')} selected={moment( this.state.due_date )}/>
   }
 } );
 

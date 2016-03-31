@@ -4,6 +4,14 @@ import React from 'react';
 import moment from 'moment';
 
 const Task = React.createClass( {
+  propTypes: {
+    key: React.PropTypes.isRequired,
+    
+    onClick:       React.PropTypes.func.isRequired,
+    onAddClick:    React.PropTypes.func.isRequired,
+    onStatusClick: React.PropTypes.func.isRequired
+  },
+  
   getPriorityIconClass: function () {
     switch ( this.props.priority ) {
       case 1:

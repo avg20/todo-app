@@ -4,6 +4,18 @@ import React from 'react';
 import Task from './ShowTask';
 
 const ShowTaskTask = React.createClass( {
+  propTypes: {
+    isFetching: React.PropTypes.bool.isRequired,
+    isFailed:   React.PropTypes.bool.isRequired,
+    activeItem: React.PropTypes.object.isRequired,
+    tasks:      React.PropTypes.array.isRequired,
+    
+    onTasksReload:      React.PropTypes.func.isRequired,
+    onTaskClick:        React.PropTypes.func.isRequired,
+    onAddTaskClick:     React.PropTypes.func.isRequired,
+    onTaskStatusToggle: React.PropTypes.func.isRequired
+  },
+
   render: function () {
     const { tasks, isFetching, isFailed, activeItem, onTasksReload, onTaskClick, onAddTaskClick, onTaskStatusToggle } = this.props;
     

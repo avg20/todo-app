@@ -4,6 +4,14 @@ import React from 'react';
 import ErrorMessage from '../../helpers/ErrorMessage';
 
 const ShowLoginForm = React.createClass( {
+  propTypes: {
+    errors:    React.PropTypes.object.isRequired,
+    isSending: React.PropTypes.bool.isRequired,
+    
+    onPageToggle: React.PropTypes.func.isRequired,
+    onFormSubmit: React.PropTypes.func.isRequired
+  },
+
   getInitialState: function () {
     return {
       username: '',

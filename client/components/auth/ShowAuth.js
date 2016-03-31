@@ -5,6 +5,10 @@ import LoginForm from '../../containers/auth/LoginForm';
 import SignupForm from '../../containers/auth/SignupForm';
 
 const ShowLoginForm = React.createClass( {
+  propTypes: {
+    page: React.PropTypes.string.isRequired
+  },
+
   componentDidMount: function () {
     document.querySelector( 'body' ).classList.add( 'auth' );
   },
