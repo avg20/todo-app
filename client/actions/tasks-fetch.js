@@ -18,7 +18,7 @@ export const fetchTasksFailure = ( error ) => {
 export const fetchTasksSuccess = ( tasks ) => {
   return {
     type:  FETCH_TASKS_SUCCESS,
-    tasks: tasks
+    tasks: tasks.tasks
   }
 };
 

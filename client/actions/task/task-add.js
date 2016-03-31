@@ -28,7 +28,7 @@ export function addTask( data ) {
     const { auth } = getState();
     
     return fetch( `http://localhost:3000/tasks?token=${auth.access_token}`, {
-      method: 'post',
+      method: 'POST',
       body:   JSON.stringify( data )
     } )
       .then( ( response ) => {
@@ -38,7 +38,6 @@ export function addTask( data ) {
         return response.json();
       } )
       .then( ( json ) => {
-        console.log( json );
         if ( json.status === 'success' ) {
           dispatch( addTaskSuccess( json.task ) );
         } else

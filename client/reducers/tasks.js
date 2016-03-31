@@ -58,8 +58,8 @@ const tasks = ( state = getInitState(), action ) => {
       return Object.assign( {}, state, {
         isFetching: false,
         isFailed:   false,
-        items:      action.tasks.tasks,
-        tree:       buildTree( action.tasks.tasks )
+        items:      action.tasks,
+        tree:       buildTree( action.tasks )
       } );
 
     case ADD_TASK_SUCCESS:
