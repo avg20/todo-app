@@ -10,11 +10,10 @@ import Auth from '../containers/Auth';
 const App = React.createClass( {
   showMessages: function () {
     if ( this.props.messages.length ) {
-      this.props.messages.forEach( ( value ) => {
-        
-        this.refs.notify.error( value.message, 0 );
-        this.props.onMessageDisplayed( value._id );
-      } );
+      const value = this.props.messages[ 0 ];
+  
+      this.refs.notify.error( value.message, 0 );
+      this.props.onMessageDisplayed( value._id );
     }
   },
   

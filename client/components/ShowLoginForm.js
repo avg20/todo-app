@@ -16,13 +16,13 @@ const ShowLoginForm = React.createClass( {
             <div className="field">
               <div className="ui left icon input">
                 <i className="user icon"/>
-                <input type="text" name="email" placeholder="Username"/>
+                <input type="text" placeholder="Username"/>
               </div>
             </div>
             <div className="field">
               <div className="ui left icon input">
                 <i className="lock icon"/>
-                <input type="password" name="password" placeholder="Password"/>
+                <input type="password" placeholder="Password"/>
               </div>
             </div>
             <div className="ui fluid large teal submit button">Login</div>
