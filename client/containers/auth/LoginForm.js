@@ -1,9 +1,9 @@
-/** client/containers/LoginForm.js **/
+/** client/containers/auth/LoginForm.js **/
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { authPageToggle, authLoginUser } from '../actions';
-import ShowLoginForm from '../components/ShowLoginForm';
+import { authPageToggle, authLoginUser } from '../../actions';
+import ShowLoginForm from '../../components/ShowLoginForm';
 
 const mapStateToProps = ( state ) => {
   return {

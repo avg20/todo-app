@@ -1,9 +1,9 @@
-/** client/containers/TopBar.js **/
+/** client/containers/main-view/TopBar.js **/
 
 import React from 'react';
 import { connect } from 'react-redux';
-import ShowTopBar from '../components/ShowTopBar';
-import { addBlankTask, sortTasks, filterTasks } from '../actions';
+import ShowTopBar from '../../components/ShowTopBar';
+import { addBlankTask, sortTasks, filterTasks } from '../../actions';
 
 const mapStateToProps = ( state ) => {
   return {

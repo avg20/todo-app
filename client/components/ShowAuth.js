@@ -1,8 +1,8 @@
 /** client/components/ShowAuth.js **/
 
 import React from 'react';
-import LoginForm from '../containers/LoginForm';
-import SignupForm from '../containers/SignupForm';
+import LoginForm from '../containers/auth/LoginForm';
+import SignupForm from '../containers/auth/SignupForm';
 
 const ShowLoginForm = React.createClass( {
   componentDidMount: function () {

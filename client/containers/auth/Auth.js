@@ -1,8 +1,8 @@
-/** client/containers/Auth.js **/
+/** client/containers/auth/Auth.js **/
 
 import React from 'react';
 import { connect } from 'react-redux';
-import ShowAuth from '../components/ShowAuth';
+import ShowAuth from '../../components/ShowAuth';
 
 const mapStateToProps = ( state ) => {
   return {

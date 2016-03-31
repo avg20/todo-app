@@ -1,4 +1,4 @@
-/** client/containers/ShowTasks.js **/
+/** client/containers/Tasks.js **/
 
 import React from 'react';
 import { connect } from 'react-redux';

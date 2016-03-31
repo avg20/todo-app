@@ -1,9 +1,9 @@
-/** client/containers/TopMenu.js **/
+/** client/containers/main-view/TopMenu.js **/
 
 import React from 'react';
 import { connect } from 'react-redux';
-import ShowTopMenu from '../components/ShowTopMenu';
-import { userLogout } from '../actions';
+import ShowTopMenu from '../../components/ShowTopMenu';
+import { userLogout } from '../../actions';
 
 const mapStateToProps = ( state ) => {
   return {

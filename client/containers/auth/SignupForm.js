@@ -1,9 +1,9 @@
-/** client/containers/SignupForm.js **/
+/** client/containers/auth/SignupForm.js **/
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { authPageToggle, authAddUser } from '../actions';
-import ShowSignupForm from '../components/ShowSignupForm';
+import { authPageToggle, authAddUser } from '../../actions';
+import ShowSignupForm from '../../components/ShowSignupForm';
 
 const mapStateToProps = ( state ) => {
   return {
