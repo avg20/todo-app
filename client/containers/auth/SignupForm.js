@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { authPageToggle, authAddUser } from '../../actions';
-import ShowSignupForm from '../../components/auth/ShowSignupForm';
+import ShowSignupForm from '../../components/auth/ViewSignupForm';
 
 const mapStateToProps = ( state ) => {
   return {

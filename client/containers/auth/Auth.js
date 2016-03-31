@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import ShowAuth from '../../components/auth/ShowAuth';
+import ShowAuth from '../../components/auth/ViewAuth';
 
 const mapStateToProps = ( state ) => {
   return {

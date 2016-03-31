@@ -1,7 +1,7 @@
 /** client/components/main-view/ShowTopBar.js **/
 
 import React from 'react';
-import SortField from './ShowSortField';
+import SortField from './ViewSortField';
 
 const ShowTopBar = React.createClass( {
   getInitialState: function () {

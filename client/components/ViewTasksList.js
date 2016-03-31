@@ -1,7 +1,7 @@
 /** client/components/Task.js **/
 
 import React from 'react';
-import Task from './ShowTask';
+import Task from './ViewTask';
 
 const ShowTaskTask = React.createClass( {
   propTypes: {

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import ShowApp from '../components/ShowApp';
+import ShowApp from '../components/ViewApp';
 import { messagesDisplayed } from '../actions';
 
 const mapStateToProps = ( state ) => {

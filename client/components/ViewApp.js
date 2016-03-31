@@ -24,7 +24,7 @@ const App = React.createClass( {
         else
           this.refs.notify.error( value.message, 0 );
       } );
-  
+      
       this.props.onMessagesDisplayed();
     }
   },
@@ -64,7 +64,7 @@ const App = React.createClass( {
         </div>
       );
     }
-  
+    
   }
 } );
 

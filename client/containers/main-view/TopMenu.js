@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import ShowTopMenu from '../../components/main-view/ShowTopMenu';
+import ShowTopMenu from '../../components/main-view/ViewTopMenu';
 import { userLogout } from '../../actions';
 
 const mapStateToProps = ( state ) => {
