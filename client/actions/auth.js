@@ -7,8 +7,16 @@ import {
   ADD_USER_SUCCESS,
   LOGIN_USER_REQUEST,
   LOGIN_USER_FAILURE,
-  LOGIN_USER_SUCCESS
+  LOGIN_USER_SUCCESS,
+  SETUP_CREDITIONS
 } from '../constants';
+
+export const setupCreditions = ( token ) => {
+  return {
+    type:  SETUP_CREDITIONS,
+    token: token
+  }
+};
 
 export const authPageToggle = () => {
   return {

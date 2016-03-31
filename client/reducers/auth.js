@@ -7,7 +7,8 @@ import {
   ADD_USER_SUCCESS,
   LOGIN_USER_REQUEST,
   LOGIN_USER_FAILURE,
-  LOGIN_USER_SUCCESS
+  LOGIN_USER_SUCCESS,
+  SETUP_CREDITIONS
 } from '../constants';
 
 const getInitState = () => {
@@ -28,7 +29,7 @@ const auth = ( state = getInitState(), action ) => {
       return Object.assign( {}, state, {
         isSending: true
       } );
-  
+
     case LOGIN_USER_FAILURE:
     case ADD_USER_FAILURE:
       return Object.assign( {}, state, {
@@ -43,12 +44,17 @@ const auth = ( state = getInitState(), action ) => {
         page:      'login'
       } );
   
+    case SETUP_CREDITIONS:
     case LOGIN_USER_SUCCESS:
+      if ( typeof(Storage) !== 'undefined' ) {
+        localStorage.setItem( 'access_token', action.token );
+      }
+
       return Object.assign( {}, state, {
         isAuthorized: true,
         access_token: action.token
       } );
-
+  
     case AUTH_PAGE_TOGGLE:
       return Object.assign( {}, state, {
         page: (state.page == 'login') ? 'signup' : 'login'

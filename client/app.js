@@ -8,7 +8,7 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import todoApp from './reducers';
 import App from './containers/App';
-import { fetchTasks, fetchMessages } from './actions';
+import { fetchTasks, fetchMessages, setupCreditions } from './actions';
 
 const loggerMiddleware = createLogger();
 
@@ -20,10 +20,17 @@ let store = createStore(
   )
 );
 
-store.dispatch( fetchTasks() );
+if ( typeof(Storage) !== 'undefined' ) {
+  const access_token = localStorage.getItem( 'access_token' );
+  if ( access_token !== null ) {
+    store.dispatch( setupCreditions() );
+  }
+} else {
+  store.dispatch( fetchTasks() );
+}
 
 /*setInterval( ()=> {
-  store.dispatch( fetchMessages() );
+ store.dispatch( fetchMessages() );
  }, 10 * 1000 );*/
 
 render(
