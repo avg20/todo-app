@@ -19,6 +19,14 @@ body {
     margin-bottom: 4px;
   }
 }
+.ui.form {
+  .help-text.error {
+    text-align: left;
+    color: #FF3D00;
+    margin: 4px 0 0 0;
+    font-size: 0.8em;
+  }
+}
 /** Task **/
 .ui.tasks .task {
   display: flex;
