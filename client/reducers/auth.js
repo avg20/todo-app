@@ -17,7 +17,7 @@ const getInitState = () => {
     isSending:    false,
     page:         'login',
     errors:       {},
-    user:         null,
+    username:     '',
     access_token: ''
   };
 };
@@ -43,16 +43,18 @@ const auth = ( state = getInitState(), action ) => {
         user:      action.user,
         page:      'login'
       } );
-  
+
     case SETUP_CREDITIONS:
     case LOGIN_USER_SUCCESS:
       if ( typeof(Storage) !== 'undefined' ) {
         localStorage.setItem( 'access_token', action.token );
+        localStorage.setItem( 'username', action.username );
       }
 
       return Object.assign( {}, state, {
         isAuthorized: true,
-        access_token: action.token
+        access_token: action.token,
+        username:     action.username
       } );
   
     case AUTH_PAGE_TOGGLE:

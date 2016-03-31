@@ -85,10 +85,11 @@ export const loginUserFailure = ( errors ) => {
   }
 };
 
-export const loginUserSuccess = ( token ) => {
+export const loginUserSuccess = ( token, username ) => {
   return {
-    type:  LOGIN_USER_SUCCESS,
-    token: token
+    type:     LOGIN_USER_SUCCESS,
+    token:    token,
+    username: username
   }
 };
 
@@ -109,7 +110,7 @@ export const authLoginUser = ( data ) => {
       .then( ( json ) => {
         console.log( json );
         if ( json.status === 'success' ) {
-          dispatch( loginUserSuccess( json.access_token ) );
+          dispatch( loginUserSuccess( json.access_token, data.username ) );
           dispatch( fetchTasks() );
         } else
           dispatch( loginUserFailure( json.errors ) );
