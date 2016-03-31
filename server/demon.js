@@ -22,8 +22,6 @@ const checkDueDate = () => {
   
           new Message( { message: `Task "${task.name}" is overdue`, user_id: new ObjectId( task.user_id ) } ).save( ( err ) => {
             if ( err ) throw err;
-    
-            console.log( 'message added' );
           } );
         } );
       }
