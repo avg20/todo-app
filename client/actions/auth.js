@@ -10,6 +10,7 @@ import {
   LOGIN_USER_SUCCESS,
   SETUP_CREDITIONS
 } from '../constants';
+import { fetchTasks } from './';
 
 export const setupCreditions = ( token ) => {
   return {
@@ -109,6 +110,7 @@ export const authLoginUser = ( data ) => {
         console.log( json );
         if ( json.status === 'success' ) {
           dispatch( loginUserSuccess( json.access_token ) );
+          dispatch( fetchTasks() );
         } else
           dispatch( loginUserFailure( json.errors ) );
       } );

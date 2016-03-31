@@ -25,9 +25,9 @@ if ( typeof(Storage) !== 'undefined' ) {
   if ( access_token !== null ) {
     store.dispatch( setupCreditions() );
   }
-} else {
-  store.dispatch( fetchTasks() );
 }
+
+store.dispatch( fetchTasks() );
 
 /*setInterval( ()=> {
  store.dispatch( fetchMessages() );
