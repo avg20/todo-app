@@ -1,11 +1,13 @@
 'use strict';
 
+import { expect } from 'chai';
+import User from '../../../server/models/user';
+import mongoose from 'mongoose';
+import mochaMongoose from 'mocha-mongoose';
+
 const dbId = 'c90b6960-0109-11e2-9595-00248c45df8a';
-const expect = require( 'chai' ).expect;
-const User = require( '../../server/models/user' );
-const mongoose = require( 'mongoose' );
 const dbURI = 'mongodb://localhost:27017/' + dbId;
-require( 'mocha-mongoose' )( dbURI );
+mochaMongoose( dbURI );
 
 describe( 'User Model', () => {
   beforeEach( ( done ) => {

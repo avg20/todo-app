@@ -1,15 +1,17 @@
 'use strict';
 
+import { expect } from 'chai';
+import moment from 'moment';
+import Task from '../../../server/models/task';
+import User from '../../../server/models/user';
+import mongoose from 'mongoose';
+import mochaMongoose from 'mocha-mongoose';
+import routes from '../../../server/router/routes/task';
+import auth from '../../../server/auth';
+
 const dbId = 'c90b6960-0109-11e2-9595-00248c45df8a';
-const expect = require( 'chai' ).expect;
-const mongoose = require( 'mongoose' );
-const moment = require( 'moment' );
 const dbURI = 'mongodb://localhost:27017/' + dbId;
-const Task = require( '../../server/models/task' );
-const User = require( '../../server/models/user' );
-const routes = require( '../../server/router/routes/task' );
-const auth = require( '../../server/auth' );
-require( 'mocha-mongoose' )( dbURI );
+mochaMongoose( dbURI );
 
 const initAuth = ( done ) => {
   new User( { username: 'test', password: '1111' } ).save( ( err, model ) => {
