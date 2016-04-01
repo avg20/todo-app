@@ -23,10 +23,9 @@ export const fetchMessagesSuccess = ( answer ) => {
   }
 };
 
-export const messagesDisplayed = ( id ) => {
+export const messagesDisplayed = () => {
   return {
-    type: MESSAGES_DISPLAYED,
-    id:   id
+    type: MESSAGES_DISPLAYED
   };
 };
 
