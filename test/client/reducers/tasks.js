@@ -98,7 +98,7 @@ describe( 'tasks reducer', () => {
     } ) );
   } );
   
-  it( 'should handle SORT_TASKS', () => {
+  it( 'should handle FILTER_TASKS', () => {
     const filter = { type: 'name', val: 'Test' };
     
     expect( reducer( initialState, actions.filterTasks( 'name', 'Test' ) ) ).to.be.deep.equal( Object.assign( {}, initialState, {
