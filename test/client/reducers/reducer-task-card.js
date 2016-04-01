@@ -60,7 +60,6 @@ describe( 'task-card reducer', () => {
   
   it( 'should handle SAVE_TASK_REQUEST', () => {
     expect( reducer( initialState, actions.saveTaskRequest() ) ).to.be.deep.equal( Object.assign( {}, initialState, {
-      isSelected: true,
       isSending:  true,
       errors:     []
     } ) );
@@ -68,7 +67,6 @@ describe( 'task-card reducer', () => {
   
   it( 'should handle ADD_TASK_REQUEST', () => {
     expect( reducer( initialState, actions.addTaskRequest() ) ).to.be.deep.equal( Object.assign( {}, initialState, {
-      isSelected: true,
       isSending:  true,
       errors:     []
     } ) );
