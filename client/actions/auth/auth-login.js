@@ -39,7 +39,6 @@ export const authLoginUser = ( data ) => {
         return response.json();
       } )
       .then( ( json ) => {
-        console.log( json );
         if ( json.status === 'success' ) {
           dispatch( loginUserSuccess( json.access_token, data.username ) );
           dispatch( fetchTasks() );

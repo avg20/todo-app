@@ -36,7 +36,6 @@ export const authAddUser = ( data ) => {
         return response.json();
       } )
       .then( ( json ) => {
-        console.log( json );
         if ( json.status === 'success' ) {
           dispatch( addUserSuccess() );
         } else

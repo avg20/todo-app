@@ -39,7 +39,6 @@ export function saveTask( data, toggled = false ) {
         return response.json();
       } )
       .then( ( json ) => {
-        console.log( json );
         if ( json.status === 'success' ) {
           dispatch( saveTaskSuccess( json.task, toggled ) );
         } else
