@@ -1,4 +1,4 @@
-/** client/components/App.js **/
+/** client/components/ViewApp.js **/
 
 import React from 'react';
 import TaskCard from '../containers/TaskCard';
@@ -8,7 +8,7 @@ import Notify from '../helpers/Notify';
 import Auth from '../containers/auth/Auth';
 import TopMenu from '../containers/main-view/TopMenu';
 
-const App = React.createClass( {
+const ViewApp = React.createClass( {
   propTypes: {
     isSelected:   React.PropTypes.bool.isRequired,
     isAuthorized: React.PropTypes.bool.isRequired,
@@ -51,7 +51,7 @@ const App = React.createClass( {
               <ShowTasks />
             </div>
             {
-              leftSide ? <div className="six wide column main__column"><TaskCard /></div> : ""
+              leftSide ? <div className="six wide column main__column"><TaskCard /></div> : null
             }
           </div>
         </div>
@@ -68,4 +68,4 @@ const App = React.createClass( {
   }
 } );
 
-export default App;
+export default ViewApp;

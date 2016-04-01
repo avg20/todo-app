@@ -1,23 +1,11 @@
-/** client/components/main-view/ShowSortField.js **/
+/** client/components/main-view/ViewSortField.js **/
 
 import React from 'react';
 
-const SortField = React.createClass( {
+const ViewSortField = React.createClass( {
   propTypes: {
     sort:        React.PropTypes.object,
     onSortClick: React.PropTypes.func
-  },
-  
-  componentWillUnmount: function () {
-    jQuery( this.refs.sortPopup ).dropdown( 'destroy' );
-  },
-  
-  componentDidMount: function () {
-    jQuery( this.refs.sortPopup ).dropdown();
-  },
-  
-  componentDidUpdate: function () {
-    jQuery( this.refs.sortPopup ).dropdown( 'refresh' );
   },
   
   getSorts: function () {
@@ -33,6 +21,18 @@ const SortField = React.createClass( {
     ];
   },
   
+  componentWillUnmount: function () {
+    jQuery( this.refs.sortPopup ).dropdown( 'destroy' );
+  },
+  
+  componentDidMount: function () {
+    jQuery( this.refs.sortPopup ).dropdown();
+  },
+  
+  componentDidUpdate: function () {
+    jQuery( this.refs.sortPopup ).dropdown( 'refresh' );
+  },
+
   render: function () {
     let list = this.getSorts().map( ( value )=> {
       const isActive = (value.field == this.props.sort.field && value.val == this.props.sort.val);
@@ -62,4 +62,4 @@ const SortField = React.createClass( {
   }
 } );
 
-export default SortField;
+export default ViewSortField;

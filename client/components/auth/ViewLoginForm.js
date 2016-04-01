@@ -1,9 +1,9 @@
-/** client/components/auth/ShowLoginForm.js **/
+/** client/components/auth/ViewLoginForm.js **/
 
 import React from 'react';
 import InputField from '../../helpers/InputField';
 
-const ShowLoginForm = React.createClass( {
+const ViewLoginForm = React.createClass( {
   propTypes: {
     errors:    React.PropTypes.object.isRequired,
     isSending: React.PropTypes.bool.isRequired,
@@ -71,4 +71,4 @@ const ShowLoginForm = React.createClass( {
   }
 } );
 
-export default ShowLoginForm;
+export default ViewLoginForm;

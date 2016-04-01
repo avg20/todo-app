@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import TaskForm from '../components/ViewTaskCard';
+import ViewTaskCard from '../components/ViewTaskCard';
 import { addTask, saveTask, closeTask, deleteTask } from '../actions';
 
 const mapStateToProps = ( state ) => {
@@ -34,4 +34,4 @@ const mapDispatchToProps = ( dispatch ) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)( TaskForm );
+)( ViewTaskCard );

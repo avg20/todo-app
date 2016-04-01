@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import ShowTopBar from '../../components/main-view/ViewTopBar';
+import ViewTopBar from '../../components/main-view/ViewTopBar';
 import { addBlankTask, sortTasks, filterTasks } from '../../actions';
 
 const mapStateToProps = ( state ) => {
@@ -34,4 +34,4 @@ const mapDispatchToProps = ( dispatch ) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)( ShowTopBar );
+)( ViewTopBar );

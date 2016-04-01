@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import ShowTasksList from '../components/ViewTasksList';
+import ViewTasksList from '../components/ViewTasksList';
 import { fetchTasks, addChildTask, selectTask, taskStatusToggle } from '../actions';
 
 const filterItem = ( item, filter ) => {
@@ -87,4 +87,4 @@ const mapDispatchToProps = ( dispatch ) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)( ShowTasksList );
+)( ViewTasksList );

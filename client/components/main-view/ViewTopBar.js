@@ -1,9 +1,9 @@
-/** client/components/main-view/ShowTopBar.js **/
+/** client/components/main-view/ViewTopBar.js **/
 
 import React from 'react';
 import SortField from './ViewSortField';
 
-const ShowTopBar = React.createClass( {
+const ViewTopBar = React.createClass( {
   getInitialState: function () {
     return {
       filter:         1,
@@ -103,4 +103,4 @@ const ShowTopBar = React.createClass( {
   }
 } );
 
-export default ShowTopBar;
+export default ViewTopBar;

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import ShowTopMenu from '../../components/main-view/ViewTopMenu';
+import ViewTopMenu from '../../components/main-view/ViewTopMenu';
 import { userLogout } from '../../actions';
 
 const mapStateToProps = ( state ) => {
@@ -22,4 +22,4 @@ const mapDispatchToProps = ( dispatch ) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)( ShowTopMenu );
+)( ViewTopMenu );

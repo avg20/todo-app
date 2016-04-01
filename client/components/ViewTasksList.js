@@ -1,9 +1,9 @@
-/** client/components/Task.js **/
+/** client/components/ViewTasksList.js **/
 
 import React from 'react';
-import Task from './ViewTask';
+import ViewTask from './ViewTask';
 
-const ShowTaskTask = React.createClass( {
+const ViewTasksList = React.createClass( {
   propTypes: {
     isFetching: React.PropTypes.bool.isRequired,
     isFailed:   React.PropTypes.bool.isRequired,
@@ -22,7 +22,7 @@ const ShowTaskTask = React.createClass( {
     if ( isFailed )
       return (
         <div className="ui center aligned segment">
-          <div onClick={onTasksReload} className="ui grey basic button">Try to reload...</div>
+          <button onClick={onTasksReload} className="ui grey basic button">Try to reload...</button>
         </div>
       );
     
@@ -34,12 +34,12 @@ const ShowTaskTask = React.createClass( {
       );
     
     const tasksCode = tasks.map( ( task ) =>
-      <Task className="tasks__task-box"
-            onAddClick={onAddTaskClick}
-            onStatusClick={onTaskStatusToggle}
-            onClick={onTaskClick}
-            activeItem={activeItem}
-            key={task._id} {...task}/> );
+      <ViewTask className="tasks__task-box"
+                onAddClick={onAddTaskClick}
+                onStatusClick={onTaskStatusToggle}
+                onClick={onTaskClick}
+                activeItem={activeItem}
+                key={task._id} {...task}/> );
     
     return (
       <div className="ui tasks">
@@ -51,11 +51,12 @@ const ShowTaskTask = React.createClass( {
               <div className="ui active inverted dimmer">
                 <div className="ui loader"></div>
               </div>
-            </div>)
+            </div>
+          )
         }
       </div>
     );
   }
 } );
 
-export default ShowTaskTask;
+export default ViewTasksList;

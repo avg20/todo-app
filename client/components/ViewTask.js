@@ -1,9 +1,9 @@
-/** client/components/Task.js **/
+/** client/components/ViewTask.js **/
 
 import React from 'react';
 import moment from 'moment';
 
-const Task = React.createClass( {
+const ViewTask = React.createClass( {
   propTypes: {
     onClick:       React.PropTypes.func.isRequired,
     onAddClick:    React.PropTypes.func.isRequired,
@@ -29,7 +29,7 @@ const Task = React.createClass( {
   getTaskClass: function () {
     if ( this.props._id == this.props.activeItem._id )
       return "ui segment task task--selected";
-  
+
     if ( this.props.status === 2 )
       return "ui segment task task--completed";
     
@@ -40,23 +40,28 @@ const Task = React.createClass( {
     switch ( this.props.status ) {
       case 2:
         return (
-          <button onClick={this.handleButtonClick} className="circular mini ui icon green basic button">
+          <button onClick={this.handleStatusButtonClick} className="circular mini ui icon green basic button">
             <i className="minus icon"/>
           </button>
         );
       
       default:
         return (
-          <button onClick={this.handleButtonClick} className="circular mini ui icon basic button">
+          <button onClick={this.handleStatusButtonClick} className="circular mini ui icon basic button">
             <i className="icon"/>
           </button>
         );
     }
   },
   
-  handleButtonClick: function ( e ) {
-    e.stopPropagation();
+  isParent: function () {
+    return this.props._id === this.props.activeItem.parent_id &&
+      this.props.activeItem._id === undefined
+  },
   
+  handleStatusButtonClick: function ( e ) {
+    e.stopPropagation();
+
     this.props.onStatusClick( this.props._id );
   },
   
@@ -67,43 +72,44 @@ const Task = React.createClass( {
   },
   
   handleTaskClick: function ( e ) {
+    e.stopPropagation();
+
     this.props.onClick( this.props );
-  },
-  
-  isParent: function () {
-    return this.props._id === this.props.activeItem.parent_id &&
-      this.props.activeItem._id === undefined
   },
   
   render: function () {
     let children = this.props.children.map( ( task ) =>
-      <Task className="child"
-            onClick={this.props.onClick}
-            onAddClick={this.props.onAddClick}
-            onStatusClick={this.props.onStatusClick}
-            activeItem={this.props.activeItem}
-            key={task._id} {...task}/> );
-  
+      <ViewTask className="child"
+                onClick={this.props.onClick}
+                onAddClick={this.props.onAddClick}
+                onStatusClick={this.props.onStatusClick}
+                activeItem={this.props.activeItem}
+                key={task._id} {...task}/> );
+
     return (
       <div className={this.props.className}>
         <div className={this.getTaskClass()} onClick={this.handleTaskClick}>
           <div className="task__checkbox">
             {this.getStatusButton()}
           </div>
+  
           <div className="task__add-button" onClick={this.handleAddButtonClick}>
             <button className="circular mini ui icon blue basic button">
               <i className="arrow down icon"/>
             </button>
           </div>
+  
           <div className="task__name">
             <strong>{this.props.name}</strong>
             {this.isParent() ? <i className="task__parent-indicator angle double down icon"/> : ""}
           </div>
+  
           <div className="task__due-date">
             <div className={`${this.props.overdue ? "task__due-date--overdue" : ""} ui label`}>
               <i className="calendar icon"/> Due to {moment( this.props.due_date ).format( "MM/DD/YYYY" )}
             </div>
           </div>
+  
           <div className={this.getPriorityIconClass()}>
             <i className="star icon"/>
           </div>
@@ -114,4 +120,4 @@ const Task = React.createClass( {
   }
 } );
 
-export default Task;
+export default ViewTask;

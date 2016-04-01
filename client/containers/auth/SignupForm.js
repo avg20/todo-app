@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { authPageToggle, authAddUser } from '../../actions';
-import ShowSignupForm from '../../components/auth/ViewSignupForm';
+import ViewSignupForm from '../../components/auth/ViewSignupForm';
 
 const mapStateToProps = ( state ) => {
   return {
@@ -26,4 +26,4 @@ const mapDispatchToProps = ( dispatch ) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)( ShowSignupForm );
+)( ViewSignupForm );

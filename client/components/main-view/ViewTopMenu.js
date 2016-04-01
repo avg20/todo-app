@@ -1,8 +1,8 @@
-/** client/components/main-view/ShowTopMenu.js **/
+/** client/components/main-view/ViewTopMenu.js **/
 
 import React from 'react';
 
-const ShowTopMenu = React.createClass( {
+const ViewTopMenu = React.createClass( {
   render: function () {
     return (
       <div className="ui fixed menu">
@@ -21,8 +21,4 @@ const ShowTopMenu = React.createClass( {
   }
 } );
 
-export default ShowTopMenu;
-
-/*
- 
- */
+export default ViewTopMenu;

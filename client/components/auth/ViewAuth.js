@@ -1,10 +1,10 @@
-/** client/components/auth/ShowAuth.js **/
+/** client/components/auth/ViewAuth.js **/
 
 import React from 'react';
 import LoginForm from '../../containers/auth/LoginForm';
 import SignupForm from '../../containers/auth/SignupForm';
 
-const ShowLoginForm = React.createClass( {
+const ViewAuth = React.createClass( {
   propTypes: {
     page: React.PropTypes.string.isRequired
   },
@@ -33,4 +33,4 @@ const ShowLoginForm = React.createClass( {
   }
 } );
 
-export default ShowLoginForm;
+export default ViewAuth;

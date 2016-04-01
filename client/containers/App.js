@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import ShowApp from '../components/ViewApp';
+import ViewApp from '../components/ViewApp';
 import { messagesDisplayed } from '../actions';
 
 const mapStateToProps = ( state ) => {
@@ -25,4 +25,4 @@ const mapDispatchToProps = ( dispatch ) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)( ShowApp );
+)( ViewApp );

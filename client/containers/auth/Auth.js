@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import ShowAuth from '../../components/auth/ViewAuth';
+import ViewAuth from '../../components/auth/ViewAuth';
 
 const mapStateToProps = ( state ) => {
   return {
@@ -17,4 +17,4 @@ const mapDispatchToProps = ( dispatch ) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)( ShowAuth );
+)( ViewAuth );
