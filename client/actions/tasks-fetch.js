@@ -27,9 +27,6 @@ export function fetchTasks() {
     dispatch( fetchTasksRequest() );
     let { tasks, auth } = getState();
   
-    if ( auth === undefined )
-      auth = {};
-  
     return fetch( `http://localhost:3000/tasks?token=${auth.access_token}` )
       .then( ( response ) => {
         if ( !response.ok )
