@@ -27,9 +27,42 @@
     white-space: nowrap;
   }
 
+  &__filter-buttons {
+    text-align: center;
+
+    i {
+      margin: 0 !important;
+    }
+
+    &__incomplete.button {
+      background: #FFCDD2 !important;
+
+      &.active {
+        background: #EF9A9A !important;
+      }
+    }
+
+    &__done.button {
+      background: #C8E6C9 !important;
+
+      &.active {
+        background: #A5D6A7 !important;
+      }
+    }
+  }
+
   &__filter-buttons.buttons > button.button:not(:last-child) {
     border-radius: 0;
     border-bottom: 1px solid transparent;
+  }
+}
+@media (max-width: 710px) {
+  .ui.top-line {
+    flex-direction: column;
+
+    &__filter {
+      margin: 14px 0 6px;
+    }
   }
 }
 .ui.form.top-line input {

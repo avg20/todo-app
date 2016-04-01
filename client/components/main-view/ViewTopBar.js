@@ -62,27 +62,30 @@ const ViewTopBar = React.createClass( {
         filter = (
           <div className="ui buttons top-line__filter-buttons">
             <button onClick={this.handleCompleteChange(0)}
-                    className={`ui ${this.state.completeButton == 0 ? "active" : ""} basic button`}>All
+                    className={`ui ${this.state.completeButton == 0 ? "active" : ""} top-line__filter-buttons__all basic button`}>
+              All
             </button>
-          
+  
             <button onClick={this.handleCompleteChange(2)}
-                    className={`ui ${this.state.completeButton == 2 ? "active" : ""} basic button`}>Completed
+                    className={`ui ${this.state.completeButton == 2 ? "active" : ""} top-line__filter-buttons__done basic button`}>
+              <i className="checkmark box icon"/>
             </button>
-          
+  
             <button onClick={this.handleCompleteChange(1)}
-                    className={`ui ${this.state.completeButton == 1 ? "active" : ""} basic button`}>Incompleted
+                    className={`ui ${this.state.completeButton == 1 ? "active" : ""} top-line__filter-buttons__incomplete basic button`}>
+              <i className="square outline icon"/>
             </button>
           </div>
         );
         break;
     }
-
+  
     return (
       <div className="ui form segment top-line">
         <div className="top-line__add-button">
           <button type="submit" className="ui teal basic icon button" onClick={this.props.onClickCreateNew}><i className="plus icon"/> Task</button>
         </div>
-
+  
         <div className="top-line__filter ui left labeled left input">
           <div className="ui dropdown label" ref="filterDropdown">
             <div className="text">Filter by name:</div>
@@ -94,7 +97,7 @@ const ViewTopBar = React.createClass( {
           </div>
           {filter}
         </div>
-
+  
         <div className="top-line__sort-wrapper">
           <SortField sort={this.props.sort} onSortClick={this.props.onSortClick}/>
         </div>
