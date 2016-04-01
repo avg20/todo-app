@@ -28,7 +28,7 @@ const task_card = ( state = getInitState(), action ) => {
         isSelected: true,
         item:       action.item
       } );
-  
+
     case DELETE_TASK_SUCCESS:
     case CLOSE_TASK:
       return Object.assign( {}, state, {
@@ -69,7 +69,7 @@ const task_card = ( state = getInitState(), action ) => {
         isSending: false,
         isFailed:  false,
         errors:    [],
-        item:      action.toggled ? state.item : action.task
+        item:      (action.toggled || action.type == ADD_TASK_SUCCESS) ? state.item : action.task
       } );
   
     default:
