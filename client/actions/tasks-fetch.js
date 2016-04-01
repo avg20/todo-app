@@ -25,9 +25,12 @@ export const fetchTasksSuccess = ( tasks ) => {
 export function fetchTasks() {
   return ( dispatch, getState ) => {
     dispatch( fetchTasksRequest() );
-    const { tasks, auth } = getState();
+    let { tasks, auth } = getState();
   
-    return fetch( `http://localhost:3000/tasks?name=${tasks.filter}&sort=${tasks.sort}&token=${auth.access_token}` )
+    if ( auth === undefined )
+      auth = {};
+  
+    return fetch( `http://localhost:3000/tasks?token=${auth.access_token}` )
       .then( ( response ) => {
         if ( !response.ok )
           return { status: 'error', error: response.statusText };
