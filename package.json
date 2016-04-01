@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha --compilers js:babel-register --recursive",
+    "test-all": "mocha --compilers js:babel-register --recursive ./test/index.js",
     "test:watch": "npm test -- --watch"
   },
   "dependencies": {
