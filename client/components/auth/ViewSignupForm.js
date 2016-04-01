@@ -1,7 +1,7 @@
 /** client/components/auth/ShowLoginForm.js **/
 
 import React from 'react';
-import ErrorMessage from '../../helpers/ErrorMessage';
+import InputField from '../../helpers/InputField';
 
 const ShowSingupForm = React.createClass( {
   propTypes: {
@@ -43,20 +43,22 @@ const ShowSingupForm = React.createClass( {
         </h2>
         <form className={`ui ${this.props.isSending ? "loading" : ""} large form`}>
           <div className="ui stacked segment">
-            <div className="field">
-              <div className="ui left icon input">
-                <i className="user icon"/>
-                <input onChange={this.handleUsernameChange} type="text" placeholder="Username" value={this.state.username}/>
-              </div>
-              <ErrorMessage text={this.props.errors['username']}/>
-            </div>
-            <div className="field">
-              <div className="ui left icon input">
-                <i className="lock icon"/>
-                <input onChange={this.handlePasswordChange} type="password" placeholder="Password" value={this.state.password}/>
-              </div>
-              <ErrorMessage text={this.props.errors['password']}/>
-            </div>
+            <InputField
+              onChange={this.handleUsernameChange}
+              placeholder="Username"
+              icon="user"
+              type="text"
+              value={this.state.username}
+              error={this.props.errors['username']}/>
+  
+            <InputField
+              onChange={this.handlePasswordChange}
+              placeholder="Password"
+              icon="lock"
+              type="password"
+              value={this.state.password}
+              error={this.props.errors['password']}/>
+            
             <button className="ui fluid large teal submit button" onClick={this.handleSubmit}>Create</button>
           </div>
         </form>
