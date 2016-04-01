@@ -55,9 +55,9 @@ const ShowSingupForm = React.createClass( {
                 <i className="lock icon"/>
                 <input onChange={this.handlePasswordChange} type="password" placeholder="Password" value={this.state.password}/>
               </div>
-              <Error text={this.props.errors['password']}/>
+              <ErrorMessage text={this.props.errors['password']}/>
             </div>
-            <ErrorMessage className="ui fluid large teal submit button" onClick={this.handleSubmit}>Create</ErrorMessage>
+            <button className="ui fluid large teal submit button" onClick={this.handleSubmit}>Create</button>
           </div>
         </form>
         
