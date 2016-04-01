@@ -51,8 +51,9 @@ const task_card = ( state = getInitState(), action ) => {
     case SAVE_TASK_REQUEST:
     case ADD_TASK_REQUEST:
       return Object.assign( {}, state, {
-        isSending: true,
-        errors:    []
+        isSelected: true,
+        isSending:  true,
+        errors:     []
       } );
 
     case SAVE_TASK_FAILURE:
