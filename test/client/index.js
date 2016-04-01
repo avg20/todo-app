@@ -2,4 +2,5 @@
 
 describe( 'Client', () => {
   require( './actions' );
+  require( './reducers' );
 } );
