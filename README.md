@@ -26,3 +26,7 @@ __Development mode:__
 __When you are done, create a production ready version of the JS bundle:__
 
 `npm run build`
+
+__Open App__
+
+[http://localhost:3000/](http://localhost:3000/)
