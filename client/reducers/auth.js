@@ -41,7 +41,6 @@ const auth = ( state = getInitState(), action ) => {
     case ADD_USER_SUCCESS:
       return Object.assign( {}, state, {
         isSending: false,
-        user:      action.user,
         page:      'login'
       } );
 
