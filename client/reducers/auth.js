@@ -52,6 +52,7 @@ const auth = ( state = getInitState(), action ) => {
       }
 
       return Object.assign( {}, state, {
+        isSending:    false,
         isAuthorized: true,
         access_token: action.token,
         username:     action.username
@@ -64,6 +65,7 @@ const auth = ( state = getInitState(), action ) => {
       }
     
       return Object.assign( {}, state, {
+        isSending:    false,
         isAuthorized: false,
         access_token: '',
         username:     '',
