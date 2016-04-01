@@ -23,7 +23,7 @@ const getInitState = () => {
 };
 
 const buildTree = ( items ) => {
-  const nodes = Array.from( items );
+  const nodes = Array.from( items, ( v ) => Object.assign( {}, v ) );
   const map = new Map, roots = [];
   
   for ( let i = 0; i < nodes.length; i++ ) {
