@@ -1,6 +1,8 @@
 'use strict';
 
 describe( 'Reducers', function () {
-  require( './tasks' );
-  require( './task-card' );
+  require( './reducer-tasks' );
+  require( './reducer-task-card' );
+  require( './reducer-messages' );
+  require( './reducer-auth' );
 } );
