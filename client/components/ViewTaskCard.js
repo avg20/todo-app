@@ -94,7 +94,7 @@ const ViewTaskForm = React.createClass( {
         <div className={`ui ${this.props.isSending ? "loading" : ""} card form task-card`}>
           <div className="content task-card__top-line">
             <div className="ui fluid input task-card__top-input">
-              <input placeholder="Task Name..." onChange={this.handleNameChange} value={this.state.name}/>
+              <input type="text" placeholder="Task Name..." onChange={this.handleNameChange} value={this.state.name}/>
             </div>
 
             <button onClick={this.handleDeleteClick} className="circular ui icon basic button task-card__remove-button">
@@ -134,7 +134,7 @@ const ViewTaskForm = React.createClass( {
     
             <div className="task-card__datepicker ui calendar inline field" ref="datepicker">
               <label>Due to: </label>
-              <input defaultValue={moment(this.state.due_date).format( 'MM/DD/YYYY' )}/>
+              <input type="text" defaultValue={moment(this.state.due_date).format( 'MM/DD/YYYY' )}/>
             </div>
           </div>
         </div>
