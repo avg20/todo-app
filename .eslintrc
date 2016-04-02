@@ -6,6 +6,9 @@
       "jsx": true
     }
   },
+  "env": {
+    "jquery": true
+  },
   "extends": "airbnb",
   "rules": {
     "arrow-body-style": 0,
