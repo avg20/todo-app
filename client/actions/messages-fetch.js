@@ -16,10 +16,10 @@ export const fetchMessagesFailure = (error) => {
   };
 };
 
-export const fetchMessagesSuccess = (messages) => {
+export const fetchMessagesSuccess = (answer) => {
   return {
     type: types.FETCH_MESSAGES_SUCCESS,
-    messages,
+    messages: answer.messages,
   };
 };
 
@@ -44,7 +44,7 @@ export function fetchMessages() {
       })
       .then((json) => {
         if (json.status === 'success') {
-          dispatch(fetchMessagesSuccess(json.messages));
+          dispatch(fetchMessagesSuccess(json));
           
           if (json.messages.length) {
             dispatch(fetchTasks());

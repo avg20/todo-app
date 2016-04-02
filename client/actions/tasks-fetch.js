@@ -15,10 +15,10 @@ export const fetchTasksFailure = (error) => {
   };
 };
 
-export const fetchTasksSuccess = (tasks) => {
+export const fetchTasksSuccess = (answer) => {
   return {
     type: types.FETCH_TASKS_SUCCESS,
-    tasks,
+    tasks: answer.tasks,
   };
 };
 
@@ -32,12 +32,12 @@ export function fetchTasks() {
         if (!response.ok) {
           return { status: 'error', error: response.statusText };
         }
-          
+
         return response.json();
       })
       .then((json) => {
         if (json.status === 'success') {
-          dispatch(fetchTasksSuccess(json.tasks));
+          dispatch(fetchTasksSuccess(json));
         } else {
           dispatch(fetchTasksFailure(json.error));
         }
