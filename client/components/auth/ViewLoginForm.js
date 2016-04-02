@@ -65,7 +65,7 @@ const ViewLoginForm = React.createClass({
               className="ui fluid large teal submit button"
               onClick={this.handleSubmit}
             >
-              Create
+              Login
             </button>
           </div>
         </form>
