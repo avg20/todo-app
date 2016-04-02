@@ -17,7 +17,7 @@ __Install the dependencies:__
 
 __Test:__
 
-`npm run test-all`
+`npm run test`
 
 __Development mode:__
 
