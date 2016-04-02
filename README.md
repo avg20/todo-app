@@ -1,4 +1,4 @@
-## TodoApp
+## TodoApp [![Build Status](https://travis-ci.org/avg20/todo-app.svg?branch=master)](https://travis-ci.org/avg20/todo-app)
 
 This app allow user to create new account, login with username and password and have it's own task list.
 
