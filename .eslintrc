@@ -11,6 +11,7 @@
   },
   "extends": "airbnb",
   "rules": {
+    "strict": 0,
     "arrow-body-style": 0,
     "no-trailing-spaces": [
       "error",
