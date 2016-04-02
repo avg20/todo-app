@@ -1,6 +1,6 @@
 'use strict';
 
-describe( 'Client', () => {
-  require( './actions' );
-  require( './reducers' );
-} );
+describe('Client', () => {
+  require('./actions');
+  require('./reducers');
+});
