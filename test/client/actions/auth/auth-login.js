@@ -13,7 +13,7 @@ const mockStore = configureMockStore( middleware );
 
 describe( 'Login', () => {
   afterEach( () => {
-    nock.cleanAll()
+    nock.cleanAll();
   } );
   
   it( 'creates LOGIN_USER_REQUEST, LOGIN_USER_SUCCESS, FETCH_TASKS_REQUEST when login request has been done', ( done ) => {

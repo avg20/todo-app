@@ -13,7 +13,7 @@ const mockStore = configureMockStore( middleware );
 
 describe( 'Delete', () => {
   afterEach( () => {
-    nock.cleanAll()
+    nock.cleanAll();
   } );
   
   it( 'creates DELETE_TASK_REQUEST, DELETE_TASK_SUCCESS when add task request has been done', ( done ) => {

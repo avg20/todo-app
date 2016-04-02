@@ -13,7 +13,7 @@ const mockStore = configureMockStore( middleware );
 
 describe( 'Add', () => {
   afterEach( () => {
-    nock.cleanAll()
+    nock.cleanAll();
   } );
   
   it( 'creates ADD_TASK_REQUEST, ADD_TASK_SUCCESS when add task request has been done', ( done ) => {

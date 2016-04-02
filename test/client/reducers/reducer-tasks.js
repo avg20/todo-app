@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import reducer from '../../../client/reducers/tasks'
+import reducer from '../../../client/reducers/tasks';
 import * as actions from '../../../client/actions';
 
 describe( 'tasks reducer', () => {

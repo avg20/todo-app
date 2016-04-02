@@ -13,7 +13,7 @@ const mockStore = configureMockStore( middleware );
 
 describe( 'Save', () => {
   afterEach( () => {
-    nock.cleanAll()
+    nock.cleanAll();
   } );
   
   it( 'creates SAVE_TASK_REQUEST, SAVE_TASK_SUCCESS and toggle = false when save task request has been done', ( done ) => {

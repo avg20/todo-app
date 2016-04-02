@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import reducer from '../../../client/reducers/auth'
+import reducer from '../../../client/reducers/auth';
 import * as actions from '../../../client/actions';
 
 describe( 'auth reducer', () => {

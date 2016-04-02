@@ -13,7 +13,7 @@ const mockStore = configureMockStore( middleware );
 
 describe( 'Singup', () => {
   afterEach( () => {
-    nock.cleanAll()
+    nock.cleanAll();
   } );
   
   it( 'creates ADD_USER_REQUEST, ADD_USER_SUCCESS when singup request has been done', ( done ) => {

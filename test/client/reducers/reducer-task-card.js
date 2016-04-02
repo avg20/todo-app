@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import reducer from '../../../client/reducers/task-card'
+import reducer from '../../../client/reducers/task-card';
 import * as actions from '../../../client/actions';
 import moment from 'moment';
 

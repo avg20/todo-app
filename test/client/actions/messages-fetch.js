@@ -13,7 +13,7 @@ const mockStore = configureMockStore( middleware );
 
 describe( 'Messages Fetch', () => {
   afterEach( () => {
-    nock.cleanAll()
+    nock.cleanAll();
   } );
   
   it( 'creates FETCH_MESSAGES_REQUEST, FETCH_MESSAGES_SUCCESS when fetch request has been done', ( done ) => {
