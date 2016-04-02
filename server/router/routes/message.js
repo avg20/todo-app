@@ -17,6 +17,6 @@ module.exports.getMessages = ( req, res ) => {
       if ( err ) throw err;
       
       res.json( { status: 'success', messages: docs } );
-    } )
+    } );
   } );
 };
