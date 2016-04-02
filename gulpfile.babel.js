@@ -16,7 +16,7 @@ import imagemin from 'gulp-imagemin';
 import pngquant from 'imagemin-pngquant';
 
 import runSequence from 'run-sequence';
-import nodemon from 'gulp-nodemon';
+import server from 'gulp-develop-server';
 
 import rename from 'gulp-rename';
 
@@ -39,7 +39,8 @@ gulp.task( 'clean', function () {
 } );
 
 gulp.task( 'start', function () {
-  nodemon( {
+  server.listen( { path: './server.js' } );
+  /*nodemon( {
     script: 'server.js',
     ignore: [
       'test/',
@@ -49,7 +50,7 @@ gulp.task( 'start', function () {
     ],
     ext:    'js html css',
     env:    { 'NODE_ENV': 'development' }
-  } )
+   } )*/
 } );
 
 gulp.task( 'sass', function () {
