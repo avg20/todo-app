@@ -6,9 +6,9 @@
   "scripts": {
     "test": "mocha --compilers js:babel-register --recursive  ./test/index.js",
     "test-file": "mocha --compilers js:babel-register --recursive",
-    "test:watch": "npm test -- --watch",
     "watch": "gulp watch",
-    "build": "gulp build"
+    "build": "gulp build",
+    "lint": "eslint ./client && eslint ./server"
   },
   "dependencies": {
     "assert": "^1.3.0",
