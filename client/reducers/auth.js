@@ -12,18 +12,16 @@ import {
   USER_LOGOUT
 } from '../constants';
 
-const getInitState = () => {
-  return {
-    isAuthorized: false,
-    isSending:    false,
-    page:         'login',
-    errors:       {},
-    username:     '',
-    access_token: ''
-  };
+const getInitState = {
+  isAuthorized: false,
+  isSending:    false,
+  page:         'login',
+  errors:       {},
+  username:     '',
+  access_token: ''
 };
 
-const auth = ( state = getInitState(), action ) => {
+const auth = ( state = getInitState, action ) => {
   switch ( action.type ) {
     case LOGIN_USER_REQUEST:
     case ADD_USER_REQUEST:

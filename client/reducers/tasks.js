@@ -11,15 +11,13 @@ import {
   FILTER_TASKS
 } from '../constants';
 
-const getInitState = () => {
-  return {
-    isFetching: false,
-    isFailed:   false,
-    sort:       { field: 'name', val: 1 },
-    filter:     { type: 'name', val: '' },
-    items:      [],
-    tree:       []
-  };
+const getInitState = {
+  isFetching: false,
+  isFailed:   false,
+  sort:       { field: 'name', val: 1 },
+  filter:     { type: 'name', val: '' },
+  items:      [],
+  tree:       []
 };
 
 const buildTree = ( items ) => {
@@ -41,7 +39,7 @@ const buildTree = ( items ) => {
   return roots;
 };
 
-const tasks = ( state = getInitState(), action ) => {
+const tasks = ( state = getInitState, action ) => {
   let items;
 
   switch ( action.type ) {

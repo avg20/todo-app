@@ -2,13 +2,11 @@
 
 import { FETCH_MESSAGES_SUCCESS, MESSAGES_DISPLAYED, ADD_USER_SUCCESS } from '../constants';
 
-const getInitState = () => {
-  return {
-    items: []
-  };
+const getInitState = {
+  items: []
 };
 
-const messages = ( state = getInitState(), action ) => {
+const messages = ( state = getInitState, action ) => {
   switch ( action.type ) {
     case FETCH_MESSAGES_SUCCESS:
       return Object.assign( {}, state, {

@@ -4,14 +4,12 @@ import { ADD_TASK_REQUEST, ADD_TASK_FAILURE, ADD_TASK_SUCCESS, SAVE_TASK_REQUEST
 import { SELECT_TASK, CLOSE_TASK, ADD_BLANK_TASK, ADD_CHILD_TASK, DELETE_TASK_SUCCESS } from '../constants';
 import moment from "moment";
 
-const getInitState = () => {
-  return {
-    isSelected: false,
-    isSending:  false,
-    isFailed:   false,
-    errors:     [],
-    item:       {}
-  };
+const getInitState = {
+  isSelected: false,
+  isSending:  false,
+  isFailed:   false,
+  errors:     [],
+  item:       {}
 };
 
 const getBlankItem = {
@@ -21,7 +19,7 @@ const getBlankItem = {
   due_date:    moment().startOf( 'day' )
 };
 
-const task_card = ( state = getInitState(), action ) => {
+const task_card = ( state = getInitState, action ) => {
   switch ( action.type ) {
     case SELECT_TASK:
       return Object.assign( {}, state, {
@@ -35,7 +33,7 @@ const task_card = ( state = getInitState(), action ) => {
         isSelected: false,
         item:       {}
       } );
-  
+
     case ADD_BLANK_TASK:
       return Object.assign( {}, state, {
         isSelected: true,
@@ -51,8 +49,8 @@ const task_card = ( state = getInitState(), action ) => {
     case SAVE_TASK_REQUEST:
     case ADD_TASK_REQUEST:
       return Object.assign( {}, state, {
-        isSending:  true,
-        errors:     []
+        isSending: true,
+        errors:    []
       } );
 
     case SAVE_TASK_FAILURE:
