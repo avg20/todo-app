@@ -1,16 +1,6 @@
 /** client/reducers/auth.js **/
 
-import {
-  AUTH_PAGE_TOGGLE,
-  ADD_USER_REQUEST,
-  ADD_USER_FAILURE,
-  ADD_USER_SUCCESS,
-  LOGIN_USER_REQUEST,
-  LOGIN_USER_FAILURE,
-  LOGIN_USER_SUCCESS,
-  SETUP_CREDITIONS,
-  USER_LOGOUT
-} from '../constants';
+import * as types from '../constants';
 
 const getInitState = {
   isAuthorized: false,
@@ -23,32 +13,32 @@ const getInitState = {
 
 const auth = ( state = getInitState, action ) => {
   switch ( action.type ) {
-    case LOGIN_USER_REQUEST:
-    case ADD_USER_REQUEST:
+    case types.LOGIN_USER_REQUEST:
+    case types.ADD_USER_REQUEST:
       return Object.assign( {}, state, {
         isSending: true
       } );
-
-    case LOGIN_USER_FAILURE:
-    case ADD_USER_FAILURE:
+  
+    case types.LOGIN_USER_FAILURE:
+    case types.ADD_USER_FAILURE:
       return Object.assign( {}, state, {
         isSending: false,
         errors:    action.errors
       } );
-
-    case ADD_USER_SUCCESS:
+  
+    case types.ADD_USER_SUCCESS:
       return Object.assign( {}, state, {
         isSending: false,
         page:      'login'
       } );
-
-    case SETUP_CREDITIONS:
-    case LOGIN_USER_SUCCESS:
+  
+    case types.SETUP_CREDITIONS:
+    case types.LOGIN_USER_SUCCESS:
       if ( typeof(Storage) !== 'undefined' ) {
         localStorage.setItem( 'access_token', action.token );
         localStorage.setItem( 'username', action.username );
       }
-
+    
       return Object.assign( {}, state, {
         isSending:    false,
         isAuthorized: true,
@@ -56,7 +46,7 @@ const auth = ( state = getInitState, action ) => {
         username:     action.username
       } );
   
-    case USER_LOGOUT:
+    case types.USER_LOGOUT:
       if ( typeof(Storage) !== 'undefined' ) {
         localStorage.removeItem( 'access_token' );
         localStorage.removeItem( 'username' );
@@ -69,8 +59,8 @@ const auth = ( state = getInitState, action ) => {
         username:     '',
         page:         'login'
       } );
-
-    case AUTH_PAGE_TOGGLE:
+  
+    case types.AUTH_PAGE_TOGGLE:
       return Object.assign( {}, state, {
         page: (state.page == 'login') ? 'signup' : 'login'
       } );

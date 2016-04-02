@@ -1,6 +1,6 @@
 /** client/reducers/messages.js **/
 
-import { FETCH_MESSAGES_SUCCESS, MESSAGES_DISPLAYED, ADD_USER_SUCCESS } from '../constants';
+import * as types from '../constants';
 
 const getInitState = {
   items: []
@@ -8,17 +8,17 @@ const getInitState = {
 
 const messages = ( state = getInitState, action ) => {
   switch ( action.type ) {
-    case FETCH_MESSAGES_SUCCESS:
+    case types.FETCH_MESSAGES_SUCCESS:
       return Object.assign( {}, state, {
         items: action.messages
       } );
   
-    case ADD_USER_SUCCESS:
+    case types.ADD_USER_SUCCESS:
       return Object.assign( {}, state, {
         items: [ { message: "New Account added! Login Now!", _id: -1, type: 'success' } ]
       } );
   
-    case MESSAGES_DISPLAYED:
+    case types.MESSAGES_DISPLAYED:
       return Object.assign( {}, state, {
         items: []
       } );

@@ -1,15 +1,6 @@
 /** client/reducers/tasks.js **/
 
-import {
-  FETCH_TASKS_REQUEST,
-  FETCH_TASKS_FAILURE,
-  FETCH_TASKS_SUCCESS,
-  ADD_TASK_SUCCESS,
-  SAVE_TASK_SUCCESS,
-  SORT_TASKS,
-  DELETE_TASK_SUCCESS,
-  FILTER_TASKS
-} from '../constants';
+import * as types from '../constants';
 
 const getInitState = {
   isFetching: false,
@@ -43,30 +34,30 @@ const tasks = ( state = getInitState, action ) => {
   let items;
 
   switch ( action.type ) {
-    case FETCH_TASKS_REQUEST:
+    case types.FETCH_TASKS_REQUEST:
       return Object.assign( {}, state, { isFetching: true } );
-
-    case FETCH_TASKS_FAILURE:
+  
+    case types.FETCH_TASKS_FAILURE:
       return Object.assign( {}, state, {
         isFetching: false,
         isFailed:   true
       } );
-
-    case FETCH_TASKS_SUCCESS:
+  
+    case types.FETCH_TASKS_SUCCESS:
       return Object.assign( {}, state, {
         isFetching: false,
         isFailed:   false,
         items:      action.tasks,
         tree:       buildTree( action.tasks )
       } );
-
-    case ADD_TASK_SUCCESS:
+  
+    case types.ADD_TASK_SUCCESS:
       return Object.assign( {}, state, {
         items: [ ...state.items, action.task ],
         tree:  buildTree( [ ...state.items, action.task ] )
       } );
-
-    case SAVE_TASK_SUCCESS:
+  
+    case types.SAVE_TASK_SUCCESS:
       items = state.items.map( ( value ) => {
         if ( value._id === action.task._id )
           return action.task;
@@ -78,8 +69,8 @@ const tasks = ( state = getInitState, action ) => {
         items: items,
         tree:  buildTree( items )
       } );
-
-    case DELETE_TASK_SUCCESS:
+  
+    case types.DELETE_TASK_SUCCESS:
       items = state.items.filter( ( item ) => {
         if ( action.id !== item._id )
           return item;
@@ -89,13 +80,13 @@ const tasks = ( state = getInitState, action ) => {
         items: items,
         tree:  buildTree( items )
       } );
-
-    case SORT_TASKS:
+  
+    case types.SORT_TASKS:
       return Object.assign( {}, state, {
         sort: { field: action.field, val: action.val }
       } );
-
-    case FILTER_TASKS:
+  
+    case types.FILTER_TASKS:
       return Object.assign( {}, state, {
         filter: { type: action.filterType, val: action.val }
       } );
