@@ -1,11 +1,11 @@
 /** client/components/auth/ViewSingupForm.js **/
 
-import React from 'react';
-import InputField from '../../helpers/InputField';
+import React from "react"
+import InputField from "../../helpers/InputField"
 
 const ViewSingupForm = React.createClass( {
   propTypes: {
-    errors:    React.PropTypes.object.isRequired,
+    errors: React.PropTypes.object.isRequired,
     isSending: React.PropTypes.bool.isRequired,
     
     onPageToggle: React.PropTypes.func.isRequired,
@@ -32,7 +32,7 @@ const ViewSingupForm = React.createClass( {
     
     this.props.onFormSubmit( this.state );
   },
-
+  
   render: function () {
     return (
       <div className="column">

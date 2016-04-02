@@ -1,19 +1,19 @@
 /** client/components/ViewApp.js **/
 
-import React from 'react';
-import TaskCard from '../containers/TaskCard';
-import ShowTasks from '../containers/Tasks';
-import TopBar from '../containers/main-view/TopBar';
-import Notify from '../helpers/Notify';
-import Auth from '../containers/auth/Auth';
-import TopMenu from '../containers/main-view/TopMenu';
+import React from "react"
+import TaskCard from "../containers/TaskCard"
+import ShowTasks from "../containers/Tasks"
+import TopBar from "../containers/main-view/TopBar"
+import Notify from "../helpers/Notify"
+import Auth from "../containers/auth/Auth"
+import TopMenu from "../containers/main-view/TopMenu"
 
 const ViewApp = React.createClass( {
   propTypes: {
-    isSelected:   React.PropTypes.bool.isRequired,
+    isSelected: React.PropTypes.bool.isRequired,
     isAuthorized: React.PropTypes.bool.isRequired,
-    messages:     React.PropTypes.array.isRequired,
-    item:         React.PropTypes.object.isRequired
+    messages: React.PropTypes.array.isRequired,
+    item: React.PropTypes.object.isRequired
   },
   
   showMessages: function () {

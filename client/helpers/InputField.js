@@ -1,15 +1,15 @@
 /** client/helpers/InputField.js **/
 
-import React from 'react';
-import ErrorMessage from './ErrorMessage';
+import React from "react"
+import ErrorMessage from "./ErrorMessage"
 
 const InputField = React.createClass( {
   propTypes: {
-    value:       React.PropTypes.string.isRequired,
+    value: React.PropTypes.string.isRequired,
     placeholder: React.PropTypes.string.isRequired,
-    error:       React.PropTypes.string.isRequired,
-    icon:        React.PropTypes.string,
-    type:        React.PropTypes.string.isRequired,
+    error: React.PropTypes.string.isRequired,
+    icon: React.PropTypes.string,
+    type: React.PropTypes.string.isRequired,
     
     onChange: React.PropTypes.func.isRequired
   },

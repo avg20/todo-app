@@ -1,6 +1,6 @@
 /** client/helpers/ErrorMessage.js **/
 
-import React from 'react';
+import React from "react"
 
 const ErrorMessage = React.createClass( {
   render: function () {

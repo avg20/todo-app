@@ -1,14 +1,14 @@
 /** client/components/auth/ViewAuth.js **/
 
-import React from 'react';
-import LoginForm from '../../containers/auth/LoginForm';
-import SignupForm from '../../containers/auth/SignupForm';
+import React from "react"
+import LoginForm from "../../containers/auth/LoginForm"
+import SignupForm from "../../containers/auth/SignupForm"
 
 const ViewAuth = React.createClass( {
   propTypes: {
     page: React.PropTypes.string.isRequired
   },
-
+  
   componentDidMount: function () {
     document.querySelector( 'body' ).classList.add( 'auth' );
   },

@@ -1,12 +1,12 @@
 /** client/components/main-view/ViewTopBar.js **/
 
-import React from 'react';
-import SortField from './ViewSortField';
+import React from "react"
+import SortField from "./ViewSortField"
 
 const ViewTopBar = React.createClass( {
   getInitialState: function () {
     return {
-      filter:         1,
+      filter: 1,
       completeButton: 0
     };
   },

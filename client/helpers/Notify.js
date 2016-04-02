@@ -1,7 +1,7 @@
 /** client/helpers/Notify.js **/
 
-import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import React from "react"
+import ReactCSSTransitionGroup from "react-addons-css-transition-group"
 
 const Item = React.createClass( {
   hideNotification: function () {
@@ -59,7 +59,7 @@ const Notify = React.createClass( {
   
   hideNotification: function ( key ) {
     const state = this.state;
-    state.keys = state.keys.filter( ( value ) => value.key !== key );
+    state.keys = state.keys.filter((value) => value.key !== key);
     
     this.setState( state );
   },

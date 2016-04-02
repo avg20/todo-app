@@ -1,12 +1,12 @@
 /** client/components/ViewTask.js **/
 
-import React from 'react';
-import moment from 'moment';
+import React from "react"
+import moment from "moment"
 
 const ViewTask = React.createClass( {
   propTypes: {
-    onClick:       React.PropTypes.func.isRequired,
-    onAddClick:    React.PropTypes.func.isRequired,
+    onClick: React.PropTypes.func.isRequired,
+    onAddClick: React.PropTypes.func.isRequired,
     onStatusClick: React.PropTypes.func.isRequired
   },
   
@@ -29,7 +29,7 @@ const ViewTask = React.createClass( {
   getTaskClass: function () {
     if ( this.props._id == this.props.activeItem._id )
       return "ui segment task task--selected";
-
+  
     if ( this.props.status === 2 )
       return "ui segment task task--completed";
     
@@ -61,7 +61,7 @@ const ViewTask = React.createClass( {
   
   handleStatusButtonClick: function ( e ) {
     e.stopPropagation();
-
+  
     this.props.onStatusClick( this.props._id );
   },
   
@@ -73,7 +73,7 @@ const ViewTask = React.createClass( {
   
   handleTaskClick: function ( e ) {
     e.stopPropagation();
-
+  
     this.props.onClick( this.props );
   },
   
@@ -85,7 +85,7 @@ const ViewTask = React.createClass( {
                 onStatusClick={this.props.onStatusClick}
                 activeItem={this.props.activeItem}
                 key={task._id} {...task}/> );
-
+  
     return (
       <div className={this.props.className}>
         <div className={this.getTaskClass()} onClick={this.handleTaskClick}>

@@ -1,9 +1,9 @@
 /** client/containers/Tasks.js **/
 
-import React from 'react';
-import { connect } from 'react-redux';
-import ViewTasksList from '../components/ViewTasksList';
-import { fetchTasks, addChildTask, selectTask, taskStatusToggle } from '../actions';
+import React from "react"
+import { connect } from "react-redux"
+import ViewTasksList from "../components/ViewTasksList"
+import { fetchTasks, addChildTask, selectTask, taskStatusToggle } from "../actions"
 
 const filterItem = ( item, filter ) => {
   switch ( filter.type ) {
@@ -60,22 +60,22 @@ const getTasks = ( tasks, filter, sort ) => {
 
 const mapStateToProps = ( state ) => {
   return {
-    tasks:      getTasks( state.tasks.tree, state.tasks.filter, state.tasks.sort ),
+    tasks: getTasks(state.tasks.tree, state.tasks.filter, state.tasks.sort),
     isFetching: state.tasks.isFetching,
-    isFailed:   state.tasks.isFailed,
+    isFailed: state.tasks.isFailed,
     activeItem: state.task_card.item
   };
 };
 
 const mapDispatchToProps = ( dispatch ) => {
   return {
-    onTasksReload:      () => {
+    onTasksReload: () => {
       dispatch( fetchTasks() );
     },
-    onTaskClick:        ( item ) => {
+    onTaskClick: (item) => {
       dispatch( selectTask( item ) );
     },
-    onAddTaskClick:     ( parent ) => {
+    onAddTaskClick: (parent) => {
       dispatch( addChildTask( parent ) );
     },
     onTaskStatusToggle: ( item ) => {

@@ -20,22 +20,21 @@ let store = createStore(
   )
 );
 
-if ( typeof(Storage) !== 'undefined' ) {
-  const access_token = localStorage.getItem( 'access_token' );
-  const username = localStorage.getItem( 'username' );
-
-  if ( access_token !== null ) {
-    store.dispatch( setupCreditions( access_token, username ) );
-    store.dispatch( fetchTasks() );
+if (typeof(Storage) !== 'undefined') {
+  const accessToken = localStorage.getItem('access_token');
+  const username = localStorage.getItem('username');
+  if (accessToken !== null) {
+    store.dispatch(setupCreditions(accessToken, username));
+    store.dispatch(fetchTasks());
   }
 }
 
-setInterval( ()=> {
-  store.dispatch( fetchMessages() );
-}, 10 * 1000 );
+setInterval(() => {
+  store.dispatch(fetchMessages());
+}, 10 * 1000);
 
 render(
   <Provider store={store}>
     <App />
-  </Provider>, document.getElementById( 'content' )
+  </Provider>, document.getElementById('content')
 );

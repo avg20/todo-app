@@ -1,17 +1,17 @@
 /** client/components/ViewTaskForm.js **/
 
-import React from 'react';
-import moment from 'moment';
+import React from "react"
+import moment from "moment"
 
 const ViewTaskForm = React.createClass( {
   propTypes: {
     isSending: React.PropTypes.bool.isRequired,
-    isFailed:  React.PropTypes.bool.isRequired,
-    item:      React.PropTypes.object.isRequired,
-    errors:    React.PropTypes.array.isRequired,
-    
-    onCloseTask:  React.PropTypes.func.isRequired,
-    onAddTask:    React.PropTypes.func.isRequired,
+    isFailed: React.PropTypes.bool.isRequired,
+    item: React.PropTypes.object.isRequired,
+    errors: React.PropTypes.array.isRequired,
+  
+    onCloseTask: React.PropTypes.func.isRequired,
+    onAddTask: React.PropTypes.func.isRequired,
     onDeleteTask: React.PropTypes.func.isRequired
   },
   
@@ -30,7 +30,7 @@ const ViewTaskForm = React.createClass( {
         return 'flag icon';
     }
   },
-
+  
   componentWillReceiveProps: function ( props ) {
     this.replaceState( props.item );
   },
@@ -46,13 +46,13 @@ const ViewTaskForm = React.createClass( {
   
   componentDidMount: function () {
     jQuery( this.refs.datepicker ).calendar( {
-      type:      'date',
+      type: 'date',
       formatter: {
         date: function ( date ) {
           return moment( date.toISOString() ).format( 'MM/DD/YYYY' );
         }
       },
-      onChange:  ( date ) => {
+      onChange: (date) => {
         this.setState( { due_date: moment( date.toISOString() ) } );
       }
     } );
@@ -87,7 +87,7 @@ const ViewTaskForm = React.createClass( {
   handleDeleteClick: function () {
     this.props.onDeleteTask( this.state );
   },
-
+  
   render: function () {
     return (
       <div className="ui segments">
@@ -96,11 +96,11 @@ const ViewTaskForm = React.createClass( {
             <div className="ui fluid input task-card__top-input">
               <input type="text" placeholder="Task Name..." onChange={this.handleNameChange} value={this.state.name}/>
             </div>
-
+  
             <button onClick={this.handleDeleteClick} className="circular ui icon basic button task-card__remove-button">
               Remove Task
             </button>
-
+  
             <div className="circular ui icon top left pointing dropdown basic button task-card__priority-flag" ref="priorityDropdown">
               <i className={this.getPriorityFlagClass()}/>
               <div className="menu">
@@ -115,12 +115,12 @@ const ViewTaskForm = React.createClass( {
                 </div>
               </div>
             </div>
-
+  
             <button onClick={this.props.onCloseTask} className="circular ui icon basic button task-card__close-button">
               <i className="remove icon"/>
             </button>
           </div>
-
+  
           <div className="content">
             <div className="field">
               <textarea placeholder="Task Description..." onChange={this.handleDescriptionChange} value={this.state.description}/>

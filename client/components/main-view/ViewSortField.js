@@ -1,10 +1,10 @@
 /** client/components/main-view/ViewSortField.js **/
 
-import React from 'react';
+import React from "react"
 
 const ViewSortField = React.createClass( {
   propTypes: {
-    sort:        React.PropTypes.object,
+    sort: React.PropTypes.object,
     onSortClick: React.PropTypes.func
   },
   
@@ -32,13 +32,13 @@ const ViewSortField = React.createClass( {
   componentDidUpdate: function () {
     jQuery( this.refs.sortPopup ).dropdown( 'refresh' );
   },
-
+  
   render: function () {
     let list = this.getSorts().map( ( value )=> {
       const isActive = (value.field == this.props.sort.field && value.val == this.props.sort.val);
       const itemKey = `${value.val == -1 ? "-" : ""}${value.field}`;
       const direction = value.val == 1 ? "ascending" : "descending";
-
+  
       return (
         <div key={itemKey}
              className={"item " + (isActive ? "selected active":"")}
