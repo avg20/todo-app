@@ -1,14 +1,19 @@
 /** client/helpers/ErrorMessage.js **/
 
-import React from "react"
+import React from 'react';
 
-const ErrorMessage = React.createClass( {
-  render: function () {
-    if ( this.props.text )
+const ErrorMessage = React.createClass({
+  propTypes: {
+    text: React.PropTypes.string,
+  },
+  
+  render: function render() {
+    if (this.props.text) {
       return <div className="help-text error">{this.props.text}</div>;
-    else
-      return null;
-  }
-} );
+    }
+    
+    return null;
+  },
+});
 
 export default ErrorMessage;
