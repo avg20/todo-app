@@ -1,19 +1,19 @@
 /** client/actions/task/task-actions.js **/
 
-import { FILTER_TASKS, SORT_TASKS } from '../../constants';
+import * as types from '../../constants';
 
-export const filterTasks = ( type, val ) => {
+export const filterTasks = (filterType, val) => {
   return {
-    type:       FILTER_TASKS,
-    filterType: type,
-    val:        val
+    type: types.FILTER_TASKS,
+    filterType,
+    val,
   };
 };
 
-export const sortTasks = ( field, val ) => {
+export const sortTasks = (field, val) => {
   return {
-    type:  SORT_TASKS,
-    field: field,
-    val:   val
+    type: types.SORT_TASKS,
+    field,
+    val,
   };
 };

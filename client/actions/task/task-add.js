@@ -1,47 +1,49 @@
 /** client/actions/task/task-add.js **/
 
-import { ADD_TASK_REQUEST, ADD_TASK_FAILURE, ADD_TASK_SUCCESS } from '../../constants';
+import * as types from '../../constants';
 
 export const addTaskRequest = () => {
   return {
-    type: ADD_TASK_REQUEST
+    type: types.ADD_TASK_REQUEST,
   };
 };
 
-export const addTaskFailure = ( errors ) => {
+export const addTaskFailure = (errors) => {
   return {
-    type:   ADD_TASK_FAILURE,
-    errors: errors
+    type: types.ADD_TASK_FAILURE,
+    errors,
   };
 };
 
-export const addTaskSuccess = ( task ) => {
+export const addTaskSuccess = (task) => {
   return {
-    type: ADD_TASK_SUCCESS,
-    task: task
+    type: types.ADD_TASK_SUCCESS,
+    task,
   };
 };
 
-export function addTask( data ) {
-  return ( dispatch, getState ) => {
-    dispatch( addTaskRequest() );
+export function addTask(data) {
+  return (dispatch, getState) => {
+    dispatch(addTaskRequest());
     const { auth } = getState();
     
-    return fetch( `http://localhost:3000/tasks?token=${auth.access_token}`, {
+    return fetch(`http://localhost:3000/tasks?token=${auth.access_token}`, {
       method: 'POST',
-      body:   JSON.stringify( data )
-    } )
-      .then( ( response ) => {
-        if ( !response.ok )
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (!response.ok) {
           return { status: 'error', error: response.statusText };
-  
+        }
+
         return response.json();
-      } )
-      .then( ( json ) => {
-        if ( json.status === 'success' ) {
-          dispatch( addTaskSuccess( json.task ) );
-        } else
-          dispatch( addTaskFailure( json.errors ) );
-      } );
+      })
+      .then((json) => {
+        if (json.status === 'success') {
+          dispatch(addTaskSuccess(json.task));
+        } else {
+          dispatch(addTaskFailure(json.errors));
+        }
+      });
   };
 }

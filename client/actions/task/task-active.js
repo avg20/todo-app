@@ -1,29 +1,29 @@
 /** client/actions/task/task-active.js **/
 
-import { SELECT_TASK, CLOSE_TASK, ADD_BLANK_TASK, ADD_CHILD_TASK } from '../../constants';
+import * as types from '../../constants';
 
-export const selectTask = ( item ) => {
+export const selectTask = (item) => {
   return {
-    type: SELECT_TASK,
-    item: item
+    type: types.SELECT_TASK,
+    item,
   };
 };
 
 export const closeTask = () => {
   return {
-    type: CLOSE_TASK
+    type: types.CLOSE_TASK,
   };
 };
 
 export const addBlankTask = () => {
   return {
-    type: ADD_BLANK_TASK
+    type: types.ADD_BLANK_TASK,
   };
 };
 
-export const addChildTask = ( parent ) => {
+export const addChildTask = (parent) => {
   return {
-    type:   ADD_CHILD_TASK,
-    parent: parent
+    type: types.ADD_CHILD_TASK,
+    parent,
   };
 };

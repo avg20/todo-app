@@ -6,10 +6,14 @@
       "jsx": true
     }
   },
-  "plugins": [
-    "react"
-  ],
+  "extends": "airbnb",
   "rules": {
-    "semi": 2
+    "arrow-body-style": 0,
+    "no-trailing-spaces": [
+      "error",
+      {
+        "skipBlankLines": true
+      }
+    ]
   }
 }

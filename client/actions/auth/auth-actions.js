@@ -1,23 +1,23 @@
 /** client/actions/auth/auth-actions.js **/
 
-import { AUTH_PAGE_TOGGLE, SETUP_CREDITIONS, USER_LOGOUT } from '../../constants';
+import * as types from '../../constants';
 
-export const setupCreditions = ( token, username ) => {
+export const setupCreditions = (token, username) => {
   return {
-    type:     SETUP_CREDITIONS,
-    token:    token,
-    username: username
+    type: types.SETUP_CREDITIONS,
+    token,
+    username,
   };
 };
 
 export const authPageToggle = () => {
   return {
-    type: AUTH_PAGE_TOGGLE
+    type: types.AUTH_PAGE_TOGGLE,
   };
 };
 
 export const userLogout = () => {
   return {
-    type: USER_LOGOUT
+    type: types.USER_LOGOUT,
   };
 };

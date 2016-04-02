@@ -1,45 +1,47 @@
 /** client/actions/auth/auth-signup.js **/
 
-import { ADD_USER_REQUEST, ADD_USER_FAILURE, ADD_USER_SUCCESS } from '../../constants';
+import * as types from '../../constants';
 
 export const addUserRequest = () => {
   return {
-    type: ADD_USER_REQUEST
+    type: types.ADD_USER_REQUEST,
   };
 };
 
-export const addUserFailure = ( errors ) => {
+export const addUserFailure = (errors) => {
   return {
-    type:   ADD_USER_FAILURE,
-    errors: errors
+    type: types.ADD_USER_FAILURE,
+    errors,
   };
 };
 
 export const addUserSuccess = () => {
   return {
-    type: ADD_USER_SUCCESS
+    type: types.ADD_USER_SUCCESS,
   };
 };
 
-export const authAddUser = ( data ) => {
-  return ( dispatch ) => {
-    dispatch( addUserRequest() );
+export const authAddUser = (data) => {
+  return (dispatch) => {
+    dispatch(addUserRequest());
     
-    return fetch( `http://localhost:3000/users`, {
+    return fetch('http://localhost:3000/users', {
       method: 'POST',
-      body:   JSON.stringify( data )
-    } )
-      .then( ( response ) => {
-        if ( !response.ok )
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (!response.ok) {
           return { status: 'error', error: response.statusText };
+        }
         
         return response.json();
-      } )
-      .then( ( json ) => {
-        if ( json.status === 'success' ) {
-          dispatch( addUserSuccess() );
-        } else
-          dispatch( addUserFailure( json.errors ) );
-      } );
+      })
+      .then((json) => {
+        if (json.status === 'success') {
+          dispatch(addUserSuccess());
+        } else {
+          dispatch(addUserFailure(json.errors));
+        }
+      });
   };
 };

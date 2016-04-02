@@ -1,53 +1,57 @@
 /** client/actions/fetchMessages.js **/
 
-import { FETCH_MESSAGES_REQUEST, FETCH_MESSAGES_FAILURE, FETCH_MESSAGES_SUCCESS, MESSAGES_DISPLAYED } from '../constants';
+import * as types from '../constants';
 import { fetchTasks } from './';
 
 export const fetchMessagesRequest = () => {
   return {
-    type: FETCH_MESSAGES_REQUEST
+    type: types.FETCH_MESSAGES_REQUEST,
   };
 };
 
-export const fetchMessagesFailure = ( error ) => {
+export const fetchMessagesFailure = (error) => {
   return {
-    type:  FETCH_MESSAGES_FAILURE,
-    error: error
+    type: types.FETCH_MESSAGES_FAILURE,
+    error,
   };
 };
 
-export const fetchMessagesSuccess = ( answer ) => {
+export const fetchMessagesSuccess = (messages) => {
   return {
-    type:     FETCH_MESSAGES_SUCCESS,
-    messages: answer.messages
+    type: types.FETCH_MESSAGES_SUCCESS,
+    messages,
   };
 };
 
 export const messagesDisplayed = () => {
   return {
-    type: MESSAGES_DISPLAYED
+    type: types.MESSAGES_DISPLAYED,
   };
 };
 
 export function fetchMessages() {
-  return ( dispatch, getState ) => {
-    dispatch( fetchMessagesRequest() );
+  return (dispatch, getState) => {
     const { auth } = getState();
+    dispatch(fetchMessagesRequest());
     
-    return fetch( `http://localhost:3000/messages?token=${auth.access_token}` )
-      .then( ( response ) => {
-        if ( !response.ok )
+    return fetch(`http://localhost:3000/messages?token=${auth.access_token}`)
+      .then((response) => {
+        if (!response.ok) {
           return { status: 'error', error: response.statusText };
-        
+        }
+
         return response.json();
-      } )
-      .then( ( json ) => {
-        if ( json.status === 'success' ) {
-          dispatch( fetchMessagesSuccess( json ) );
-          if ( json.messages.length )
-            dispatch( fetchTasks() );
-        } else
-          dispatch( fetchMessagesFailure( json.error ) );
-      } );
+      })
+      .then((json) => {
+        if (json.status === 'success') {
+          dispatch(fetchMessagesSuccess(json.messages));
+          
+          if (json.messages.length) {
+            dispatch(fetchTasks());
+          }
+        } else {
+          dispatch(fetchMessagesFailure(json.error));
+        }
+      });
   };
 }
