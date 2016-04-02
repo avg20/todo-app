@@ -7,7 +7,7 @@ const InputField = React.createClass({
   propTypes: {
     value: React.PropTypes.string.isRequired,
     placeholder: React.PropTypes.string.isRequired,
-    error: React.PropTypes.string.isRequired,
+    error: React.PropTypes.string,
     icon: React.PropTypes.string,
     type: React.PropTypes.string.isRequired,
   

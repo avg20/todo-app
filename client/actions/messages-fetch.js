@@ -32,6 +32,11 @@ export const messagesDisplayed = () => {
 export function fetchMessages() {
   return (dispatch, getState) => {
     const { auth } = getState();
+  
+    if (!auth.isAuthorized) {
+      return null;
+    }
+
     dispatch(fetchMessagesRequest());
     
     return fetch(`http://localhost:3000/messages?token=${auth.access_token}`)
