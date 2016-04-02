@@ -59,22 +59,17 @@ const Notify = React.createClass( {
   
   hideNotification: function ( key ) {
     const state = this.state;
-    state.keys = state.keys.filter( ( value ) => value.key != key );
+    state.keys = state.keys.filter( ( value ) => value.key !== key );
     
     this.setState( state );
   },
   
   render: function () {
     const count = this.state.keys.length;
-    
-    const items = this.state.keys.map( ( value ) => {
-      return (
-        <Item id={value.key} key={value.key} hideNotification={this.hideNotification} {...value} />
-      );
-    } );
+    const items = this.state.keys.map( ( value ) => <Item id={value.key} key={value.key} hideNotification={this.hideNotification} {...value} /> );
     
     return (
-      <div className={`notify ${count == 0 ? "notify-hidden" : ""}`}>
+      <div className={`notify ${count === 0 ? "notify-hidden" : ""}`}>
         <ReactCSSTransitionGroup transitionName="notify-items" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
           {items}
         </ReactCSSTransitionGroup>

@@ -11,7 +11,7 @@ const filterItem = ( item, filter ) => {
       return item.name.indexOf( filter.val ) !== -1;
     
     case 'status':
-      return filter.val == 0 || item.status == filter.val;
+      return filter.val === 0 || item.status === filter.val;
     
     default:
       return false;

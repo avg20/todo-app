@@ -66,7 +66,7 @@ const task_card = ( state = getInitState, action ) => {
         isSending: false,
         isFailed:  false,
         errors:    [],
-        item:      (action.toggled || action.type == types.ADD_TASK_SUCCESS) ? state.item : action.task
+        item:      (action.toggled || action.type === types.ADD_TASK_SUCCESS) ? state.item : action.task
       } );
   
     default:

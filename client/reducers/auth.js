@@ -62,7 +62,7 @@ const auth = ( state = getInitState, action ) => {
   
     case types.AUTH_PAGE_TOGGLE:
       return Object.assign( {}, state, {
-        page: (state.page == 'login') ? 'signup' : 'login'
+        page: (state.page === 'login') ? 'signup' : 'login'
       } );
     
     default:

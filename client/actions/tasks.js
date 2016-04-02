@@ -7,8 +7,8 @@ export const taskStatusToggle = ( id ) => {
     const state = getState();
     
     for ( let task of state.tasks.items ) {
-      if ( task._id == id ) {
-        task.status = (task.status == 1) ? 2 : 1;
+      if ( task._id === id ) {
+        task.status = (task.status === 1) ? 2 : 1;
   
         dispatch( saveTask( task, true ) );
       }
