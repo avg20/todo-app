@@ -13,14 +13,19 @@ const checkDueDate = () => {
     for (const task of tasks) {
       const a = moment(task.due_date);
       const b = moment().startOf('day');
-      const diff = parseInt(b.diff(a, 'days'));
+      const diff = parseInt(b.diff(a, 'days'), 10);
       
       if (diff > 0) {
         task.overdue = true;
         task.save((err1) => {
           if (err1) throw err1;
-          
-          new Message({ message: `Task "${task.name}" is overdue`, user_id: new ObjectId(task.user_id) }).save((err2) => {
+  
+          const data = {
+            message: `Task "${task.name}" is overdue`,
+            user_id: new ObjectId(task.user_id),
+          };
+  
+          new Message(data).save((err2) => {
             if (err2) throw err2;
           });
         });
