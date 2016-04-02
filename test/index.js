@@ -1,4 +1,4 @@
 'use strict';
 
-require( './client' );
-require( './server' );
+require('./client');
+require('./server');
