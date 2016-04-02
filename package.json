@@ -8,6 +8,7 @@
     "test-file": "mocha --compilers js:babel-register --recursive",
     "watch": "gulp watch",
     "build": "gulp build",
+    "run-server": "node server.js",
     "lint": "eslint ./client && eslint ./server && eslint server.js"
   },
   "dependencies": {

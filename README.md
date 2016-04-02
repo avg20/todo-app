@@ -19,6 +19,8 @@ __Test:__
 
 `npm run test`
 
+`npm run lint`
+
 __Development mode:__
 
 `npm run watch`
@@ -26,6 +28,10 @@ __Development mode:__
 __When you are done, create a production ready version of the JS bundle:__
 
 `npm run build`
+
+__To run just server:__
+
+`npm run run-server`
 
 __Open App__
 
