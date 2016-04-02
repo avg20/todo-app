@@ -4,8 +4,8 @@
   "description": "Todo Application",
   "main": "server.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-register --recursive",
-    "test-all": "mocha --compilers js:babel-register --recursive ./test/index.js",
+    "test": "mocha --compilers js:babel-register --recursive  ./test/index.js",
+    "test-file": "mocha --compilers js:babel-register --recursive",
     "test:watch": "npm test -- --watch",
     "watch": "gulp watch",
     "build": "gulp build"
@@ -59,6 +59,14 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avg20/todo-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/avg20/todo-app/issues"
+  },
+  "homepage": "https://github.com/avg20/todo-app#readme",
   "author": "Anatoly Gusev",
   "license": "ISC"
 }
