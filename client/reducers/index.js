@@ -2,15 +2,15 @@
 
 import { combineReducers } from 'redux';
 import tasks from './tasks';
-import task_card from './task-card';
 import messages from './messages';
 import auth from './auth';
+import task_card from './task-card'; // eslint-disable-line
 
-const todoApp = combineReducers( {
+const todoApp = combineReducers({
   messages,
   tasks,
   task_card,
-  auth
-} );
+  auth,
+});
 
 export default todoApp;
