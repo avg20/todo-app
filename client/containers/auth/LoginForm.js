@@ -1,29 +1,28 @@
 /** client/containers/auth/LoginForm.js **/
 
-import React from "react"
-import { connect } from "react-redux"
-import { authPageToggle, authLoginUser } from "../../actions"
-import ViewLoginForm from "../../components/auth/ViewLoginForm"
+import { connect } from 'react-redux';
+import { authPageToggle, authLoginUser } from '../../actions';
+import ViewLoginForm from '../../components/auth/ViewLoginForm';
 
-const mapStateToProps = ( state ) => {
+const mapStateToProps = (state) => {
   return {
     errors: state.auth.errors,
-    isSending: state.auth.isSending
+    isSending: state.auth.isSending,
   };
 };
 
-const mapDispatchToProps = ( dispatch ) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    onPageToggle: ()=> {
-      dispatch( authPageToggle() );
+    onPageToggle: () => {
+      dispatch(authPageToggle());
     },
-    onFormSubmit: ( data ) => {
-      dispatch( authLoginUser( data ) );
-    }
+    onFormSubmit: (data) => {
+      dispatch(authLoginUser(data));
+    },
   };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)( ViewLoginForm );
+)(ViewLoginForm);

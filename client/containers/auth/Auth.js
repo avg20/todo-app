@@ -1,20 +1,19 @@
 /** client/containers/auth/Auth.js **/
 
-import React from "react"
-import { connect } from "react-redux"
-import ViewAuth from "../../components/auth/ViewAuth"
+import { connect } from 'react-redux';
+import ViewAuth from '../../components/auth/ViewAuth';
 
-const mapStateToProps = ( state ) => {
+const mapStateToProps = (state) => {
   return {
-    page: state.auth.page
+    page: state.auth.page,
   };
 };
 
-const mapDispatchToProps = ( dispatch ) => {
+const mapDispatchToProps = () => {
   return {};
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)( ViewAuth );
+)(ViewAuth);
