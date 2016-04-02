@@ -25,8 +25,8 @@ describe( 'Messages Fetch', () => {
       { type: types.FETCH_MESSAGES_REQUEST },
       { type: types.FETCH_MESSAGES_SUCCESS, messages: [] }
     ];
-    
-    const store = mockStore( { auth: { access_token: "token_here" } } );
+  
+    const store = mockStore({ auth: { access_token: "token_here", isAuthorized: true } });
     
     store.dispatch( actions.fetchMessages() )
          .then( () => {
@@ -46,8 +46,8 @@ describe( 'Messages Fetch', () => {
       { type: types.FETCH_MESSAGES_SUCCESS, messages: [ { message: 'Test Message' } ] },
       { type: types.FETCH_TASKS_REQUEST }
     ];
-    
-    const store = mockStore( { auth: { access_token: "token_here" } } );
+  
+    const store = mockStore({ auth: { access_token: "token_here", isAuthorized: true } });
     
     store.dispatch( actions.fetchMessages() )
          .then( () => {
