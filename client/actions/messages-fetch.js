@@ -6,21 +6,21 @@ import { fetchTasks } from './';
 export const fetchMessagesRequest = () => {
   return {
     type: FETCH_MESSAGES_REQUEST
-  }
+  };
 };
 
 export const fetchMessagesFailure = ( error ) => {
   return {
     type:  FETCH_MESSAGES_FAILURE,
     error: error
-  }
+  };
 };
 
 export const fetchMessagesSuccess = ( answer ) => {
   return {
     type:     FETCH_MESSAGES_SUCCESS,
     messages: answer.messages
-  }
+  };
 };
 
 export const messagesDisplayed = () => {
@@ -49,5 +49,5 @@ export function fetchMessages() {
         } else
           dispatch( fetchMessagesFailure( json.error ) );
       } );
-  }
+  };
 }

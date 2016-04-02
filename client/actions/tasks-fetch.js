@@ -5,21 +5,21 @@ import { FETCH_TASKS_REQUEST, FETCH_TASKS_FAILURE, FETCH_TASKS_SUCCESS } from '.
 export const fetchTasksRequest = () => {
   return {
     type: FETCH_TASKS_REQUEST
-  }
+  };
 };
 
 export const fetchTasksFailure = ( error ) => {
   return {
     type:  FETCH_TASKS_FAILURE,
     error: error
-  }
+  };
 };
 
 export const fetchTasksSuccess = ( tasks ) => {
   return {
     type:  FETCH_TASKS_SUCCESS,
     tasks: tasks.tasks
-  }
+  };
 };
 
 export function fetchTasks() {
@@ -40,5 +40,5 @@ export function fetchTasks() {
         else
           dispatch( fetchTasksFailure( json.error ) );
       } );
-  }
+  };
 }

@@ -6,13 +6,13 @@ export const selectTask = ( item ) => {
   return {
     type: SELECT_TASK,
     item: item
-  }
+  };
 };
 
 export const closeTask = () => {
   return {
     type: CLOSE_TASK
-  }
+  };
 };
 
 export const addBlankTask = () => {
@@ -25,5 +25,5 @@ export const addChildTask = ( parent ) => {
   return {
     type:   ADD_CHILD_TASK,
     parent: parent
-  }
+  };
 };

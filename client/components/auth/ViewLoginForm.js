@@ -16,7 +16,7 @@ const ViewLoginForm = React.createClass( {
     return {
       username: '',
       password: ''
-    }
+    };
   },
   
   handleUsernameChange: function ( e ) {

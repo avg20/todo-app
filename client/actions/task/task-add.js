@@ -5,21 +5,21 @@ import { ADD_TASK_REQUEST, ADD_TASK_FAILURE, ADD_TASK_SUCCESS } from '../../cons
 export const addTaskRequest = () => {
   return {
     type: ADD_TASK_REQUEST
-  }
+  };
 };
 
 export const addTaskFailure = ( errors ) => {
   return {
     type:   ADD_TASK_FAILURE,
     errors: errors
-  }
+  };
 };
 
 export const addTaskSuccess = ( task ) => {
   return {
     type: ADD_TASK_SUCCESS,
     task: task
-  }
+  };
 };
 
 export function addTask( data ) {
@@ -43,5 +43,5 @@ export function addTask( data ) {
         } else
           dispatch( addTaskFailure( json.errors ) );
       } );
-  }
+  };
 }

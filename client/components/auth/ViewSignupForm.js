@@ -16,7 +16,7 @@ const ViewSingupForm = React.createClass( {
     return {
       username: '',
       password: ''
-    }
+    };
   },
   
   handleUsernameChange: function ( e ) {

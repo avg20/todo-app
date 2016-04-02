@@ -13,6 +13,6 @@ export const taskStatusToggle = ( id ) => {
         dispatch( saveTask( task, true ) );
       }
     }
-  }
+  };
 };
 

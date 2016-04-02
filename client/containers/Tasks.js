@@ -64,13 +64,13 @@ const mapStateToProps = ( state ) => {
     isFetching: state.tasks.isFetching,
     isFailed:   state.tasks.isFailed,
     activeItem: state.task_card.item
-  }
+  };
 };
 
 const mapDispatchToProps = ( dispatch ) => {
   return {
     onTasksReload:      () => {
-      dispatch( fetchTasks() )
+      dispatch( fetchTasks() );
     },
     onTaskClick:        ( item ) => {
       dispatch( selectTask( item ) );
@@ -81,7 +81,7 @@ const mapDispatchToProps = ( dispatch ) => {
     onTaskStatusToggle: ( item ) => {
       dispatch( taskStatusToggle( item ) );
     }
-  }
+  };
 };
 
 export default connect(

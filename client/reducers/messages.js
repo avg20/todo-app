@@ -24,7 +24,7 @@ const messages = ( state = getInitState, action ) => {
       } );
     
     default:
-      return state
+      return state;
   }
 };
 

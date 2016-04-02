@@ -8,7 +8,7 @@ import { userLogout } from '../../actions';
 const mapStateToProps = ( state ) => {
   return {
     username: state.auth.username
-  }
+  };
 };
 
 const mapDispatchToProps = ( dispatch ) => {
@@ -16,7 +16,7 @@ const mapDispatchToProps = ( dispatch ) => {
     onLogoutClick: () => {
       dispatch( userLogout() );
     }
-  }
+  };
 };
 
 export default connect(

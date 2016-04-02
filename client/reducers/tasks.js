@@ -92,7 +92,7 @@ const tasks = ( state = getInitState, action ) => {
       } );
   
     default:
-      return state
+      return state;
   }
 };
 

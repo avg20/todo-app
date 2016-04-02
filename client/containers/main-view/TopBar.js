@@ -9,7 +9,7 @@ const mapStateToProps = ( state ) => {
   return {
     filter: state.tasks.filter,
     sort:   state.tasks.sort
-  }
+  };
 };
 
 const mapDispatchToProps = ( dispatch ) => {
@@ -28,7 +28,7 @@ const mapDispatchToProps = ( dispatch ) => {
     onFilterStatus:   ( val ) => {
       dispatch( filterTasks( "status", val ) );
     }
-  }
+  };
 };
 
 export default connect(

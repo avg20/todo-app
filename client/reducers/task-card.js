@@ -70,7 +70,7 @@ const task_card = ( state = getInitState, action ) => {
       } );
   
     default:
-      return state
+      return state;
   }
 };
 

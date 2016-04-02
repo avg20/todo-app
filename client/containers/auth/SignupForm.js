@@ -9,7 +9,7 @@ const mapStateToProps = ( state ) => {
   return {
     errors:    state.auth.errors,
     isSending: state.auth.isSending
-  }
+  };
 };
 
 const mapDispatchToProps = ( dispatch ) => {
@@ -20,7 +20,7 @@ const mapDispatchToProps = ( dispatch ) => {
     onFormSubmit: ( data ) => {
       dispatch( authAddUser( data ) );
     }
-  }
+  };
 };
 
 export default connect(

@@ -11,7 +11,7 @@ const mapStateToProps = ( state ) => {
     errors:    state.task_card.errors,
     isSending: state.task_card.isSending,
     isFailed:  state.task_card.isFailed
-  }
+  };
 };
 
 const mapDispatchToProps = ( dispatch ) => {
@@ -23,12 +23,12 @@ const mapDispatchToProps = ( dispatch ) => {
       if ( data._id )
         dispatch( saveTask( data ) );
       else
-        dispatch( addTask( data ) )
+        dispatch( addTask( data ) );
     },
     onDeleteTask: ( data ) => {
       dispatch( deleteTask( data._id ) );
     }
-  }
+  };
 };
 
 export default connect(

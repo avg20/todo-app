@@ -11,7 +11,7 @@ const mapStateToProps = ( state ) => {
     item:         state.task_card.item,
     messages:     state.messages.items,
     isAuthorized: state.auth.isAuthorized
-  }
+  };
 };
 
 const mapDispatchToProps = ( dispatch ) => {
@@ -19,7 +19,7 @@ const mapDispatchToProps = ( dispatch ) => {
     onMessagesDisplayed: ( id ) => {
       dispatch( messagesDisplayed( id ) );
     }
-  }
+  };
 };
 
 export default connect(

@@ -6,14 +6,14 @@ import { fetchTasks } from '../';
 export const loginUserRequest = () => {
   return {
     type: LOGIN_USER_REQUEST
-  }
+  };
 };
 
 export const loginUserFailure = ( errors ) => {
   return {
     type:   LOGIN_USER_FAILURE,
     errors: errors
-  }
+  };
 };
 
 export const loginUserSuccess = ( token, username ) => {
@@ -21,7 +21,7 @@ export const loginUserSuccess = ( token, username ) => {
     type:     LOGIN_USER_SUCCESS,
     token:    token,
     username: username
-  }
+  };
 };
 
 export const authLoginUser = ( data ) => {
@@ -45,5 +45,5 @@ export const authLoginUser = ( data ) => {
         } else
           dispatch( loginUserFailure( json.errors ) );
       } );
-  }
+  };
 };

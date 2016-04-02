@@ -7,7 +7,7 @@ export const filterTasks = ( type, val ) => {
     type:       FILTER_TASKS,
     filterType: type,
     val:        val
-  }
+  };
 };
 
 export const sortTasks = ( field, val ) => {
@@ -15,5 +15,5 @@ export const sortTasks = ( field, val ) => {
     type:  SORT_TASKS,
     field: field,
     val:   val
-  }
+  };
 };

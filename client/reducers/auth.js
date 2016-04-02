@@ -66,7 +66,7 @@ const auth = ( state = getInitState, action ) => {
       } );
     
     default:
-      return state
+      return state;
   }
 };
 

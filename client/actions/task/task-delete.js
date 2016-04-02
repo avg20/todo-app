@@ -5,21 +5,21 @@ import { DELETE_TASK_REQUEST, DELETE_TASK_FAILURE, DELETE_TASK_SUCCESS } from '.
 export const deleteTaskRequest = () => {
   return {
     type: DELETE_TASK_REQUEST
-  }
+  };
 };
 
 export const deleteTaskFailure = ( error ) => {
   return {
     type:  DELETE_TASK_FAILURE,
     error: error
-  }
+  };
 };
 
 export const deleteTaskSuccess = ( id ) => {
   return {
     type: DELETE_TASK_SUCCESS,
     id:   id
-  }
+  };
 };
 
 export function deleteTask( id ) {
@@ -42,5 +42,5 @@ export function deleteTask( id ) {
         else
           dispatch( deleteTaskFailure( json.error ) );
       } );
-  }
+  };
 }

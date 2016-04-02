@@ -56,7 +56,7 @@ const ViewTask = React.createClass( {
   
   isParent: function () {
     return this.props._id === this.props.activeItem.parent_id &&
-      this.props.activeItem._id === undefined
+      this.props.activeItem._id === undefined;
   },
   
   handleStatusButtonClick: function ( e ) {

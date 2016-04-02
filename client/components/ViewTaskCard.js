@@ -75,7 +75,7 @@ const ViewTaskForm = React.createClass( {
   handlePriorityChange: function ( val ) {
     return () => {
       this.setState( { priority: val } );
-    }
+    };
   },
   
   handleSubmit: function ( e ) {

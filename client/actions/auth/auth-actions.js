@@ -7,17 +7,17 @@ export const setupCreditions = ( token, username ) => {
     type:     SETUP_CREDITIONS,
     token:    token,
     username: username
-  }
+  };
 };
 
 export const authPageToggle = () => {
   return {
     type: AUTH_PAGE_TOGGLE
-  }
+  };
 };
 
 export const userLogout = () => {
   return {
     type: USER_LOGOUT
-  }
+  };
 };

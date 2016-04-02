@@ -5,14 +5,14 @@ import { SAVE_TASK_REQUEST, SAVE_TASK_FAILURE, SAVE_TASK_SUCCESS } from '../../c
 export const saveTaskRequest = () => {
   return {
     type: SAVE_TASK_REQUEST
-  }
+  };
 };
 
 export const saveTaskFailure = ( errors ) => {
   return {
     type:   SAVE_TASK_FAILURE,
     errors: errors
-  }
+  };
 };
 
 export const saveTaskSuccess = ( task, toggled ) => {
@@ -20,7 +20,7 @@ export const saveTaskSuccess = ( task, toggled ) => {
     type:    SAVE_TASK_SUCCESS,
     task:    task,
     toggled: toggled
-  }
+  };
 };
 
 export function saveTask( data, toggled = false ) {
@@ -44,5 +44,5 @@ export function saveTask( data, toggled = false ) {
         } else
           dispatch( saveTaskFailure( json.errors ) );
       } );
-  }
+  };
 }
