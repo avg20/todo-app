@@ -9,14 +9,17 @@ const async = require('async');
  * Get list of unread message of current authorized user
  **/
 module.exports.getMessages = (req, res) => {
-  const query = { user_id: auth.user._id };
+  const updateQuery = { user_id: auth.user._id };
+  const findQuery = { user_id: auth.user._id, read: false };
   
   async.waterfall([
     (next) => {
-      Message.update(query, { read: true }, next);
+      Message.find(findQuery, next);
     },
-    (result, next) => {
-      Message.find(query, next);
+    (messages, next) => {
+      Message.update(updateQuery, { read: true }, (err) => {
+        next(err, messages);
+      });
     },
   ], (err, messages) => {
     if (err) {
