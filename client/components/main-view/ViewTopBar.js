@@ -1,6 +1,6 @@
 /** client/components/main-view/ViewTopBar.js **/
 
-import React from 'react';
+import { React } from 'react';
 import SortField from './ViewSortField';
 
 const ViewTopBar = React.createClass({

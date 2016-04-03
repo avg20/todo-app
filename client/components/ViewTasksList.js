@@ -1,6 +1,6 @@
 /** client/components/ViewTasksList.js **/
 
-import React from 'react';
+import { React } from 'react';
 import ViewTask from './ViewTask';
 
 const ViewTasksList = React.createClass({
@@ -9,7 +9,7 @@ const ViewTasksList = React.createClass({
     isFailed: React.PropTypes.bool.isRequired,
     activeItem: React.PropTypes.object.isRequired,
     tasks: React.PropTypes.array.isRequired,
-
+  
     onTasksReload: React.PropTypes.func.isRequired,
     onTaskClick: React.PropTypes.func.isRequired,
     onAddTaskClick: React.PropTypes.func.isRequired,
@@ -58,16 +58,14 @@ const ViewTasksList = React.createClass({
     return (
       <div className="ui tasks">
         {tasksCode}
-        {
-          isFetching && (
-            <div>
-              <p />
-              <div className="ui active inverted dimmer">
-                <div className="ui loader"></div>
-              </div>
+        {isFetching && (
+          <div>
+            <p />
+            <div className="ui active inverted dimmer">
+              <div className="ui loader"></div>
             </div>
-          )
-        }
+          </div>
+        )}
       </div>
     );
   },

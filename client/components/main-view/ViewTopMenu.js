@@ -1,6 +1,6 @@
 /** client/components/main-view/ViewTopMenu.js **/
 
-import React from 'react';
+import { React } from 'react';
 
 const ViewTopMenu = React.createClass({
   propTypes: {

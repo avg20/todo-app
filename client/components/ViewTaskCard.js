@@ -1,6 +1,6 @@
 /** client/components/ViewTaskForm.js **/
 
-import React from 'react';
+import { React } from 'react';
 import moment from 'moment';
 
 const ViewTaskForm = React.createClass({

@@ -1,6 +1,6 @@
 /** client/components/ViewApp.js **/
 
-import React from 'react';
+import { React } from 'react';
 import TaskCard from '../containers/TaskCard';
 import ShowTasks from '../containers/Tasks';
 import TopBar from '../containers/main-view/TopBar';
@@ -53,9 +53,7 @@ const ViewApp = React.createClass({
               <TopBar />
               <ShowTasks />
             </div>
-            {
-              leftSide ? <div className="six wide column main__column"><TaskCard /></div> : null
-            }
+            {leftSide ? <div className="six wide column main__column"><TaskCard /></div> : null}
           </div>
         </div>
       );

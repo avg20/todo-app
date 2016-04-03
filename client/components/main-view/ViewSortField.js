@@ -1,6 +1,6 @@
 /** client/components/main-view/ViewSortField.js **/
 
-import React from 'react';
+import { React } from 'react';
 
 const ViewSortField = React.createClass({
   propTypes: {

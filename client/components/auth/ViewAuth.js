@@ -1,6 +1,6 @@
 /** client/components/auth/ViewAuth.js **/
 
-import React from 'react';
+import { React } from 'react';
 import LoginForm from '../../containers/auth/LoginForm';
 import SignupForm from '../../containers/auth/SignupForm';
 

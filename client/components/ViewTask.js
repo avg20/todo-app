@@ -1,6 +1,6 @@
 /** client/components/ViewTask.js **/
 
-import React from 'react';
+import { React } from 'react';
 import moment from 'moment';
 
 const ViewTask = React.createClass({
