@@ -19,10 +19,11 @@ const InputField = React.createClass({
       <div className="field">
         <div className="ui left icon input">
           <i className={`${this.props.icon} icon`} />
-          <input onChange={this.props.onChange}
-                 type={this.props.type}
-                 placeholder={this.props.placeholder}
-                 value={this.props.value}
+          <input
+            onChange={this.props.onChange}
+            type={this.props.type}
+            placeholder={this.props.placeholder}
+            value={this.props.value}
           />
         </div>
         <ErrorMessage text={this.props.error} />

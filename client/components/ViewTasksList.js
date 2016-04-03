@@ -45,12 +45,13 @@ const ViewTasksList = React.createClass({
     }
     
     const tasksCode = tasks.map((task) => (
-        <ViewTask className="tasks__task-box"
-                  onAddClick={onAddTaskClick}
-                  onStatusClick={onTaskStatusToggle}
-                  onClick={onTaskClick}
-                  activeItem={activeItem}
-                  key={task._id} {...task}
+        <ViewTask
+          className="tasks__task-box"
+          onAddClick={onAddTaskClick}
+          onStatusClick={onTaskStatusToggle}
+          onClick={onTaskClick}
+          activeItem={activeItem}
+          key={task._id} {...task}
         />
       )
     );
