@@ -1,6 +1,6 @@
 /** client/components/ViewTask.js **/
 
-import { React } from 'react';
+import React from 'react';
 import moment from 'moment';
 
 const ViewTask = React.createClass({
@@ -14,7 +14,7 @@ const ViewTask = React.createClass({
     overdue: React.PropTypes.bool,
     name: React.PropTypes.string,
     due_date: React.PropTypes.any,
-
+  
     onClick: React.PropTypes.func.isRequired,
     onAddClick: React.PropTypes.func.isRequired,
     onStatusClick: React.PropTypes.func.isRequired,
@@ -106,25 +106,25 @@ const ViewTask = React.createClass({
         />
       )
     );
-
+  
     return (
       <div className={this.props.className}>
         <div className={this.getTaskClass()} onClick={this.handleTaskClick}>
           <div className="task__checkbox">
             {this.getStatusButton()}
           </div>
-
+  
           <div className="task__add-button" onClick={this.handleAddButtonClick}>
             <button className="circular mini ui icon blue basic button">
               <i className="arrow down icon" />
             </button>
           </div>
-
+  
           <div className="task__name">
             <strong>{this.props.name}</strong>
             {this.isParent() ? <i className="task__parent-indicator angle double down icon" /> : ''}
           </div>
-
+  
           <div className="task__due-date">
             <div className={`${this.props.overdue ? 'task__due-date--overdue' : ''} ui label`}>
               <i className="calendar icon" />

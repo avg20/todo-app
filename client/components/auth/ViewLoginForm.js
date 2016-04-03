@@ -1,6 +1,6 @@
 /** client/components/auth/ViewLoginForm.js **/
 
-import { React } from 'react';
+import React from 'react';
 import InputField from '../../helpers/InputField';
 
 const ViewLoginForm = React.createClass({

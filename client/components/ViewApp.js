@@ -1,6 +1,6 @@
 /** client/components/ViewApp.js **/
 
-import { React } from 'react';
+import React from 'react';
 import TaskCard from '../containers/TaskCard';
 import ShowTasks from '../containers/Tasks';
 import TopBar from '../containers/main-view/TopBar';

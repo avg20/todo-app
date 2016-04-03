@@ -1,6 +1,6 @@
 /** client/components/auth/ViewSingupForm.js **/
 
-import { React } from 'react';
+import React from 'react';
 import InputField from '../../helpers/InputField';
 
 const ViewSingupForm = React.createClass({

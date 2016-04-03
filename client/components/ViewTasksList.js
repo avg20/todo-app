@@ -1,6 +1,6 @@
 /** client/components/ViewTasksList.js **/
 
-import { React } from 'react';
+import React from 'react';
 import ViewTask from './ViewTask';
 
 const ViewTasksList = React.createClass({

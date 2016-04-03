@@ -1,6 +1,6 @@
 /** client/components/ViewTaskForm.js **/
 
-import { React } from 'react';
+import React from 'react';
 import moment from 'moment';
 
 const ViewTaskForm = React.createClass({
@@ -137,7 +137,7 @@ const ViewTaskForm = React.createClass({
               <i className="remove icon" />
             </button>
           </div>
-    
+  
           <div className="content">
             <div className="field">
               <textarea
@@ -147,7 +147,7 @@ const ViewTaskForm = React.createClass({
               />
             </div>
           </div>
-    
+  
           <div className="extra content task-card__bottom-line">
             <div className="task-card__submit-button">
               <button
@@ -159,7 +159,7 @@ const ViewTaskForm = React.createClass({
                 Save Task
               </button>
             </div>
-      
+    
             <div className="task-card__datepicker ui calendar inline field" ref="datepicker">
               <label>Due to: </label>
               <input
