@@ -20,9 +20,13 @@ __Config App:__
 `node init.js`
 
 Enter config data:
-Port: <3000>
-Host: <localhost>
-DB Host: <mongodb://localhost:41643/todo>
+
+Port: 3000
+
+Host: localhost
+
+DB Host: mongodb://localhost:41643/todo
+
 
 __Test:__
 
