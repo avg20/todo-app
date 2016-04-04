@@ -24,28 +24,31 @@ const paths = {
   distImages: 'public/images',
 };
 
-gulp.task('clean', function () {
+gulp.task('clean', () => {
   return gulp.src('./public/*', { read: false })
              .pipe(ignore('index.html'))
              .pipe(rimraf());
 });
 
-gulp.task('start', function () {
+gulp.task('start', () => {
   server.listen({ path: './server.js' });
 });
 
-gulp.task('sass', function () {
+gulp.task('sass', () => {
   return gulp
     .src(paths.srcCss)
     .pipe(sass())
     .pipe(autoPrefixer())
     .pipe(rename((path) => {
-      path.dirname = 'css';
+      const newPath = path;
+      newPath.dirname = 'css';
+      
+      return newPath;
     }))
     .pipe(gulp.dest(paths.dist));
 });
 
-gulp.task('browserify', function () {
+gulp.task('browserify', () => {
   const bundler = browserify({
     entries: [paths.srcJsx],
     transform: [babelify],
@@ -60,7 +63,7 @@ gulp.task('browserify', function () {
     .pipe(gulp.dest(paths.distJs));
 });
 
-gulp.task('images', function () {
+gulp.task('images', () => {
   return gulp.src(paths.srcImages)
              .pipe(imagemin({
                progressive: true,
