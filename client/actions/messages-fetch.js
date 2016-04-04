@@ -39,7 +39,7 @@ export function fetchMessages() {
 
     dispatch(fetchMessagesRequest());
     
-    return fetch(`${location.origin}/messages?token=${auth.access_token}`)
+    return fetch(`http://localhost:3000/messages?token=${auth.access_token}`)
       .then((response) => {
         if (!response.ok) {
           return { status: 'error', error: response.statusText };

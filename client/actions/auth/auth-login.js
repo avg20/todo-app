@@ -28,7 +28,7 @@ export const authLoginUser = (data) => {
   return (dispatch) => {
     dispatch(loginUserRequest());
     
-    return fetch(`${location.origin}/users/login`, {
+    return fetch(`http://localhost:3000/users/login`, {
       method: 'POST',
       body: JSON.stringify(data),
     })

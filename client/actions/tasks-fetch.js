@@ -27,7 +27,7 @@ export function fetchTasks() {
     const { auth } = getState();
     dispatch(fetchTasksRequest());
     
-    return fetch(`${location.origin}/tasks?token=${auth.access_token}`)
+    return fetch(`http://localhost:3000/tasks?token=${auth.access_token}`)
       .then((response) => {
         if (!response.ok) {
           return { status: 'error', error: response.statusText };
