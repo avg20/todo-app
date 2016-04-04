@@ -28,7 +28,7 @@ export function saveTask(data, toggled = false) {
     dispatch(saveTaskRequest());
     const { auth } = getState();
     
-    return fetch(`http://localhost:3000/tasks/${data._id}?token=${auth.access_token}`, {
+    return fetch(`${location.origin}/tasks/${data._id}?token=${auth.access_token}`, {
       method: 'POST',
       body: JSON.stringify(data),
     })

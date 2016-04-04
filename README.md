@@ -15,6 +15,19 @@ __Install the dependencies:__
 
 `npm install`
 
+__Config App:__
+
+`node init.js`
+
+Enter config data:
+
+Port: 3000
+
+Host: localhost
+
+DB Host: mongodb://localhost:41643/todo
+
+
 __Test:__
 
 `npm run test`
