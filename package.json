@@ -4,7 +4,7 @@
   "description": "Todo Application",
   "main": "server.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-register --recursive  ./test/index.js",
+    "test": "mocha --compilers js:babel-register --recursive  ./test/index.js && npm run lint",
     "test-file": "mocha --compilers js:babel-register --recursive",
     "watch": "gulp watch",
     "build": "gulp build",
