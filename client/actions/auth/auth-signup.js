@@ -25,7 +25,7 @@ export const authAddUser = (data) => {
   return (dispatch) => {
     dispatch(addUserRequest());
     
-    return fetch(`http://localhost:3000/users`, {
+    return fetch('http://localhost:3000/users', {
       method: 'POST',
       body: JSON.stringify(data),
     })
