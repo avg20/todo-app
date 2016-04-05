@@ -8,6 +8,7 @@ Also sorting and filtering functions available.
 
 User can add priority and due date for each task, if task is overdue, user will be notified and task will be marked as "overdue".
 
+You can test app with this link. [https://vast-garden-11249.herokuapp.com/](https://vast-garden-11249.herokuapp.com/)
 
 ## Usage
 
