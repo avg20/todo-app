@@ -5,8 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const auth = require('./server/auth');
 const demon = require('./server/demon');
-const config = require('./server/config');
-const dbURI = config.dbHost;
+const dbURI = `${process.env.DB_HOST}/todo`;
 const app = express();
 
 if (!mongoose.connection.db) {
@@ -15,7 +14,7 @@ if (!mongoose.connection.db) {
   });
 }
 
-app.set('port', config.port);
+app.set('port', process.env.PORT);
 app.use('/', express.static('public'));
 app.use(bodyParser.text());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,6 +24,6 @@ demon();
 require('./server/router/index')(app);
 
 app.listen(app.get('port'), () => {
-  console.log(`Visit: ${config.host}`); // eslint-disable-line
+  console.log(`Visit: http://localhost:${app.get('port')}`); // eslint-disable-line
 });
 
