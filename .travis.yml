@@ -1,4 +1,7 @@
 language: node_js
 node_js:
   - "5.9.1"
+env:
+  - PORT=3000
+  - DB_HOST="mongodb://localhost:27017"
 services: mongodb
