@@ -27,7 +27,7 @@ export function addTask(data) {
     dispatch(addTaskRequest());
     const { auth } = getState();
     
-    return fetch(`http://localhost:3000/tasks?token=${auth.access_token}`, {
+    return fetch(`${auth.host}/tasks?token=${auth.access_token}`, {
       method: 'POST',
       body: JSON.stringify(data),
     })

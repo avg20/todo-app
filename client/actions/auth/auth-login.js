@@ -25,10 +25,11 @@ export const loginUserSuccess = (token, username) => {
 };
 
 export const authLoginUser = (data) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const { auth } = getState();
     dispatch(loginUserRequest());
     
-    return fetch('http://localhost:3000/users/login', {
+    return fetch(`${auth.host}/users/login`, {
       method: 'POST',
       body: JSON.stringify(data),
     })

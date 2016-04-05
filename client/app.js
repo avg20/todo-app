@@ -8,7 +8,7 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import todoApp from './reducers';
 import App from './containers/App';
-import { fetchTasks, fetchMessages, setupCreditions } from './actions';
+import { fetchTasks, fetchMessages, setupCreditions, setupHost } from './actions';
 
 const loggerMiddleware = createLogger();
 
@@ -28,6 +28,8 @@ if (typeof(Storage) !== 'undefined') {
     store.dispatch(fetchTasks());
   }
 }
+
+store.dispatch(setupHost(location.origin));
 
 setInterval(() => {
   store.dispatch(fetchMessages());

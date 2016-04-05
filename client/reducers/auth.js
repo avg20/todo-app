@@ -9,6 +9,7 @@ const getInitState = {
   errors: {},
   username: '',
   access_token: '',
+  host: '',
 };
 
 const auth = (state = getInitState, action) => {
@@ -17,6 +18,11 @@ const auth = (state = getInitState, action) => {
     case types.ADD_USER_REQUEST:
       return Object.assign({}, state, {
         isSending: true,
+      });
+      
+    case types.SETUP_HOST:
+      return Object.assign({}, state, {
+        host: action.host,
       });
     
     case types.LOGIN_USER_FAILURE:

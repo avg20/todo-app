@@ -10,6 +10,13 @@ export const setupCreditions = (token, username) => {
   };
 };
 
+export const setupHost = (host) => {
+  return {
+    type: types.SETUP_HOST,
+    host,
+  };
+};
+
 export const authPageToggle = () => {
   return {
     type: types.AUTH_PAGE_TOGGLE,

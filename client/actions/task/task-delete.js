@@ -27,7 +27,7 @@ export function deleteTask(id) {
     dispatch(deleteTaskRequest());
     const { auth } = getState();
     
-    return fetch(`http://localhost:3000/tasks/${id}?token=${auth.access_token}`, {
+    return fetch(`${auth.host}/tasks/${id}?token=${auth.access_token}`, {
       method: 'DELETE',
     })
       .then((response) => {

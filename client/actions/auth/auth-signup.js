@@ -22,10 +22,11 @@ export const addUserSuccess = () => {
 };
 
 export const authAddUser = (data) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const { auth } = getState();
     dispatch(addUserRequest());
     
-    return fetch('http://localhost:3000/users', {
+    return fetch(`${auth.host}/users`, {
       method: 'POST',
       body: JSON.stringify(data),
     })
