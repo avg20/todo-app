@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 import mochaMongoose from 'mocha-mongoose';
 
 const dbId = 'c90b6960-0109-11e2-9595-00248c45df8a';
-const dbURI = `mongodb://localhost:27017/${dbId}`;
+const dbURI = `${process.env.DB_HOST}/${dbId}`;
 mochaMongoose(dbURI);
 
 describe('Task Model', () => {
