@@ -18,10 +18,8 @@ __Install the dependencies:__
 
 __Config App:__
 
-`
-export PORT=3000
-export DB_HOST='mongodb://localhost:27017'
-`
+`export PORT=3000`
+`export DB_HOST='mongodb://localhost:27017'`
 
 
 __Test:__
