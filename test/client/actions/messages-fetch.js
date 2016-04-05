@@ -28,7 +28,7 @@ describe('Messages Fetch', () => {
       { type: types.FETCH_MESSAGES_SUCCESS, messages: [] },
     ];
     
-    const store = mockStore({ auth: { access_token: 'token_here', isAuthorized: true } });
+    const store = mockStore({ auth: { access_token: 'token_here', isAuthorized: true, host: 'http://localhost:3000' } });
     
     store.dispatch(actions.fetchMessages())
          .then(() => {
@@ -49,7 +49,7 @@ describe('Messages Fetch', () => {
       { type: types.FETCH_TASKS_REQUEST },
     ];
     
-    const store = mockStore({ auth: { access_token: 'token_here', isAuthorized: true } });
+    const store = mockStore({ auth: { access_token: 'token_here', isAuthorized: true, host: 'http://localhost:3000' } });
     
     store.dispatch(actions.fetchMessages())
          .then(() => {

@@ -26,7 +26,7 @@ describe('Singup', () => {
       { type: types.ADD_USER_SUCCESS },
     ];
     
-    const store = mockStore({ todos: [] });
+    const store = mockStore({ auth: { host: 'http://localhost:3000' } });
     
     store.dispatch(actions.authAddUser({ username: 'avg206', password: '1111' }))
          .then(() => {
@@ -46,7 +46,7 @@ describe('Singup', () => {
       { type: types.ADD_USER_FAILURE, errors: { password: 'fdgsdfg3234' } },
     ];
     
-    const store = mockStore({});
+    const store = mockStore({ auth: { host: 'http://localhost:3000' } });
     
     store.dispatch(actions.authAddUser({ username: 'avg206', password: '1111' }))
          .then(() => {

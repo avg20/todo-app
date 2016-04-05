@@ -29,7 +29,7 @@ describe('Login', () => {
       { type: types.FETCH_TASKS_REQUEST },
     ];
     
-    const store = mockStore({ auth: { access_token: 'token_here' } });
+    const store = mockStore({ auth: { access_token: 'token_here', host: 'http://localhost:3000' } });
     
     store.dispatch(actions.authLoginUser({ username: 'avg206', password: '1111' }))
          .then(() => {
@@ -49,7 +49,7 @@ describe('Login', () => {
       { type: types.LOGIN_USER_FAILURE, errors: { password: 'fdgsdfg3234' } },
     ];
     
-    const store = mockStore({ todos: [] });
+    const store = mockStore({ auth: { host: 'http://localhost:3000' } });
     
     store.dispatch(actions.authLoginUser({ username: 'avg206' }))
          .then(() => {

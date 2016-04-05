@@ -26,7 +26,7 @@ describe('Add', () => {
       { type: types.ADD_TASK_SUCCESS, task: { _id: 1, name: 'Test' } },
     ];
     
-    const store = mockStore({ auth: { access_token: 'token_here' } });
+    const store = mockStore({ auth: { access_token: 'token_here', host: 'http://localhost:3000' } });
     
     store.dispatch(actions.addTask({ _id: 1, name: 'Test' }))
          .then(() => {

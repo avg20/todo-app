@@ -28,7 +28,7 @@ describe('Save', () => {
       { type: types.SAVE_TASK_SUCCESS, task: { _id: 1, name: 'Test' }, toggled: false },
     ];
     
-    const store = mockStore({ auth: { access_token: 'token_here' } });
+    const store = mockStore({ auth: { access_token: 'token_here', host: 'http://localhost:3000' } });
     
     store.dispatch(actions.saveTask({ _id: 1, name: 'Test' }))
          .then(() => {
@@ -48,7 +48,7 @@ describe('Save', () => {
       { type: types.SAVE_TASK_SUCCESS, task: { _id: 1, name: 'Test' }, toggled: true },
     ];
     
-    const store = mockStore({ auth: { access_token: 'token_here' } });
+    const store = mockStore({ auth: { access_token: 'token_here', host: 'http://localhost:3000' } });
     
     store.dispatch(actions.saveTask({ _id: 1, name: 'Test' }, true))
          .then(() => {

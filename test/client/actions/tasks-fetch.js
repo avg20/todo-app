@@ -28,7 +28,7 @@ describe('Tasks Fetch', () => {
       { type: types.FETCH_TASKS_SUCCESS, tasks: [] },
     ];
     
-    const store = mockStore({ auth: { access_token: 'token_here' } });
+    const store = mockStore({ auth: { access_token: 'token_here', host: 'http://localhost:3000' } });
     
     store.dispatch(actions.fetchTasks())
          .then(() => {

@@ -28,7 +28,7 @@ describe('Delete', () => {
       { type: types.DELETE_TASK_SUCCESS, id: 1 },
     ];
     
-    const store = mockStore({ auth: { access_token: 'token_here' } });
+    const store = mockStore({ auth: { access_token: 'token_here', host: 'http://localhost:3000' } });
     
     store.dispatch(actions.deleteTask(1))
          .then(() => {
