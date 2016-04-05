@@ -24,6 +24,15 @@ describe('Actions', () => {
     expect(actions.authPageToggle()).to.be.deep.equal(expectedAction);
   });
   
+  it('should create an action to setup host', () => {
+    const expectedAction = {
+      type: types.SETUP_HOST,
+      host: 'http://localhost:3000',
+    };
+    
+    expect(actions.setupHost('http://localhost:3000')).to.be.deep.equal(expectedAction);
+  });
+  
   it('should create an action to logout', () => {
     const expectedAction = {
       type: types.USER_LOGOUT,

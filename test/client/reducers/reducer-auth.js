@@ -12,10 +12,17 @@ describe('auth reducer', () => {
     errors: {},
     username: '',
     access_token: '',
+    host: '',
   };
   
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).to.be.deep.equal(initialState);
+  });
+  
+  it('should handle SETUP_HOST', () => {
+    expect(reducer(initialState, actions.setupHost('http://localhost:3000'))).to.be.deep.equal(Object.assign({}, initialState, {
+      host: 'http://localhost:3000',
+    }));
   });
   
   it('should handle LOGIN_USER_REQUEST', () => {
