@@ -24,6 +24,6 @@ demon();
 require('./server/router/index')(app);
 
 app.listen(app.get('port'), () => {
-  console.log(`Visit: http://localhost:${app.get('port')}`); // eslint-disable-line
+  console.log(`App listening on port ${app.get('port')}`); // eslint-disable-line
 });
 
