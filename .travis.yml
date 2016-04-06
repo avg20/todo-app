@@ -4,8 +4,6 @@ node_js:
 services: mongodb
 before_deploy:
   - npm build
-  - git add -A
-  - git commit -m "Init"
 deploy:
   provider: heroku
   api_key:
