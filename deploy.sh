@@ -1,6 +1,4 @@
 #!/bin/bash
-set -e # exit with nonzero exit code if anything fails
-
 npm build
 
 # inside this git repo we'll pretend to be a new user
@@ -15,3 +13,4 @@ rm gitignore
 # files present with the commit message "Deploy to GitHub Pages".
 git add -A
 git commit -m "Deploy to Heroku"
+echo "Success!"
