@@ -7,7 +7,9 @@ npm build
 git config user.name "Travis CI"
 git config user.email "travis@domain.com"
 
-rm -rf .gitignore
+mv .gitignore gitignore
+sed '/public/d' gitignore > .gitignore
+rm gitignore
 
 # The first and only commit to this new Git repo contains all the
 # files present with the commit message "Deploy to GitHub Pages".
