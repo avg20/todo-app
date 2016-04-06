@@ -1,6 +1,9 @@
 .idea
 .vscode
 
+public/css
+public/js
+public/images
 npm-debug.log
 node_modules
 .DS_Store
