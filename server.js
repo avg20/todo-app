@@ -14,7 +14,7 @@ if (!mongoose.connection.db) {
   });
 }
 
-app.set('port', process.env.PORT);
+app.set('port', process.env.PORT || 3000);
 app.use('/', express.static('public'));
 app.use(bodyParser.text());
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -25,7 +25,7 @@ module.exports.init = (req, res, callback) => {
       if (accessToken !== null) {
         User.findOne({ _id: new ObjectId(accessToken.user_id) }, next);
       } else {
-        next(null);
+        next(null, null);
       }
     },
   ], (err, user) => {
